@@ -59,3 +59,85 @@ html {
   position: relative;
   z-index: 1;
 }
+
+/* ── Expertise & Affiliation item hover ── */
+.expertise-item,
+.affiliation-item {
+  transition: transform 0.2s ease;
+}
+
+.expertise-item:hover,
+.affiliation-item:hover {
+  transform: translateX(6px);
+}
+
+/* ── Scroll fade-in for sections ── */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Expertise section background image ── */
+.expertise-section {
+  position: relative;
+  background-image: url("../assets/images/expertise1-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.expertise-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.711) 0%,
+    rgba(248, 249, 250, 0.679) 100%
+  );
+  z-index: 0;
+}
+
+.expertise-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Affiliations section background image ── */
+.affiliations-section {
+  position: relative;
+  background-image: url("../assets/images/affiliations1-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.affiliations-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(248, 249, 250, 0.788) 0%,
+    rgba(226, 232, 240, 0.753) 100%
+  );
+  z-index: 0;
+}
+
+.affiliations-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
+}

@@ -1,8 +1,7 @@
-// ── Load profile image ──
-const profileImg = document.getElementById("profile-img");
-const fallback = document.getElementById("photo-fallback");
+// ── Dynamic footer year ──
+document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-// List all possible filenames and extensions to try
+// ── Profile image loader ──
 const imageOptions = [
   "assets/images/profile.jpg",
   "assets/images/profile.jpeg",
@@ -13,34 +12,55 @@ const imageOptions = [
   "assets/images/Profile.png",
 ];
 
-let loaded = false;
-
-function tryLoadImage(index) {
-  if (index >= imageOptions.length) {
-    // All options exhausted — show fallback
-    fallback.style.display = "flex";
-    profileImg.style.display = "none";
-    console.warn("Profile image not found. Tried:", imageOptions);
+function tryLoad(imgEl, fallbackEl, options, index) {
+  if (index >= options.length) {
+    fallbackEl.style.display = "flex";
+    imgEl.style.display = "none";
     return;
   }
-
-  const testImg = new Image();
-  testImg.onload = () => {
-    // Image found — apply it
-    profileImg.src = imageOptions[index];
-    profileImg.style.display = "block";
-    fallback.style.display = "none";
-    loaded = true;
-    console.log("Profile image loaded from:", imageOptions[index]);
+  const t = new Image();
+  t.onload = () => {
+    imgEl.src = options[index];
+    imgEl.style.display = "block";
+    fallbackEl.style.display = "none";
   };
-  testImg.onerror = () => {
-    // Try next option
-    tryLoadImage(index + 1);
-  };
-  testImg.src = imageOptions[index];
+  t.onerror = () => tryLoad(imgEl, fallbackEl, options, index + 1);
+  t.src = options[index];
 }
 
-tryLoadImage(0);
+// Profile photo
+tryLoad(
+  document.getElementById("profile-img"),
+  document.getElementById("photo-fallback"),
+  imageOptions,
+  0,
+);
+
+// Expertise section photo
+const expertiseOptions = [
+  "assets/images/expertise-bg-photo.jpg",
+  "assets/images/expertise-bg-photo.jpeg",
+  "assets/images/expertise-bg-photo.png",
+];
+tryLoad(
+  document.getElementById("expertise-img"),
+  document.getElementById("expertise-fallback"),
+  expertiseOptions,
+  0,
+);
+
+// Affiliations section photo
+const affiliationsOptions = [
+  "assets/images/affiliations-bg-photo.jpg",
+  "assets/images/affiliations-bg-photo.jpeg",
+  "assets/images/affiliations-bg-photo.png",
+];
+tryLoad(
+  document.getElementById("affiliations-img"),
+  document.getElementById("affiliations-fallback"),
+  affiliationsOptions,
+  0,
+);
 
 // ── Mobile menu toggle ──
 const menuBtn = document.getElementById("menu-btn");
@@ -50,31 +70,24 @@ menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
-// ── Active nav link on scroll ──
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active-link");
-          if (link.getAttribute("href") === `#${entry.target.id}`) {
-            link.classList.add("active-link");
-          }
-        });
-      }
-    });
-  },
-  { threshold: 0.5 },
-);
-
-sections.forEach((section) => observer.observe(section));
-
-// ── Close mobile menu when a link is clicked ──
-navLinks.forEach((link) => {
+document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", () => {
     mobileMenu.classList.add("hidden");
   });
 });
+
+// ── Scroll fade-in ──
+const fadeSections = document.querySelectorAll(".fade-in-section");
+const fadeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 },
+);
+
+fadeSections.forEach((s) => fadeObserver.observe(s));

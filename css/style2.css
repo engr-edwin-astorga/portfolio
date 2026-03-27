@@ -1,0 +1,106 @@
+/* ── Smooth scrolling ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Navbar glass effect ── */
+.nav-glass {
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Nav links ── */
+.nav2-link {
+  position: relative;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-family: "DM Sans", sans-serif;
+}
+
+.nav2-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2563eb;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.nav2-link:hover,
+.nav2-link.active2-link {
+  color: #ffffff;
+}
+
+.nav2-link:hover::after,
+.nav2-link.active2-link::after {
+  width: 100%;
+}
+
+/* ── Text gradient ── */
+.text-gradient {
+  background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Decorative lines (top right) ── */
+.deco-lines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 12px,
+    rgba(37, 99, 235, 0.3) 12px,
+    rgba(37, 99, 235, 0.3) 13px
+  );
+  clip-path: polygon(30% 0%, 100% 0%, 100% 70%);
+}
+
+/* ── Rotating ring ── */
+.ring-deco {
+  border: 1px dashed rgba(37, 99, 235, 0.4);
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Hero entrance animations ── */
+.hero-left {
+  animation: fadeSlideUp 0.8s ease both;
+}
+
+.hero-right {
+  animation: fadeSlideUp 0.8s ease 0.2s both;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
