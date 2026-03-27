@@ -1,0 +1,738 @@
+/* ============================================================
+   background.css — Styles for background.html
+   Engr. Edwin Londonio Astorga Portfolio
+   ============================================================ */
+
+/* ── BASE ── */
+body {
+  background-color: #f8f9fa;
+}
+
+/* ── GOLD LINE ── */
+.gold-line {
+  background: #b59a6a;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e2e8f0 30%,
+    #e2e8f0 70%,
+    transparent
+  );
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal:nth-child(1) {
+  transition-delay: 0s;
+}
+.reveal:nth-child(2) {
+  transition-delay: 0.07s;
+}
+.reveal:nth-child(3) {
+  transition-delay: 0.14s;
+}
+.reveal:nth-child(4) {
+  transition-delay: 0.21s;
+}
+.reveal:nth-child(5) {
+  transition-delay: 0.28s;
+}
+.reveal:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+/* ============================================================
+   PAGE HERO
+   Tries: assets/images/bg-hero.jpg
+   Fallback: dark diagonal geometric CSS pattern
+   ============================================================ */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  /* -- placeholder image -- */
+  background-image: url("../assets/images/bg-hero.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  /* -- CSS fallback abstract (shows when image is absent) -- */
+  background-color: #0f172a;
+}
+
+/* CSS abstract fallback pattern (always renders; image sits on top) */
+.page-hero-abstract {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+      -55deg,
+      rgba(181, 154, 106, 0.04) 0px,
+      rgba(181, 154, 106, 0.04) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 85% 20%,
+      rgba(181, 154, 106, 0.08) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 70% at 10% 90%,
+      rgba(30, 41, 59, 0.6) 0%,
+      transparent 65%
+    ),
+    linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #243049 100%);
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 18, 35, 0.82) 0%,
+    rgba(30, 41, 59, 0.68) 100%
+  );
+  z-index: 1;
+}
+
+.page-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   SECTION 1 — PROFESSIONAL BACKGROUND
+   Tries: assets/images/bg-professional.jpg
+   Fallback: clean light grid-dot CSS pattern
+   ============================================================ */
+#professional-background {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #e2e8f0;
+  /* image placeholder */
+  background-image: url("../assets/images/affiliations-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  /* CSS fallback */
+  background-color: #ffffff;
+}
+
+/* CSS abstract — subtle dot grid on white */
+#professional-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(203, 213, 225, 0.55) 1px, transparent 1px),
+    radial-gradient(
+      ellipse 60% 50% at 95% 5%,
+      rgba(226, 232, 240, 0.6) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 5% 95%,
+      rgba(241, 245, 249, 0.75) 0%,
+      transparent 60%
+    );
+  background-size:
+    28px 28px,
+    100% 100%,
+    100% 100%;
+  z-index: 0;
+}
+
+/* white wash so image doesn't overpower cards */
+#professional-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  z-index: 0;
+}
+
+#professional-background > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Background section header ── */
+#professional-background .section-header {
+  margin-bottom: 24px;
+}
+
+/* ── Summary panel ── */
+.bg-summary-panel {
+  background: #1e293b;
+  border-radius: 3px;
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: fit-content;
+}
+.bg-summary-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(181, 154, 106, 0.8);
+}
+.bg-summary-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.bg-summary-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.62);
+}
+.bg-pill {
+  display: inline-block;
+  padding: 2px 9px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background: rgba(181, 154, 106, 0.12);
+  color: #b59a6a;
+  border: 1px solid rgba(181, 154, 106, 0.25);
+  margin-right: 4px;
+  margin-top: 3px;
+}
+
+/* ── Background cards ── */
+.bg-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 767px) {
+  .bg-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bg-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #1e293b;
+  border-radius: 3px;
+  padding: 15px 17px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition:
+    border-left-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s;
+}
+.bg-card:hover {
+  border-left-color: #b59a6a;
+  box-shadow: 0 4px 16px rgba(30, 41, 59, 0.08);
+  transform: translateX(3px);
+}
+.bg-card-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #cbd5e1;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 26px;
+  text-align: right;
+  transition: color 0.25s;
+}
+.bg-card:hover .bg-card-num {
+  color: rgba(181, 154, 106, 0.5);
+}
+.bg-card-body {
+  flex: 1;
+  min-width: 0;
+}
+.bg-card-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #334155;
+  background: rgba(30, 41, 59, 0.06);
+  border: 1px solid rgba(30, 41, 59, 0.1);
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+.bg-card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.25;
+}
+.bg-card-sub {
+  font-size: 12.5px;
+  color: #6b7280;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   SECTION 2 — PROFESSIONAL ROLES
+   Tries: assets/images/bg-roles.jpg  (full section bg)
+   Fallback: warm off-white cross-hatch CSS pattern
+   ============================================================ */
+#professional-roles {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #e2e8f0;
+  background-image: url("../assets/images/bg-roles.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f4f2;
+}
+
+/* CSS abstract fallback — fine cross-hatch warm tone */
+#professional-roles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(181, 154, 106, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(181, 154, 106, 0.06) 1px, transparent 1px),
+    radial-gradient(
+      ellipse 65% 55% at 8% 15%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 50% at 92% 85%,
+      rgba(255, 250, 240, 0.65) 0%,
+      transparent 65%
+    );
+  background-size:
+    24px 24px,
+    24px 24px,
+    100% 100%,
+    100% 100%;
+  z-index: 0;
+}
+
+/* image wash */
+#professional-roles::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 244, 242, 0.9);
+  z-index: 0;
+}
+
+#professional-roles > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Role card badges / labels ── */
+.role-card-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #334155;
+  background: rgba(30, 41, 59, 0.06);
+  border: 1px solid rgba(30, 41, 59, 0.1);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.role-card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.2;
+}
+.role-card-org {
+  font-size: 12.5px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+.role-card-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #059669;
+  background: rgba(5, 150, 105, 0.07);
+  border: 1px solid rgba(5, 150, 105, 0.18);
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.role-card-current::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #059669;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ── Split role layout ── */
+.split-role-row {
+  display: grid;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 10px;
+}
+.split-role-row-right {
+  grid-template-columns: 1fr 380px;
+  min-height: 200px;
+}
+.split-role-row-left {
+  grid-template-columns: 380px 1fr;
+  min-height: 200px;
+}
+.split-role-row-dark {
+  grid-template-columns: 1fr 320px;
+  min-height: 190px;
+  background: #1e293b;
+}
+
+.split-role-content {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.split-role-content-dark {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.split-role-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.split-role-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  color: #cbd5e1;
+  letter-spacing: 0.08em;
+}
+.split-role-num-dark {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  color: rgba(203, 213, 225, 0.35);
+  letter-spacing: 0.08em;
+}
+
+.split-role-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.split-role-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+.split-role-row:hover .split-role-img-wrap img,
+.split-role-img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+/* fallback placeholder inside img-wrap */
+.role-img-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+}
+.role-img-fallback span {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(181, 154, 106, 0.5);
+}
+
+/* top-banner cards (roles 3 & 4) */
+.role-top-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #fff;
+}
+.role-top-card-img {
+  position: relative;
+  height: 155px;
+  overflow: hidden;
+}
+.role-top-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+.role-top-card:hover .role-top-card-img img {
+  transform: scale(1.05);
+}
+.role-top-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #1e293b;
+  transition: background 0.25s;
+}
+.role-top-card:hover .role-top-card-accent {
+  background: #b59a6a;
+}
+.role-top-card-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.two-col-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .split-role-row-right,
+  .split-role-row-left,
+  .split-role-row-dark {
+    grid-template-columns: 1fr !important;
+  }
+  .split-role-img-wrap {
+    min-height: 160px;
+    height: 160px;
+  }
+  .two-col-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   SECTION 3 — EDUCATIONAL BACKGROUND
+   Tries: assets/images/bg-education.jpg
+   Fallback: deep navy with gold grid lines CSS pattern
+   ============================================================ */
+#education {
+  position: relative;
+  overflow: hidden;
+  background-image: url("../assets/images/background1-bg\ \(1\).jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #f0ede8;
+}
+
+/* CSS abstract fallback — warm parchment with faint ruled lines */
+#education::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(181, 154, 106, 0.08) 1px, transparent 1px),
+    radial-gradient(
+      ellipse 65% 50% at 8% 12%,
+      rgba(181, 154, 106, 0.12) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 92% 90%,
+      rgba(30, 41, 59, 0.08) 0%,
+      transparent 65%
+    );
+  background-size:
+    52px 52px,
+    100% 100%,
+    100% 100%;
+  z-index: 0;
+}
+
+/* image wash */
+#education::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 237, 232, 0.88);
+  z-index: 0;
+}
+
+#education > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Timeline ── */
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #d1c5b4 8%,
+    #d1c5b4 92%,
+    transparent 100%
+  );
+}
+.t-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 3px solid #f0ede8;
+  box-shadow: 0 0 0 1px #c4b8a4;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.edu-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e0d8cc;
+  border-radius: 2px;
+  padding: 18px 22px;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+  max-width: 360px;
+}
+.edu-card:hover {
+  box-shadow: 0 6px 24px rgba(30, 41, 59, 0.1);
+  border-color: #b59a6a;
+  transform: translateY(-2px);
+}
+.deg-badge {
+  display: inline-block;
+  padding: 2px 9px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background: rgba(181, 154, 106, 0.1);
+  color: #b59a6a;
+  border: 1px solid rgba(181, 154, 106, 0.25);
+  margin-bottom: 8px;
+}
+.scholar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  font-size: 9px;
+  font-weight: 500;
+  border-radius: 2px;
+  background: rgba(30, 41, 59, 0.06);
+  color: #334155;
+  margin-top: 10px;
+}
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  min-height: 120px;
+  margin-bottom: 24px;
+}
+.tl-left {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+  align-items: flex-start;
+}
+.tl-right {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+  .tl-row {
+    display: block;
+    padding-left: 36px;
+    margin-bottom: 18px;
+  }
+  .tl-left,
+  .tl-right {
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .edu-card {
+    max-width: 100%;
+  }
+  .timeline-track {
+    left: 7px;
+  }
+  .t-dot {
+    left: 7px;
+    top: 18px;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
+}

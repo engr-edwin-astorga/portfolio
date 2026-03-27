@@ -32,225 +32,10 @@
       };
     </script>
 
+    <!-- Shared site styles -->
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      body {
-        background-color: #f8f9fa;
-        background-image:
-          radial-gradient(
-            circle at 15% 20%,
-            rgba(181, 154, 106, 0.06) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 85% 80%,
-            rgba(30, 41, 59, 0.05) 0%,
-            transparent 50%
-          );
-      }
-
-      /* Page hero banner */
-      .page-hero {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-        position: relative;
-        overflow: hidden;
-      }
-      .page-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 48px 48px;
-      }
-      .page-hero::after {
-        content: "";
-        position: absolute;
-        right: -80px;
-        top: -80px;
-        width: 400px;
-        height: 400px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(181, 154, 106, 0.12),
-          transparent 70%
-        );
-      }
-
-      /* Gold accent */
-      .gold-line {
-        background: #b59a6a;
-      }
-
-      /* Timeline vertical line */
-      .timeline-track {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        transform: translateX(-50%);
-        background: linear-gradient(
-          to bottom,
-          transparent 0%,
-          #e2e8f0 8%,
-          #e2e8f0 92%,
-          transparent 100%
-        );
-      }
-
-      /* Timeline dot */
-      .t-dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #1e293b;
-        border: 3px solid #f8f9fa;
-        box-shadow: 0 0 0 1px #cbd5e1;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        transition:
-          background 0.3s,
-          box-shadow 0.3s;
-      }
-
-      /* Education card */
-      .edu-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 2px;
-        padding: 24px 28px;
-        transition:
-          box-shadow 0.3s ease,
-          border-color 0.3s ease,
-          transform 0.3s ease;
-        max-width: 380px;
-      }
-      .edu-card:hover {
-        box-shadow: 0 8px 32px rgba(30, 41, 59, 0.09);
-        border-color: #b59a6a;
-        transform: translateY(-3px);
-      }
-      .edu-card:hover ~ .t-dot,
-      .t-dot:hover {
-        background: #b59a6a;
-        box-shadow:
-          0 0 0 1px #b59a6a,
-          0 0 14px rgba(181, 154, 106, 0.35);
-      }
-
-      /* Degree badge */
-      .deg-badge {
-        display: inline-block;
-        padding: 2px 10px;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        border-radius: 2px;
-        background: rgba(181, 154, 106, 0.1);
-        color: #b59a6a;
-        border: 1px solid rgba(181, 154, 106, 0.25);
-        margin-bottom: 10px;
-      }
-
-      /* Scholar tag */
-      .scholar-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        padding: 3px 9px;
-        font-size: 10px;
-        font-weight: 500;
-        border-radius: 2px;
-        background: rgba(30, 41, 59, 0.06);
-        color: #334155;
-        margin-top: 12px;
-      }
-
-      /* Scroll reveal */
-      .reveal {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.65s ease,
-          transform 0.65s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal:nth-child(1) {
-        transition-delay: 0s;
-      }
-      .reveal:nth-child(2) {
-        transition-delay: 0.1s;
-      }
-      .reveal:nth-child(3) {
-        transition-delay: 0.2s;
-      }
-      .reveal:nth-child(4) {
-        transition-delay: 0.3s;
-      }
-      .reveal:nth-child(5) {
-        transition-delay: 0.4s;
-      }
-
-      /* Desktop alternating timeline rows */
-      .tl-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        position: relative;
-        min-height: 140px;
-        margin-bottom: 32px;
-      }
-      .tl-left {
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 48px;
-        align-items: flex-start;
-      }
-      .tl-right {
-        display: flex;
-        justify-content: flex-start;
-        padding-left: 48px;
-        align-items: flex-start;
-      }
-
-      /* Footer */
-      .site-footer {
-        background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
-      }
-
-      /* Mobile */
-      @media (max-width: 767px) {
-        .tl-row {
-          display: block;
-          padding-left: 44px;
-          margin-bottom: 24px;
-        }
-        .tl-left,
-        .tl-right {
-          padding: 0;
-          justify-content: flex-start;
-        }
-        .edu-card {
-          max-width: 100%;
-        }
-        .timeline-track {
-          left: 8px;
-        }
-        .t-dot {
-          left: 8px;
-          top: 20px;
-          transform: none;
-        }
-      }
-    </style>
+    <!-- Background page styles -->
+    <link rel="stylesheet" href="css/background.css" />
   </head>
 
   <body class="font-sans text-primary antialiased">
@@ -258,7 +43,7 @@
     <nav
       class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
     >
-      <div class="max-w-7xl mx-auto px-6 py-5 grid grid-cols-3 items-center">
+      <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
         <a
           href="index.html"
           class="text-lg font-semibold tracking-tight text-primary"
@@ -315,7 +100,7 @@
         </ul>
         <a
           href="#"
-          class="mt-5 inline-block px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm"
+          class="mt-4 inline-block px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm"
           >Contact Me</a
         >
       </div>
@@ -323,24 +108,27 @@
     <!-- ========== END NAVBAR ========== -->
 
     <!-- ========== PAGE HERO ========== -->
-    <section class="page-hero pt-36 pb-24">
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="max-w-2xl flex flex-col gap-5">
+    <!-- BG image: assets/images/bg-hero.jpg
+         CSS fallback: diagonal stripe + dark navy radial gradient -->
+    <section class="page-hero pt-28 pb-10">
+      <div class="page-hero-abstract"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-xl flex flex-col gap-3">
           <span
             class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest"
             style="color: rgba(181, 154, 106, 0.9)"
           >
-            <span class="w-6 h-px gold-line"></span>
+            <span class="w-5 h-px gold-line"></span>
             Professional Journey
           </span>
           <h1
-            class="font-display text-5xl md:text-6xl font-light text-white leading-tight"
+            class="font-display text-4xl md:text-5xl font-light text-white leading-tight"
           >
-            Background &<br />
+            Background &amp;
             <span style="color: #b59a6a; font-style: italic">Credentials</span>
           </h1>
           <p
-            class="text-sm font-light leading-relaxed max-w-md"
+            class="text-sm font-light leading-relaxed"
             style="color: rgba(255, 255, 255, 0.5)"
           >
             A record of academic excellence, continuous learning, and
@@ -349,7 +137,7 @@
           </p>
         </div>
         <div
-          class="mt-10 flex items-center gap-2 text-xs"
+          class="mt-5 flex items-center gap-2 text-xs"
           style="color: rgba(255, 255, 255, 0.3)"
         >
           <a href="index.html" class="hover:text-white transition-colors"
@@ -362,11 +150,488 @@
     </section>
     <!-- ========== END PAGE HERO ========== -->
 
-    <!-- ========== EDUCATIONAL BACKGROUND ========== -->
-    <section id="education" class="py-28">
+    <!-- ========== SECTION 1: PROFESSIONAL BACKGROUND ========== -->
+    <!-- BG image: assets/images/bg-professional.jpg
+         CSS fallback: subtle dot-grid on white -->
+    <section id="professional-background" class="py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-8 flex flex-col gap-1">
+          <span
+            class="text-xs font-semibold tracking-widest uppercase text-muted"
+            >Career Overview</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
+            Professional <em>Background</em>
+          </h2>
+          <div class="w-8 h-px gold-line mt-1"></div>
+        </div>
+
+        <div class="grid md:grid-cols-[260px_1fr] gap-7 items-start">
+          <!-- Summary panel -->
+          <div class="bg-summary-panel reveal">
+            <div class="bg-summary-label">Overview</div>
+            <div class="bg-summary-heading">
+              Engineer.<br />Innovator.<br />Leader.
+            </div>
+            <p class="bg-summary-text">
+              A Filipino professional with a distinguished track record across
+              engineering, innovation management, and smart city advocacy —
+              operating at the intersection of technology and governance.
+            </p>
+            <div style="margin-top: 3px">
+              <span class="bg-pill">PECE</span>
+              <span class="bg-pill">IoT</span>
+              <span class="bg-pill">Smart Cities</span>
+            </div>
+          </div>
+
+          <!-- Cards grid -->
+          <div class="bg-card-grid">
+            <div class="bg-card reveal">
+              <div class="bg-card-num">01</div>
+              <div class="bg-card-body">
+                <span class="bg-card-tag">Profession</span>
+                <div class="bg-card-title">
+                  Professional Electronics Engineer
+                </div>
+                <div class="bg-card-sub">Licensed PECE · Philippines</div>
+              </div>
+            </div>
+            <div class="bg-card reveal">
+              <div class="bg-card-num">02</div>
+              <div class="bg-card-body">
+                <span class="bg-card-tag">Executive</span>
+                <div class="bg-card-title">Managing Director</div>
+                <div class="bg-card-sub">AETECH Innovations · Singapore</div>
+              </div>
+            </div>
+            <div class="bg-card reveal">
+              <div class="bg-card-num">03</div>
+              <div class="bg-card-body">
+                <span class="bg-card-tag">Corporate</span>
+                <div class="bg-card-title">President / CEO</div>
+                <div class="bg-card-sub">
+                  Integritech Builders Solutions Inc.
+                </div>
+              </div>
+            </div>
+            <div class="bg-card reveal">
+              <div class="bg-card-num">04</div>
+              <div class="bg-card-body">
+                <span class="bg-card-tag">Advocacy</span>
+                <div class="bg-card-title">
+                  SMART Cities Strategies &amp; Innovations
+                </div>
+                <div class="bg-card-sub">
+                  Advocate of smart, connected, and sustainable cities
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END PROFESSIONAL BACKGROUND ========== -->
+
+    <div class="section-divider"></div>
+
+    <!-- ========== SECTION 2: PROFESSIONAL ROLES ========== -->
+    <!-- BG image: assets/images/bg-roles.jpg
+         CSS fallback: warm off-white fine cross-hatch -->
+    <section id="professional-roles" class="py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-10 flex flex-col items-center gap-2">
+          <span
+            class="text-xs font-semibold tracking-widest uppercase text-muted"
+            >Leadership &amp; Service</span
+          >
+          <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
+            Professional <em>Roles</em>
+          </h2>
+          <div class="w-8 h-px gold-line mt-1"></div>
+          <p
+            class="text-sm text-muted mt-2 max-w-lg text-center leading-relaxed"
+          >
+            Key positions held across industry, technology, and public service
+            that have defined a career of impact and innovation.
+          </p>
+        </div>
+
+        <!-- Role 1 — image RIGHT -->
+        <!-- image: assets/images/role-iot-school.jpg -->
+        <div class="split-role-row split-role-row-right reveal">
+          <div class="split-role-content">
+            <div class="split-role-meta">
+              <span class="split-role-num">01</span>
+              <span class="role-card-badge">Education</span>
+              <span class="role-card-current">Active</span>
+            </div>
+            <div class="role-card-title">Founder</div>
+            <div class="role-card-org">School of IoT Philippines</div>
+            <p
+              style="
+                font-size: 12.5px;
+                line-height: 1.7;
+                color: #6b7280;
+                margin-top: 4px;
+              "
+            >
+              Established the Philippines' dedicated learning institution for
+              Internet of Things education, equipping the next generation of
+              engineers with hands-on automation and connectivity skills.
+            </p>
+          </div>
+          <div class="split-role-img-wrap">
+            <img
+              src="assets/images/role-iot-school.jpg"
+              alt="School of IoT Philippines"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              class="role-img-fallback"
+              style="
+                background: linear-gradient(
+                  145deg,
+                  #1a2a44 0%,
+                  #243350 50%,
+                  #1e293b 100%
+                );
+              "
+            >
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                <circle cx="10" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="26" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="42" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="10" cy="26" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle
+                  cx="26"
+                  cy="26"
+                  r="3.5"
+                  fill="rgba(181,154,106,0.6)"
+                  stroke="rgba(181,154,106,0.3)"
+                  stroke-width="1"
+                />
+                <circle cx="42" cy="26" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="10" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="26" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
+                <circle cx="42" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
+                <line
+                  x1="10"
+                  y1="10"
+                  x2="10"
+                  y2="42"
+                  stroke="rgba(181,154,106,0.15)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="26"
+                  y1="10"
+                  x2="26"
+                  y2="42"
+                  stroke="rgba(181,154,106,0.15)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="42"
+                  y1="10"
+                  x2="42"
+                  y2="42"
+                  stroke="rgba(181,154,106,0.15)"
+                  stroke-width="1"
+                />
+                <line
+                  x1="10"
+                  y1="26"
+                  x2="42"
+                  y2="26"
+                  stroke="rgba(181,154,106,0.15)"
+                  stroke-width="1"
+                />
+              </svg>
+              <span>School of IoT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 — image LEFT -->
+        <!-- image: assets/images/role-iot-automation.jpg -->
+        <div class="split-role-row split-role-row-left reveal">
+          <div class="split-role-img-wrap">
+            <img
+              src="assets/images/role-iot-automation.jpg"
+              alt="IoT Automation"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              class="role-img-fallback"
+              style="
+                background: linear-gradient(
+                  145deg,
+                  #0f172a 0%,
+                  #1e293b 60%,
+                  #243049 100%
+                );
+              "
+            >
+              <svg width="56" height="40" viewBox="0 0 56 40" fill="none">
+                <path
+                  d="M2 20 C8 10,14 30,20 20 C26 10,32 30,38 20 C44 10,50 30,56 20"
+                  stroke="rgba(181,154,106,0.5)"
+                  stroke-width="1.5"
+                  fill="none"
+                />
+                <path
+                  d="M2 28 C8 18,14 38,20 28 C26 18,32 38,38 28 C44 18,50 38,56 28"
+                  stroke="rgba(181,154,106,0.25)"
+                  stroke-width="1"
+                  fill="none"
+                />
+                <path
+                  d="M2 12 C8 2,14 22,20 12 C26 2,32 22,38 12 C44 2,50 22,56 12"
+                  stroke="rgba(181,154,106,0.25)"
+                  stroke-width="1"
+                  fill="none"
+                />
+              </svg>
+              <span>IoT &amp; Automation</span>
+            </div>
+          </div>
+          <div
+            class="split-role-content"
+            style="border-left: 1px solid #e2e8f0"
+          >
+            <div class="split-role-meta">
+              <span class="split-role-num">02</span>
+              <span class="role-card-badge">Technology</span>
+            </div>
+            <div class="role-card-title">IoT System Automation Specialist</div>
+            <div class="role-card-org">
+              Internet of Things &amp; Industrial Automation
+            </div>
+            <p
+              style="
+                font-size: 12.5px;
+                line-height: 1.7;
+                color: #6b7280;
+                margin-top: 4px;
+              "
+            >
+              Designs and deploys end-to-end IoT infrastructure — from sensor
+              networks to cloud-connected dashboards — enabling smart monitoring
+              and industrial process automation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Roles 3 & 4 — top-banner cards -->
+        <div class="two-col-cards">
+          <!-- Role 3 -->
+          <!-- image: assets/images/role-consulting.jpg -->
+          <div class="role-top-card reveal">
+            <div class="role-top-card-img">
+              <img
+                src="assets/images/role-consulting.jpg"
+                alt="Consulting"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div
+                class="role-img-fallback"
+                style="
+                  height: 155px;
+                  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+                "
+              >
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect
+                    x="14"
+                    y="2"
+                    width="20"
+                    height="20"
+                    rx="1"
+                    transform="rotate(45 24 12)"
+                    stroke="rgba(181,154,106,0.45)"
+                    stroke-width="1.2"
+                    fill="none"
+                  />
+                  <rect
+                    x="14"
+                    y="26"
+                    width="20"
+                    height="20"
+                    rx="1"
+                    transform="rotate(45 24 36)"
+                    stroke="rgba(181,154,106,0.25)"
+                    stroke-width="1"
+                    fill="none"
+                  />
+                </svg>
+                <span>Consulting</span>
+              </div>
+              <div class="role-top-card-accent"></div>
+            </div>
+            <div class="role-top-card-body">
+              <div class="split-role-meta">
+                <span class="split-role-num">03</span>
+                <span class="role-card-badge">Consulting</span>
+              </div>
+              <div class="role-card-title">Consultant</div>
+              <div class="role-card-org">
+                Various Industries &amp; Government Projects
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 4 -->
+          <!-- image: assets/images/role-innovation.jpg -->
+          <div class="role-top-card reveal">
+            <div class="role-top-card-img">
+              <img
+                src="assets/images/role-innovation.jpg"
+                alt="Chief Innovation Officer"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div
+                class="role-img-fallback"
+                style="
+                  height: 155px;
+                  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+                "
+              >
+                <svg width="40" height="48" viewBox="0 0 40 48" fill="none">
+                  <path
+                    d="M24 2L6 26H20L16 46L34 22H20L24 2Z"
+                    stroke="rgba(181,154,106,0.5)"
+                    stroke-width="1.5"
+                    fill="rgba(181,154,106,0.05)"
+                  />
+                </svg>
+                <span>Innovation</span>
+              </div>
+              <div class="role-top-card-accent"></div>
+            </div>
+            <div class="role-top-card-body">
+              <div class="split-role-meta">
+                <span class="split-role-num">04</span>
+                <span class="role-card-badge">Executive</span>
+              </div>
+              <div class="role-card-title">Chief Innovation Officer</div>
+              <div class="role-card-org">Acube Technologies</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 5 — dark full-width banner -->
+        <!-- image: assets/images/role-public-service.jpg -->
+        <div class="split-role-row split-role-row-dark reveal">
+          <div class="split-role-content">
+            <div class="split-role-meta">
+              <span class="split-role-num-dark">05</span>
+              <span
+                style="
+                  font-size: 9px;
+                  font-weight: 700;
+                  letter-spacing: 0.12em;
+                  text-transform: uppercase;
+                  background: rgba(255, 255, 255, 0.1);
+                  border: 1px solid rgba(255, 255, 255, 0.15);
+                  padding: 2px 7px;
+                  border-radius: 2px;
+                  color: rgba(255, 255, 255, 0.55);
+                "
+                >Public Service</span
+              >
+              <span
+                class="role-card-current"
+                style="
+                  color: #34d399;
+                  background: rgba(52, 211, 153, 0.08);
+                  border-color: rgba(52, 211, 153, 0.2);
+                "
+                >Active</span
+              >
+            </div>
+            <div
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 27px;
+                font-weight: 600;
+                color: #fff;
+                line-height: 1.15;
+              "
+            >
+              Barangay Captain
+            </div>
+            <div style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45)">
+              San Andres 1, Dasmariñas, Cavite
+            </div>
+            <p
+              style="
+                font-size: 12px;
+                line-height: 1.7;
+                color: rgba(255, 255, 255, 0.38);
+                margin-top: 3px;
+              "
+            >
+              Serving the community through grassroots leadership — driving
+              local governance initiatives, public safety, and community
+              development programs at the barangay level.
+            </p>
+          </div>
+          <div
+            class="split-role-img-wrap"
+            style="border-left: 1px solid rgba(255, 255, 255, 0.07)"
+          >
+            <img
+              src="assets/images/role-public-service.jpg"
+              alt="Barangay Captain"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+              style="opacity: 0.7"
+            />
+            <div
+              class="role-img-fallback"
+              style="
+                background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+              "
+            >
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <polygon
+                  points="24,4 28,18 42,18 31,27 35,41 24,32 13,41 17,27 6,18 20,18"
+                  stroke="rgba(181,154,106,0.5)"
+                  stroke-width="1.2"
+                  fill="rgba(181,154,106,0.05)"
+                />
+              </svg>
+              <span>Public Service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END PROFESSIONAL ROLES ========== -->
+
+    <div class="section-divider"></div>
+
+    <!-- ========== SECTION 3: EDUCATIONAL BACKGROUND ========== -->
+    <!-- BG image: assets/images/bg-education.jpg
+         CSS fallback: warm parchment with ruled horizontal lines + gold radial glow -->
+    <section id="education" class="py-14">
       <div class="max-w-5xl mx-auto px-6">
-        <!-- Section header -->
-        <div class="text-center mb-20 flex flex-col items-center gap-3">
+        <div class="text-center mb-12 flex flex-col items-center gap-2">
           <span
             class="text-xs font-semibold tracking-widest uppercase text-muted"
             >Academic Formation</span
@@ -374,98 +639,96 @@
           <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
             Educational <em>Background</em>
           </h2>
-          <div class="w-10 h-px gold-line mt-1"></div>
+          <div class="w-8 h-px gold-line mt-1"></div>
         </div>
 
-        <!-- Timeline wrapper -->
         <div class="relative">
-          <!-- Vertical line (desktop only) -->
           <div class="hidden md:block timeline-track"></div>
 
-          <!-- ── Entry 1: Doctorate ── -->
+          <!-- Doctorate -->
           <div class="tl-row reveal">
             <div class="tl-left">
               <div class="edu-card">
                 <span class="deg-badge">Doctorate</span>
                 <h3
-                  class="font-display text-xl md:text-2xl font-semibold text-primary leading-snug"
+                  class="font-display text-xl font-semibold text-primary leading-snug"
                 >
                   Doctorate in Sustainability Management
                 </h3>
-                <p class="text-sm text-muted mt-2">
+                <p class="text-sm text-muted mt-1">
                   Thames International University
                 </p>
                 <p class="text-xs text-muted mt-0.5 italic">France</p>
               </div>
             </div>
-            <div class="hidden md:block t-dot" style="top: 24px"></div>
+            <div class="hidden md:block t-dot" style="top: 22px"></div>
             <div class="tl-right hidden md:flex"></div>
           </div>
 
-          <!-- ── Entry 2: MS Electrical Engineering ── -->
+          <!-- MS Electrical Engineering -->
           <div class="tl-row reveal">
             <div class="tl-left hidden md:flex"></div>
-            <div class="hidden md:block t-dot" style="top: 24px"></div>
+            <div class="hidden md:block t-dot" style="top: 22px"></div>
             <div class="tl-right">
               <div class="edu-card">
                 <span class="deg-badge">Master of Science</span>
                 <h3
-                  class="font-display text-xl md:text-2xl font-semibold text-primary leading-snug"
+                  class="font-display text-xl font-semibold text-primary leading-snug"
                 >
                   Master of Science in Electrical Engineering
                 </h3>
-                <p class="text-sm text-muted mt-2">Major in Electronics</p>
+                <p class="text-sm text-muted mt-1">Major in Electronics</p>
               </div>
             </div>
           </div>
 
-          <!-- ── Entry 3: Master in Innovations ── -->
+          <!-- Master in Innovations -->
           <div class="tl-row reveal">
             <div class="tl-left">
               <div class="edu-card">
                 <span class="deg-badge">Master's Degree</span>
                 <h3
-                  class="font-display text-xl md:text-2xl font-semibold text-primary leading-snug"
+                  class="font-display text-xl font-semibold text-primary leading-snug"
                 >
                   Master in Innovations and Business
                 </h3>
-                <p class="text-sm text-muted mt-2">
+                <p class="text-sm text-muted mt-1">
                   Asian Institute of Management
                 </p>
               </div>
             </div>
-            <div class="hidden md:block t-dot" style="top: 24px"></div>
+            <div class="hidden md:block t-dot" style="top: 22px"></div>
             <div class="tl-right hidden md:flex"></div>
           </div>
 
-          <!-- ── Entry 4: Project Management ── -->
+          <!-- Project Management -->
           <div class="tl-row reveal">
             <div class="tl-left hidden md:flex"></div>
-            <div class="hidden md:block t-dot" style="top: 24px"></div>
+            <div class="hidden md:block t-dot" style="top: 22px"></div>
             <div class="tl-right">
               <div class="edu-card">
                 <span class="deg-badge">Certificate Program</span>
                 <h3
-                  class="font-display text-xl md:text-2xl font-semibold text-primary leading-snug"
+                  class="font-display text-xl font-semibold text-primary leading-snug"
                 >
                   Project Management Program
                 </h3>
-                <p class="text-sm text-muted mt-2">Enderun College</p>
+                <p class="text-sm text-muted mt-1">Enderun College</p>
               </div>
             </div>
           </div>
 
-          <!-- ── Entry 5: Bachelor's ── -->
+          <!-- Bachelor's -->
           <div class="tl-row reveal" style="margin-bottom: 0">
             <div class="tl-left">
               <div class="edu-card">
                 <span class="deg-badge">Bachelor's Degree</span>
                 <h3
-                  class="font-display text-xl md:text-2xl font-semibold text-primary leading-snug"
+                  class="font-display text-xl font-semibold text-primary leading-snug"
                 >
                   BS in Electronics and Communications Engineering
                 </h3>
-                <p class="text-sm text-muted mt-2">
+                <p class="text-sm text-muted mt-1">
                   Technological University of the Philippines
                 </p>
                 <span class="scholar-tag">
@@ -486,7 +749,7 @@
                 </span>
               </div>
             </div>
-            <div class="hidden md:block t-dot" style="top: 24px"></div>
+            <div class="hidden md:block t-dot" style="top: 22px"></div>
             <div class="tl-right hidden md:flex"></div>
           </div>
         </div>
@@ -495,10 +758,10 @@
     <!-- ========== END EDUCATIONAL BACKGROUND ========== -->
 
     <!-- ========== FOOTER ========== -->
-    <footer class="site-footer py-12">
+    <footer class="site-footer py-10">
       <div class="max-w-6xl mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-8"
+          class="flex flex-col md:flex-row items-center justify-between gap-7"
         >
           <div class="flex flex-col gap-1 text-center md:text-left">
             <p class="text-base font-semibold text-primary">
@@ -538,11 +801,11 @@
               >
             </li>
           </ul>
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-3">
             <a
               href="#"
               aria-label="Facebook"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -553,7 +816,7 @@
             <a
               href="#"
               aria-label="LinkedIn"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -563,9 +826,9 @@
               </svg>
             </a>
             <a
-              href="mailto:placeholder@email.com"
+              href="#"
               aria-label="Email"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
             >
               <svg
                 class="w-4 h-4"
@@ -583,7 +846,7 @@
             </a>
           </div>
         </div>
-        <div class="mt-10 pt-6 border-t border-border/40 text-center">
+        <div class="mt-8 pt-5 border-t border-border/40 text-center">
           <p class="text-xs text-muted">
             © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
             rights reserved.
@@ -601,7 +864,6 @@
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
 
-      // Scroll reveal
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
         (entries) => {
@@ -612,7 +874,7 @@
             }
           });
         },
-        { threshold: 0.12 },
+        { threshold: 0.1 },
       );
       reveals.forEach((el) => observer.observe(el));
     </script>
