@@ -126,7 +126,7 @@ body {
   overflow: hidden;
   border-top: 1px solid #e2e8f0;
   /* image placeholder */
-  background-image: url("../assets/images/affiliations-bg.jpg");
+  background-image: url("../assets/images/probg.jpg");
   background-size: cover;
   background-position: center;
   /* CSS fallback */
@@ -496,7 +496,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(245, 244, 242, 0.747);
+  background: rgba(245, 244, 242, 0.47);
   z-index: 0;
 }
 
@@ -527,7 +527,7 @@ body {
 }
 .role-card-org {
   font-size: 12.5px;
-  color: #6b7280;
+  color: #051840;
   margin-top: 2px;
 }
 .role-card-current {

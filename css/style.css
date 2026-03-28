@@ -100,8 +100,8 @@ html {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.711) 0%,
-    rgba(248, 249, 250, 0.679) 100%
+    rgba(255, 255, 255, 0.675) 0%,
+    rgba(248, 249, 250, 0.615) 100%
   );
   z-index: 0;
 }
@@ -375,10 +375,11 @@ html {
 .profile-frame-3 {
   position: relative;
   display: inline-block;
-  /* Total size = photo size + offset amount on each bleeding side */
-  width: calc(var(--pf3-size, 360px) + 40px);
-  height: calc(var(--pf3-size, 360px) + 40px);
+  --pf3-size: 400px; /* ← change only this */
+  width: calc(var(--pf3-size) + 40px);
+  height: calc(var(--pf3-size) + 40px);
   margin-left: 180px;
+  top: 30px;
 }
 
 /* Navy circle — sits behind, offset toward bottom-right */
@@ -397,7 +398,7 @@ html {
 .profile-frame-3 .photo-circle {
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 15px;
   z-index: 1;
   width: var(--pf3-size, 360px);
   height: var(--pf3-size, 360px);
