@@ -170,39 +170,15 @@
           </div>
 
           <!-- RIGHT: Profile Photo -->
-          <div class="flex justify-center md:justify-end">
-            <div class="relative">
-              <div
-                class="absolute -top-4 -left-4 w-full h-full bg-border rounded-sm z-0"
-              ></div>
-              <div
-                class="relative z-10 w-72 h-80 md:w-80 md:h-96 rounded-sm overflow-hidden border border-border shadow-md"
-              >
-                <img
-                  id="profile-img"
-                  alt="Engr. Edwin Londonio Astorga"
-                  class="w-full h-full object-cover object-top"
-                />
-                <div
-                  id="photo-fallback"
-                  class="absolute inset-0 bg-gray-200 flex flex-col items-center justify-center gap-2"
-                >
-                  <svg
-                    class="w-16 h-16 text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M5.121 17.804A9 9 0 1118.88 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span class="text-xs text-gray-400">Your Photo Here</span>
-                </div>
-              </div>
+          <!-- Profile Photo — Frame Option 3: Circle + Navy Offset Block -->
+          <div class="profile-frame-3">
+            <div class="bg-arc"></div>
+            <div class="photo-circle">
+              <img
+                id="profile-img"
+                src="assets/images/your-photo.jpg"
+                alt="Engr. Edwin Londonio Astorga"
+              />
             </div>
           </div>
         </div>

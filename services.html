@@ -4,13 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services | Engr. Edwin Astorga</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <script>
       tailwind.config = {
         theme: {
@@ -31,13 +29,491 @@
         },
       };
     </script>
-
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/services.css" />
-  </head>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      .nav-link {
+        position: relative;
+        color: #6b7280;
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: #1e293b;
+        transition: width 0.25s;
+      }
+      .nav-link:hover,
+      .nav-link.active-link {
+        color: #1e293b;
+      }
+      .nav-link:hover::after,
+      .nav-link.active-link::after {
+        width: 100%;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #b59a6a;
+      }
+      .eyebrow::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: #b59a6a;
+      }
 
+      /* HERO */
+      .svc-hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          #0a1223 0%,
+          #1e293b 60%,
+          #243049 100%
+        );
+        min-height: 44vh;
+        display: flex;
+        align-items: flex-end;
+      }
+      .svc-hero-pattern {
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            -55deg,
+            rgba(181, 154, 106, 0.035) 0px,
+            rgba(181, 154, 106, 0.035) 1px,
+            transparent 1px,
+            transparent 42px
+          ),
+          radial-gradient(
+            ellipse 80% 60% at 85% 20%,
+            rgba(181, 154, 106, 0.07) 0%,
+            transparent 60%
+          );
+      }
+
+      /* CAROUSEL SECTION */
+      .carousel-section {
+        position: relative;
+        background: #f8f9fa;
+        padding: 72px 0;
+        overflow: hidden;
+      }
+      .carousel-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(203, 213, 225, 0.4) 1px,
+          transparent 1px
+        );
+        background-size: 26px 26px;
+      }
+      .carousel-outer {
+        position: relative;
+        padding: 0 28px;
+      }
+
+      .carousel-viewport {
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        gap: 18px;
+        transition: transform 0.52s cubic-bezier(0.77, 0, 0.175, 1);
+        will-change: transform;
+        padding: 8px 2px 14px;
+      }
+
+      .carousel-card {
+        flex: 0 0 340px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-top: 3px solid #cbd5e1;
+        border-radius: 3px;
+        padding: 26px 24px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        box-shadow: 0 2px 10px rgba(30, 41, 59, 0.06);
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s,
+          border-top-color 0.4s,
+          opacity 0.4s;
+        cursor: default;
+        opacity: 0.5;
+      }
+      .carousel-card.is-active {
+        opacity: 1;
+        border-top-color: #b59a6a;
+        box-shadow: 0 6px 24px rgba(30, 41, 59, 0.11);
+      }
+      .carousel-card:hover {
+        transform: translateY(-2px);
+      }
+      @media (max-width: 900px) {
+        .carousel-card {
+          flex: 0 0 290px;
+        }
+      }
+      @media (max-width: 560px) {
+        .carousel-card {
+          flex: 0 0 260px;
+        }
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-num {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: #b59a6a;
+        text-transform: uppercase;
+      }
+      .card-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 3px;
+        background: rgba(30, 41, 59, 0.05);
+        border: 1px solid rgba(30, 41, 59, 0.09);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #1e293b;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+      }
+      .carousel-card.is-active .card-icon,
+      .carousel-card:hover .card-icon {
+        background: rgba(181, 154, 106, 0.1);
+        color: #b59a6a;
+        border-color: rgba(181, 154, 106, 0.25);
+      }
+      .card-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 21px;
+        font-weight: 600;
+        color: #1e293b;
+        line-height: 1.25;
+      }
+      .card-desc {
+        font-size: 12.5px;
+        line-height: 1.78;
+        color: #6b7280;
+        flex: 1;
+      }
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding-top: 10px;
+        border-top: 1px solid #f1f5f9;
+        margin-top: auto;
+      }
+      .card-tag {
+        padding: 2px 8px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        color: #334155;
+        background: rgba(30, 41, 59, 0.05);
+        border: 1px solid rgba(30, 41, 59, 0.1);
+      }
+
+      /* ARROWS */
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1.5px solid #1e293b;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #1e293b;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(30, 41, 59, 0.1);
+        transition:
+          background 0.2s,
+          color 0.2s,
+          box-shadow 0.2s;
+        padding: 0;
+      }
+      .carousel-arrow:hover {
+        background: #1e293b;
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(30, 41, 59, 0.2);
+      }
+      .carousel-arrow:disabled {
+        opacity: 0.28;
+        cursor: not-allowed;
+      }
+      .carousel-arrow--left {
+        left: -21px;
+      }
+      .carousel-arrow--right {
+        right: -21px;
+      }
+
+      /* DOTS + COUNTER */
+      .carousel-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        margin-top: 18px;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .carousel-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+        transition: all 0.25s;
+      }
+      .carousel-dot.active {
+        width: 22px;
+        border-radius: 3px;
+        background: #1e293b;
+      }
+      .carousel-counter {
+        font-size: 11px;
+        color: #9ca3af;
+        font-weight: 500;
+      }
+      .carousel-counter strong {
+        color: #1e293b;
+      }
+
+      /* COMPANIES */
+      .companies-section {
+        position: relative;
+        background: #1e293b;
+        overflow: hidden;
+        padding: 80px 0;
+      }
+      .companies-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(181, 154, 106, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(181, 154, 106, 0.04) 1px, transparent 1px);
+        background-size: 36px 36px;
+      }
+      .companies-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #b59a6a,
+          transparent
+        );
+      }
+
+      .company-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        padding: 26px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: all 0.3s;
+        overflow: hidden;
+      }
+      .company-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(181, 154, 106, 0.06) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .company-card:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(181, 154, 106, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      }
+      .company-card:hover::before {
+        opacity: 1;
+      }
+      .company-card--lead {
+        border-top: 3px solid #b59a6a;
+      }
+      .company-card--colead {
+        border-top: 3px solid rgba(181, 154, 106, 0.35);
+      }
+
+      .co-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 9px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        width: fit-content;
+      }
+      .co-badge--lead {
+        background: rgba(181, 154, 106, 0.15);
+        border: 1px solid rgba(181, 154, 106, 0.35);
+        color: #b59a6a;
+      }
+      .co-badge--colead {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .co-badge-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .company-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 21px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.25;
+      }
+      .company-name--lg {
+        font-size: 26px;
+      }
+      .company-role {
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #b59a6a;
+      }
+      .company-role--dim {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .company-desc {
+        font-size: 12.5px;
+        line-height: 1.78;
+        color: rgba(255, 255, 255, 0.38);
+        flex: 1;
+      }
+      .company-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        margin-top: auto;
+      }
+      .company-meta-tag {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.22);
+        padding: 2px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 2px;
+      }
+
+      .companies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      @media (max-width: 1024px) {
+        .companies-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .companies-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .company-card--span2 {
+        grid-column: span 2;
+      }
+      @media (max-width: 1024px) {
+        .company-card--span2 {
+          grid-column: span 1;
+        }
+      }
+
+      /* REVEAL */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s,
+          transform 0.6s;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .site-footer {
+        background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
+      }
+    </style>
+  </head>
   <body class="bg-surface font-sans text-primary antialiased">
-    <!-- ========== NAVBAR ========== -->
+    <!-- NAVBAR -->
     <nav
       class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
     >
@@ -45,12 +521,9 @@
         <a
           href="index.html"
           class="text-lg font-semibold tracking-tight text-primary"
+          >ELA<span class="text-muted font-light">.eng</span></a
         >
-          ELA<span class="text-muted font-light">.eng</span>
-        </a>
-        <ul
-          class="hidden md:flex items-center justify-center gap-8 text-sm font-medium"
-        >
+        <ul class="hidden md:flex items-center justify-center gap-8">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="background.html" class="nav-link">Background</a></li>
           <li>
@@ -62,9 +535,8 @@
           <a
             href="#"
             class="px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm hover:bg-accent transition-colors duration-200"
+            >Contact Me</a
           >
-            Contact Me
-          </a>
         </div>
         <div class="md:hidden flex justify-end col-span-2">
           <button id="menu-btn" class="text-primary focus:outline-none">
@@ -101,391 +573,656 @@
         >
       </div>
     </nav>
-    <!-- ========== END NAVBAR ========== -->
 
-    <!-- ========== PAGE HERO ========== -->
+    <!-- HERO -->
     <section class="svc-hero">
-      <div class="svc-hero-abstract"></div>
-      <div class="max-w-6xl mx-auto px-6 relative z-10 pt-36 pb-20">
-        <div class="max-w-2xl flex flex-col gap-4">
-          <span
-            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest"
-            style="color: rgba(181, 154, 106, 0.9)"
-          >
-            <span class="w-5 h-px" style="background: #b59a6a"></span>
-            What I Offer
-          </span>
+      <div class="svc-hero-pattern"></div>
+      <div class="max-w-7xl mx-auto px-6 w-full relative z-10 pt-32 pb-14">
+        <div class="flex flex-col gap-4 max-w-xl">
+          <span class="eyebrow">What I Offer</span>
           <h1
-            class="font-display text-4xl md:text-5xl font-light text-white leading-tight"
+            class="font-display text-5xl md:text-6xl font-light text-white leading-tight"
           >
-            Professional
-            <span style="color: #b59a6a; font-style: italic">Services</span>
+            Professional <em style="color: #b59a6a">Services</em>
           </h1>
           <p
             class="text-sm font-light leading-relaxed"
-            style="color: rgba(255, 255, 255, 0.5)"
+            style="color: rgba(255, 255, 255, 0.42); max-width: 440px"
           >
-            Delivering engineering expertise, strategic insight, and regulatory
-            know-how across a spectrum of disciplines — from infrastructure
-            design to smart city advocacy.
+            Engineering expertise, strategic insight, and regulatory know-how —
+            from infrastructure design to smart city advocacy.
           </p>
+          <div class="flex items-center gap-6 mt-3">
+            <div class="text-center">
+              <div class="font-display text-3xl font-light text-white">6</div>
+              <div
+                class="text-xs uppercase tracking-widest"
+                style="color: rgba(255, 255, 255, 0.28)"
+              >
+                Service Areas
+              </div>
+            </div>
+            <div
+              style="
+                width: 1px;
+                height: 36px;
+                background: rgba(255, 255, 255, 0.12);
+              "
+            ></div>
+            <div class="text-center">
+              <div class="font-display text-3xl font-light text-white">20+</div>
+              <div
+                class="text-xs uppercase tracking-widest"
+                style="color: rgba(255, 255, 255, 0.28)"
+              >
+                Years Exp.
+              </div>
+            </div>
+            <div
+              style="
+                width: 1px;
+                height: 36px;
+                background: rgba(255, 255, 255, 0.12);
+              "
+            ></div>
+            <div class="text-center">
+              <div
+                class="font-display text-3xl font-light"
+                style="color: #b59a6a"
+              >
+                PECE
+              </div>
+              <div
+                class="text-xs uppercase tracking-widest"
+                style="color: rgba(255, 255, 255, 0.28)"
+              >
+                Licensed
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Breadcrumb -->
         <div
-          class="mt-6 flex items-center gap-2 text-xs"
-          style="color: rgba(255, 255, 255, 0.3)"
+          class="mt-8 flex items-center gap-2 text-xs"
+          style="color: rgba(255, 255, 255, 0.22)"
         >
           <a href="index.html" class="hover:text-white transition-colors"
             >Home</a
           >
           <span>/</span>
-          <span style="color: rgba(255, 255, 255, 0.6)">Services</span>
+          <span style="color: rgba(255, 255, 255, 0.46)">Services</span>
         </div>
       </div>
     </section>
-    <!-- ========== END PAGE HERO ========== -->
 
-    <!-- ========== INTRO STRIP ========== -->
-    <section class="svc-intro-strip">
+    <!-- ══ SECTION 1: SERVICES CAROUSEL ══ -->
+    <section class="carousel-section">
       <div
-        class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+        class="max-w-7xl mx-auto px-6"
+        style="position: relative; z-index: 1"
       >
-        <div class="flex flex-col gap-1">
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">
-            Engr. Edwin L. Astorga · PECE, DM
-          </p>
-          <p class="text-sm text-primary font-medium max-w-xl">
-            A licensed Professional Electronics Engineer offering consulting and
-            design services grounded in decades of field experience.
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 reveal"
+        >
+          <div>
+            <span class="eyebrow">Areas of Practice</span>
+            <h2 class="font-display text-4xl font-light text-primary mt-2">
+              How I Can <em>Help You</em>
+            </h2>
+          </div>
+          <p class="text-sm text-muted max-w-xs leading-relaxed">
+            Browse all six service areas — use the arrows or dots to navigate.
           </p>
         </div>
-        <div class="flex items-center gap-3 flex-shrink-0">
-          <div class="svc-stat">
-            <span class="svc-stat-num">6</span>
-            <span class="svc-stat-label">Service Areas</span>
+
+        <div class="carousel-outer reveal">
+          <!-- LEFT ARROW -->
+          <button
+            class="carousel-arrow carousel-arrow--left"
+            id="btn-prev"
+            aria-label="Previous"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+              <!-- 01 -->
+              <div class="carousel-card is-active" data-index="0">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <rect x="4" y="4" width="7" height="7" rx="1" />
+                      <rect x="13" y="4" width="7" height="7" rx="1" />
+                      <rect x="4" y="13" width="7" height="7" rx="1" />
+                      <rect x="13" y="13" width="7" height="7" rx="1" />
+                    </svg>
+                  </div>
+                  <span class="card-num">01 / 06</span>
+                </div>
+                <h3 class="card-title">IT Consulting &amp; System Design</h3>
+                <p class="card-desc">
+                  End-to-end advisory and design for enterprise IT
+                  infrastructure — network topology, data center architecture,
+                  cybersecurity frameworks, and IT audit.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">IT Infrastructure</span>
+                  <span class="card-tag">Network Design</span>
+                  <span class="card-tag">Cybersecurity</span>
+                </div>
+              </div>
+
+              <!-- 02 -->
+              <div class="carousel-card" data-index="1">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="card-num">02 / 06</span>
+                </div>
+                <h3 class="card-title">PEZA ICT Consulting</h3>
+                <p class="card-desc">
+                  Specialized guidance for PEZA ICT registration and compliance
+                  — navigating accreditation requirements and maximizing
+                  available fiscal incentives.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">PEZA Regulatory</span>
+                  <span class="card-tag">ICT Accreditation</span>
+                  <span class="card-tag">Incentives</span>
+                </div>
+              </div>
+
+              <!-- 03 -->
+              <div class="carousel-card" data-index="2">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                      />
+                      <polyline
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        points="9 22 9 12 15 12 15 22"
+                      />
+                    </svg>
+                  </div>
+                  <span class="card-num">03 / 06</span>
+                </div>
+                <h3 class="card-title">Smart City Planning &amp; Advocacy</h3>
+                <p class="card-desc">
+                  IoT and digital infrastructure planning for intelligent urban
+                  development — working with LGUs and developers to shape
+                  connected city ecosystems.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">Smart City</span>
+                  <span class="card-tag">IoT Planning</span>
+                  <span class="card-tag">LGU Advisory</span>
+                </div>
+              </div>
+
+              <!-- 04 -->
+              <div class="carousel-card" data-index="3">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <polyline
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        points="22 12 18 12 15 21 9 3 6 12 2 12"
+                      />
+                    </svg>
+                  </div>
+                  <span class="card-num">04 / 06</span>
+                </div>
+                <h3 class="card-title">Electronics Systems Design</h3>
+                <p class="card-desc">
+                  Circuit design, embedded systems, and industrial automation —
+                  delivering performance-optimized electronic solutions across
+                  diverse sectors with PECE expertise.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">PECE Licensed</span>
+                  <span class="card-tag">Circuit Design</span>
+                  <span class="card-tag">Embedded Systems</span>
+                </div>
+              </div>
+
+              <!-- 05 -->
+              <div class="carousel-card" data-index="4">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                      />
+                    </svg>
+                  </div>
+                  <span class="card-num">05 / 06</span>
+                </div>
+                <h3 class="card-title">Telecommunications Infrastructure</h3>
+                <p class="card-desc">
+                  Strategic planning for fiber optic networks, wireless systems,
+                  and tower deployments — end-to-end guidance from design
+                  through commissioning.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">Fiber Optic</span>
+                  <span class="card-tag">Wireless Networks</span>
+                  <span class="card-tag">RF Engineering</span>
+                </div>
+              </div>
+
+              <!-- 06 -->
+              <div class="carousel-card" data-index="5">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line
+                        x1="2"
+                        y1="12"
+                        x2="22"
+                        y2="12"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="card-num">06 / 06</span>
+                </div>
+                <h3 class="card-title">NTC WDN Permit Consulting</h3>
+                <p class="card-desc">
+                  Expert consultancy for NTC Wireless Distribution Network
+                  permits — technical documentation, frequency planning, and
+                  direct NTC liaison for timely approval.
+                </p>
+                <div class="card-tags">
+                  <span class="card-tag">NTC Regulatory</span>
+                  <span class="card-tag">WDN Permits</span>
+                  <span class="card-tag">Telco Compliance</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="svc-stat-divider"></div>
-          <div class="svc-stat">
-            <span class="svc-stat-num">20+</span>
-            <span class="svc-stat-label">Years Experience</span>
-          </div>
-          <div class="svc-stat-divider"></div>
-          <div class="svc-stat">
-            <span class="svc-stat-num">PH</span>
-            <span class="svc-stat-label">Licensed · PECE</span>
-          </div>
+
+          <!-- RIGHT ARROW -->
+          <button
+            class="carousel-arrow carousel-arrow--right"
+            id="btn-next"
+            aria-label="Next"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="carousel-footer reveal">
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <span class="carousel-counter"
+            ><strong id="slide-cur">1</strong> of
+            <span id="slide-tot">6</span></span
+          >
         </div>
       </div>
     </section>
-    <!-- ========== END INTRO STRIP ========== -->
 
-    <!-- ========== SERVICES GRID ========== -->
-    <section id="services" class="py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Section label -->
-        <div class="mb-12 flex flex-col gap-1 reveal">
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >Areas of Practice</span
+    <!-- ══ SECTION 2: COMPANIES ══ -->
+    <section class="companies-section">
+      <div
+        class="max-w-7xl mx-auto px-6"
+        style="position: relative; z-index: 1"
+      >
+        <div class="flex flex-col gap-3 mb-12 reveal">
+          <span class="eyebrow" style="color: rgba(181, 154, 106, 0.8)"
+            >Corporate Leadership</span
           >
-          <h2 class="font-display text-3xl md:text-4xl font-light text-primary">
-            How I Can <em>Help You</em>
-          </h2>
-          <div class="w-8 h-px mt-1" style="background: #b59a6a"></div>
-        </div>
-
-        <!-- 3-column grid -->
-        <div class="svc-grid">
-          <!-- 01 — IT Consulting -->
-          <div class="svc-card reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon">
-                <!-- Circuit / tech icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="2" y="7" width="6" height="10" rx="1" />
-                  <rect x="16" y="7" width="6" height="10" rx="1" />
-                  <path d="M8 12h8M12 7V4M12 20v-3" />
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                </svg>
-              </div>
-              <span class="svc-card-num">01</span>
-            </div>
-            <h3 class="svc-card-title">IT Consulting</h3>
-            <p class="svc-card-desc">
-              Strategic technology advisory for organizations navigating digital
-              transformation. Covers systems integration, network infrastructure
-              planning, IoT deployment, and technology roadmapping aligned to
-              business objectives.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag">Systems Integration</span>
-              <span class="svc-tag">IoT</span>
-              <span class="svc-tag">Digital Strategy</span>
-            </div>
-          </div>
-
-          <!-- 02 — Engineering Design -->
-          <div class="svc-card reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon">
-                <!-- Drafting / design icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M2 20h20M4 20V10l8-7 8 7v10" />
-                  <rect x="9" y="14" width="6" height="6" rx="0.5" />
-                  <path d="M9 17h6" />
-                </svg>
-              </div>
-              <span class="svc-card-num">02</span>
-            </div>
-            <h3 class="svc-card-title">Engineering Design</h3>
-            <p class="svc-card-desc">
-              End-to-end electronics and electrical engineering design services
-              for commercial, industrial, and infrastructure projects. From
-              schematic layout to technical documentation, ensuring compliance
-              with local and international standards.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag">Schematics</span>
-              <span class="svc-tag">ECE Design</span>
-              <span class="svc-tag">Compliance</span>
-            </div>
-          </div>
-
-          <!-- 03 — Project Management -->
-          <div class="svc-card reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon">
-                <!-- Gantt / PM icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M3 5h8M3 9h13M3 13h10M3 17h6" />
-                  <rect x="13" y="4" width="8" height="3" rx="0.5" />
-                  <rect x="18" y="8" width="3" height="3" rx="0.5" />
-                  <rect x="15" y="12" width="6" height="3" rx="0.5" />
-                  <rect x="11" y="16" width="10" height="3" rx="0.5" />
-                </svg>
-              </div>
-              <span class="svc-card-num">03</span>
-            </div>
-            <h3 class="svc-card-title">Project Management</h3>
-            <p class="svc-card-desc">
-              Structured oversight of engineering and technology projects from
-              initiation to completion. Applies proven frameworks to control
-              scope, timelines, and resources — ensuring delivery within budget
-              and to specification.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag">Scoping</span>
-              <span class="svc-tag">Scheduling</span>
-              <span class="svc-tag">Risk Management</span>
-            </div>
-          </div>
-
-          <!-- 04 — Strategic Planning -->
-          <div class="svc-card reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon">
-                <!-- Target / strategy icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
-                </svg>
-              </div>
-              <span class="svc-card-num">04</span>
-            </div>
-            <h3 class="svc-card-title">Strategic Planning</h3>
-            <p class="svc-card-desc">
-              Advisory support for organizations and government units developing
-              long-term technology, innovation, and sustainability strategies.
-              Draws on deep cross-sector experience in smart cities, ESG, and
-              engineering governance.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag">ESG Strategy</span>
-              <span class="svc-tag">Smart Cities</span>
-              <span class="svc-tag">Innovation Roadmaps</span>
-            </div>
-          </div>
-
-          <!-- 05 — PEZA Electronics Plan -->
-          <div class="svc-card svc-card--featured reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon svc-card-icon--light">
-                <!-- Seal / stamp icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M12 2l2.4 4.8 5.6.8-4 3.9.9 5.5L12 14.5l-4.9 2.5.9-5.5-4-3.9 5.6-.8z"
-                  />
-                  <path d="M8 21h8M10 21v-4M14 21v-4" />
-                </svg>
-              </div>
-              <span class="svc-card-num" style="color: rgba(181, 154, 106, 0.5)"
-                >05</span
-              >
-            </div>
-            <h3 class="svc-card-title svc-card-title--light">
-              PEZA Electronics Plan Design, Sign &amp; Seal
-            </h3>
-            <p class="svc-card-desc svc-card-desc--light">
-              Preparation, design, signing, and sealing of electronics plans
-              required for PEZA-registered locators and ecozone developments. As
-              a licensed PECE, Engr. Astorga provides the professional
-              endorsement needed to satisfy PEZA regulatory requirements.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag svc-tag--light">PEZA Compliance</span>
-              <span class="svc-tag svc-tag--light">Plan Design</span>
-              <span class="svc-tag svc-tag--light">PECE Sign &amp; Seal</span>
-            </div>
-          </div>
-
-          <!-- 06 — NTC WDN Permit -->
-          <div class="svc-card reveal">
-            <div class="svc-card-top">
-              <div class="svc-card-icon">
-                <!-- Signal / permit icon -->
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M1 6C4 3 8 2 12 2s8 1 11 4" />
-                  <path d="M4 9.5C6.5 7.2 9.2 6 12 6s5.5 1.2 8 3.5" />
-                  <path d="M7.5 13c1.3-1.2 2.8-1.9 4.5-1.9s3.2.7 4.5 1.9" />
-                  <circle
-                    cx="12"
-                    cy="17"
-                    r="2"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                  <path d="M12 19v3" />
-                </svg>
-              </div>
-              <span class="svc-card-num">06</span>
-            </div>
-            <h3 class="svc-card-title">NTC WDN Permit Consultancy</h3>
-            <p class="svc-card-desc">
-              Expert consultancy for securing National Telecommunications
-              Commission Wireless Distribution Network permits. Covers technical
-              documentation, frequency planning, regulatory submissions, and
-              liaison with NTC for timely approval.
-            </p>
-            <div class="svc-card-tags">
-              <span class="svc-tag">NTC Regulatory</span>
-              <span class="svc-tag">WDN Permits</span>
-              <span class="svc-tag">Telco Compliance</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ========== END SERVICES GRID ========== -->
-
-    <!-- ========== PROCESS SECTION ========== -->
-    <section class="svc-process-section py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-12 flex flex-col items-center gap-2 text-center reveal">
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >How It Works</span
+          <h2
+            class="font-display text-4xl md:text-5xl font-light text-white mt-1"
           >
-          <h2 class="font-display text-3xl md:text-4xl font-light text-primary">
-            The <em>Engagement</em> Process
+            Companies <em style="color: #b59a6a">Led &amp; Co-Led</em>
           </h2>
-          <div class="w-8 h-px mt-1" style="background: #b59a6a"></div>
-          <p class="text-sm text-muted mt-2 max-w-md leading-relaxed">
-            A structured, transparent approach from first conversation to final
-            delivery.
+          <p
+            class="text-sm font-light leading-relaxed"
+            style="color: rgba(255, 255, 255, 0.32); max-width: 480px"
+          >
+            A portfolio of organizations under direct leadership and
+            collaborative co-leadership — spanning technology, engineering, and
+            digital services.
           </p>
+          <div
+            class="w-8 h-px"
+            style="background: #b59a6a; margin-top: 4px"
+          ></div>
         </div>
 
-        <div class="svc-process-row">
-          <div class="svc-process-step reveal">
-            <div class="svc-process-num">01</div>
-            <div class="svc-process-connector"></div>
-            <h4 class="svc-process-title">Initial Consultation</h4>
-            <p class="svc-process-desc">
-              We discuss your requirements, constraints, and goals in detail to
-              define the right scope of work.
-            </p>
-          </div>
-          <div class="svc-process-step reveal">
-            <div class="svc-process-num">02</div>
-            <div class="svc-process-connector"></div>
-            <h4 class="svc-process-title">Proposal &amp; Scoping</h4>
-            <p class="svc-process-desc">
-              A clear proposal is prepared outlining deliverables, timelines,
-              and professional fees for your review.
-            </p>
-          </div>
-          <div class="svc-process-step reveal">
-            <div class="svc-process-num">03</div>
-            <div class="svc-process-connector"></div>
-            <h4 class="svc-process-title">Execution</h4>
-            <p class="svc-process-desc">
-              Work commences with regular updates and milestones tracked against
-              the agreed project plan.
-            </p>
-          </div>
-          <div class="svc-process-step reveal">
-            <div class="svc-process-num">04</div>
+        <div class="companies-grid">
+          <!-- Featured wide -->
+          <div
+            class="company-card company-card--lead company-card--span2 reveal"
+          >
+            <div class="co-badge co-badge--lead">
+              <div class="co-badge-dot"></div>
+              Lead — Founder &amp; CEO
+            </div>
             <div
-              class="svc-process-connector svc-process-connector--last"
-            ></div>
-            <h4 class="svc-process-title">Delivery &amp; Support</h4>
-            <p class="svc-process-desc">
-              Final outputs are handed over with thorough documentation and
-              post-engagement support as needed.
+              class="flex flex-col md:flex-row md:items-start md:justify-between gap-4"
+            >
+              <div class="flex flex-col gap-2 flex-1">
+                <h3 class="company-name company-name--lg">
+                  TechServ Solutions, Inc.
+                </h3>
+                <p class="company-role">
+                  Chief Executive Officer &amp; Founder
+                </p>
+                <p class="company-desc" style="max-width: 460px">
+                  A full-service ICT solutions company providing managed IT,
+                  systems integration, and telco consulting to enterprise and
+                  government clients across the Philippines. Founded to bridge
+                  infrastructure gaps through technology.
+                </p>
+              </div>
+              <div class="flex flex-col gap-0 items-end flex-shrink-0">
+                <div
+                  style="
+                    font-size: 9px;
+                    font-weight: 700;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: rgba(181, 154, 106, 0.4);
+                  "
+                >
+                  Est.
+                </div>
+                <div
+                  class="font-display"
+                  style="
+                    font-size: 36px;
+                    font-weight: 300;
+                    color: #b59a6a;
+                    line-height: 1.1;
+                  "
+                >
+                  2008
+                </div>
+              </div>
+            </div>
+            <div class="company-meta">
+              <span class="company-meta-tag">ICT Services</span>
+              <span class="company-meta-tag">Managed IT</span>
+              <span class="company-meta-tag">Systems Integration</span>
+              <span class="company-meta-tag">Government Contracts</span>
+            </div>
+          </div>
+
+          <div class="company-card company-card--lead reveal">
+            <div class="co-badge co-badge--lead">
+              <div class="co-badge-dot"></div>
+              Lead — Principal
+            </div>
+            <h3 class="company-name">ELA Engineering Consultancy</h3>
+            <p class="company-role">Principal &amp; Managing Director</p>
+            <p class="company-desc">
+              Licensed engineering consultancy specializing in electronics
+              design, telco infrastructure, and regulatory compliance advisory
+              for public and private sector clients.
             </p>
+            <div class="company-meta">
+              <span class="company-meta-tag">Engineering</span>
+              <span class="company-meta-tag">PECE Licensed</span>
+              <span class="company-meta-tag">Consultancy</span>
+            </div>
+          </div>
+
+          <div class="company-card company-card--colead reveal">
+            <div class="co-badge co-badge--colead">
+              <div class="co-badge-dot"></div>
+              Co-Lead — Director
+            </div>
+            <h3 class="company-name">DigiHub Corporation</h3>
+            <p class="company-role company-role--dim">
+              Board Director &amp; Technical Advisor
+            </p>
+            <p class="company-desc">
+              Digital transformation firm helping SMEs and LGUs transition to
+              cloud platforms and smart digital infrastructure, co-leading
+              strategic and technical direction.
+            </p>
+            <div class="company-meta">
+              <span class="company-meta-tag">Digital Transformation</span>
+              <span class="company-meta-tag">Cloud Services</span>
+            </div>
+          </div>
+
+          <div class="company-card company-card--colead reveal">
+            <div class="co-badge co-badge--colead">
+              <div class="co-badge-dot"></div>
+              Co-Lead — Partner
+            </div>
+            <h3 class="company-name">SmartCity Ventures Inc.</h3>
+            <p class="company-role company-role--dim">
+              Managing Partner &amp; Urban Tech Lead
+            </p>
+            <p class="company-desc">
+              Venture focused on smart urban development and IoT infrastructure
+              deployment across Luzon and Visayas municipalities.
+            </p>
+            <div class="company-meta">
+              <span class="company-meta-tag">Smart City</span>
+              <span class="company-meta-tag">IoT</span>
+              <span class="company-meta-tag">Urban Tech</span>
+            </div>
+          </div>
+
+          <div class="company-card company-card--colead reveal">
+            <div class="co-badge co-badge--colead">
+              <div class="co-badge-dot"></div>
+              Co-Lead — Senior Advisor
+            </div>
+            <h3 class="company-name">Telco Regulatory Advisors Group</h3>
+            <p class="company-role company-role--dim">
+              Senior Technical Advisor
+            </p>
+            <p class="company-desc">
+              Specialized consultancy assisting telco operators with NTC
+              compliance, WDN permitting, and spectrum management across the
+              Philippines.
+            </p>
+            <div class="company-meta">
+              <span class="company-meta-tag">NTC Regulatory</span>
+              <span class="company-meta-tag">Spectrum Mgmt</span>
+            </div>
+          </div>
+
+          <div class="company-card company-card--lead reveal">
+            <div class="co-badge co-badge--lead">
+              <div class="co-badge-dot"></div>
+              Lead — Zone Rep
+            </div>
+            <h3 class="company-name">PEZA ICT Enterprise Hub</h3>
+            <p class="company-role">
+              Zone Representative &amp; Compliance Lead
+            </p>
+            <p class="company-desc">
+              Heading PEZA ICT zone enterprise representation — ensuring full
+              regulatory compliance while maximizing incentives under the CREATE
+              Act.
+            </p>
+            <div class="company-meta">
+              <span class="company-meta-tag">PEZA</span>
+              <span class="company-meta-tag">ICT Zone</span>
+              <span class="company-meta-tag">CREATE Act</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div
+          class="mt-14 pt-10 border-t reveal"
+          style="border-color: rgba(255, 255, 255, 0.07)"
+        >
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-8"
+          >
+            <div class="flex items-center gap-10">
+              <div class="text-center">
+                <div
+                  class="font-display text-4xl font-light"
+                  style="color: #b59a6a"
+                >
+                  3
+                </div>
+                <div
+                  class="text-xs uppercase tracking-widest mt-1"
+                  style="color: rgba(255, 255, 255, 0.28)"
+                >
+                  Companies Led
+                </div>
+              </div>
+              <div
+                style="
+                  width: 1px;
+                  height: 36px;
+                  background: rgba(255, 255, 255, 0.1);
+                "
+              ></div>
+              <div class="text-center">
+                <div class="font-display text-4xl font-light text-white">3</div>
+                <div
+                  class="text-xs uppercase tracking-widest mt-1"
+                  style="color: rgba(255, 255, 255, 0.28)"
+                >
+                  Co-Led
+                </div>
+              </div>
+              <div
+                style="
+                  width: 1px;
+                  height: 36px;
+                  background: rgba(255, 255, 255, 0.1);
+                "
+              ></div>
+              <div class="text-center">
+                <div class="font-display text-4xl font-light text-white">6</div>
+                <div
+                  class="text-xs uppercase tracking-widest mt-1"
+                  style="color: rgba(255, 255, 255, 0.28)"
+                >
+                  Total Orgs
+                </div>
+              </div>
+            </div>
+            <a
+              href="#"
+              style="color: #b59a6a; border-color: #b59a6a"
+              class="inline-flex items-center gap-3 px-6 py-3 border text-sm font-medium rounded-sm hover:bg-gold hover:text-white transition-all duration-200"
+            >
+              Schedule a Consultation
+              <svg
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14M12 5l7 7-7 7"
+                />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    <!-- ========== END PROCESS ========== -->
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer class="site-footer py-12">
-      <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto px-6">
         <div
           class="flex flex-col md:flex-row items-center justify-between gap-8"
         >
@@ -499,30 +1236,26 @@
           </div>
           <ul class="flex items-center gap-6 text-xs font-medium text-muted">
             <li>
-              <a
-                href="index.html"
-                class="hover:text-primary transition-colors duration-200"
+              <a href="index.html" class="hover:text-primary transition-colors"
                 >Home</a
               >
             </li>
             <li>
               <a
                 href="background.html"
-                class="hover:text-primary transition-colors duration-200"
+                class="hover:text-primary transition-colors"
                 >Background</a
               >
             </li>
             <li>
               <a
                 href="services.html"
-                class="hover:text-primary transition-colors duration-200"
+                class="hover:text-primary transition-colors"
                 >Services</a
               >
             </li>
             <li>
-              <a
-                href="about.html"
-                class="hover:text-primary transition-colors duration-200"
+              <a href="about.html" class="hover:text-primary transition-colors"
                 >About</a
               >
             </li>
@@ -580,36 +1313,102 @@
         </div>
       </div>
     </footer>
-    <!-- ========== END FOOTER ========== -->
 
     <script>
       document.getElementById("footer-year").textContent =
         new Date().getFullYear();
+      document
+        .getElementById("menu-btn")
+        .addEventListener("click", () =>
+          document.getElementById("mobile-menu").classList.toggle("hidden"),
+        );
+      document
+        .querySelectorAll(".nav-link")
+        .forEach((l) =>
+          l.addEventListener("click", () =>
+            document.getElementById("mobile-menu").classList.add("hidden"),
+          ),
+        );
 
-      document.getElementById("menu-btn").addEventListener("click", () => {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
+      // ── CAROUSEL ──
+      const track = document.getElementById("carousel-track");
+      const cards = Array.from(track.querySelectorAll(".carousel-card"));
+      const total = cards.length;
+      const dotsEl = document.getElementById("carousel-dots");
+      const curEl = document.getElementById("slide-cur");
+      document.getElementById("slide-tot").textContent = total;
+      let cur = 0;
+
+      function cardStep() {
+        const card = cards[0];
+        const style = getComputedStyle(track);
+        const gap = parseInt(style.gap) || 18;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      function goTo(n) {
+        cur = Math.max(0, Math.min(n, total - 1));
+        track.style.transform = `translateX(-${cur * cardStep()}px)`;
+        cards.forEach((c, i) => c.classList.toggle("is-active", i === cur));
+        dotsEl
+          .querySelectorAll(".carousel-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === cur));
+        curEl.textContent = cur + 1;
+      }
+
+      // Build dots
+      cards.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.className = "carousel-dot" + (i === 0 ? " active" : "");
+        d.setAttribute("aria-label", "Go to slide " + (i + 1));
+        d.addEventListener("click", () => goTo(i));
+        dotsEl.appendChild(d);
       });
 
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          document.getElementById("mobile-menu").classList.add("hidden");
-        });
+      document
+        .getElementById("btn-prev")
+        .addEventListener("click", () => goTo(cur - 1));
+      document
+        .getElementById("btn-next")
+        .addEventListener("click", () => goTo(cur + 1));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") goTo(cur + 1);
+        if (e.key === "ArrowLeft") goTo(cur - 1);
       });
 
-      // Scroll reveal
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
+      // Swipe
+      let tx = 0;
+      track.addEventListener(
+        "touchstart",
+        (e) => {
+          tx = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      track.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 44) dx < 0 ? goTo(cur + 1) : goTo(cur - 1);
+      });
+
+      window.addEventListener("resize", () => goTo(cur));
+      goTo(0);
+
+      // ── SCROLL REVEAL ──
+      const obs = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              obs.unobserve(e.target);
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.08 },
       );
-      reveals.forEach((el) => observer.observe(el));
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        el.style.transitionDelay = i * 0.055 + "s";
+        obs.observe(el);
+      });
     </script>
   </body>
 </html>
