@@ -3,38 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Background | Engr. Edwin Astorga</title>
+    <title>Services | Engr. Edwin Astorga</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: { sans: ["Inter", "sans-serif"] },
+            fontFamily: {
+              display: ["Cormorant Garamond", "serif"],
+              sans: ["Inter", "sans-serif"],
+            },
             colors: {
               primary: "#1e293b",
               surface: "#f8f9fa",
               muted: "#6b7280",
               accent: "#334155",
               border: "#e2e8f0",
+              gold: "#b59a6a",
             },
           },
         },
       };
     </script>
+
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/services.css" />
   </head>
+
   <body class="bg-surface font-sans text-primary antialiased">
-    <!-- NAVBAR -->
+    <!-- ========== NAVBAR ========== -->
     <nav
       class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
     >
-      <div
-        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
-      >
+      <div class="max-w-7xl mx-auto px-6 py-5 grid grid-cols-3 items-center">
         <a
           href="index.html"
           class="text-lg font-semibold tracking-tight text-primary"
@@ -42,51 +49,567 @@
           ELA<span class="text-muted font-light">.eng</span>
         </a>
         <ul
-          class="hidden md:flex items-center gap-8 text-sm font-medium text-muted"
+          class="hidden md:flex items-center justify-center gap-8 text-sm font-medium"
         >
           <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="background.html" class="nav-link">Background</a></li>
           <li>
-            <a href="background.html" class="nav-link active-link"
-              >Background</a
-            >
+            <a href="services.html" class="nav-link active-link">Services</a>
           </li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
-        <button id="menu-btn" class="md:hidden text-primary focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+        <div class="hidden md:flex justify-end">
+          <a
+            href="#"
+            class="px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm hover:bg-accent transition-colors duration-200"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+            Contact Me
+          </a>
+        </div>
+        <div class="md:hidden flex justify-end col-span-2">
+          <button id="menu-btn" class="text-primary focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <div
         id="mobile-menu"
         class="hidden md:hidden bg-white border-t border-border px-6 py-4"
       >
-        <ul class="flex flex-col gap-4 text-sm font-medium text-muted">
+        <ul class="flex flex-col gap-4 text-sm font-medium">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="background.html" class="nav-link">Background</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
+        <a
+          href="#"
+          class="mt-5 inline-block px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm"
+          >Contact Me</a
+        >
       </div>
     </nav>
+    <!-- ========== END NAVBAR ========== -->
 
-    <!-- CONTENT PLACEHOLDER -->
-    <main class="min-h-screen flex items-center justify-center pt-20">
-      <p class="text-muted text-sm">Background page — coming soon</p>
-    </main>
+    <!-- ========== PAGE HERO ========== -->
+    <section class="svc-hero">
+      <div class="svc-hero-abstract"></div>
+      <div class="max-w-6xl mx-auto px-6 relative z-10 pt-36 pb-20">
+        <div class="max-w-2xl flex flex-col gap-4">
+          <span
+            class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest"
+            style="color: rgba(181, 154, 106, 0.9)"
+          >
+            <span class="w-5 h-px" style="background: #b59a6a"></span>
+            What I Offer
+          </span>
+          <h1
+            class="font-display text-4xl md:text-5xl font-light text-white leading-tight"
+          >
+            Professional
+            <span style="color: #b59a6a; font-style: italic">Services</span>
+          </h1>
+          <p
+            class="text-sm font-light leading-relaxed"
+            style="color: rgba(255, 255, 255, 0.5)"
+          >
+            Delivering engineering expertise, strategic insight, and regulatory
+            know-how across a spectrum of disciplines — from infrastructure
+            design to smart city advocacy.
+          </p>
+        </div>
+        <!-- Breadcrumb -->
+        <div
+          class="mt-6 flex items-center gap-2 text-xs"
+          style="color: rgba(255, 255, 255, 0.3)"
+        >
+          <a href="index.html" class="hover:text-white transition-colors"
+            >Home</a
+          >
+          <span>/</span>
+          <span style="color: rgba(255, 255, 255, 0.6)">Services</span>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END PAGE HERO ========== -->
 
-    <script src="js/main.js"></script>
+    <!-- ========== INTRO STRIP ========== -->
+    <section class="svc-intro-strip">
+      <div
+        class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+      >
+        <div class="flex flex-col gap-1">
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">
+            Engr. Edwin L. Astorga · PECE, DM
+          </p>
+          <p class="text-sm text-primary font-medium max-w-xl">
+            A licensed Professional Electronics Engineer offering consulting and
+            design services grounded in decades of field experience.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <div class="svc-stat">
+            <span class="svc-stat-num">6</span>
+            <span class="svc-stat-label">Service Areas</span>
+          </div>
+          <div class="svc-stat-divider"></div>
+          <div class="svc-stat">
+            <span class="svc-stat-num">20+</span>
+            <span class="svc-stat-label">Years Experience</span>
+          </div>
+          <div class="svc-stat-divider"></div>
+          <div class="svc-stat">
+            <span class="svc-stat-num">PH</span>
+            <span class="svc-stat-label">Licensed · PECE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END INTRO STRIP ========== -->
+
+    <!-- ========== SERVICES GRID ========== -->
+    <section id="services" class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <!-- Section label -->
+        <div class="mb-12 flex flex-col gap-1 reveal">
+          <span
+            class="text-xs font-semibold tracking-widest uppercase text-muted"
+            >Areas of Practice</span
+          >
+          <h2 class="font-display text-3xl md:text-4xl font-light text-primary">
+            How I Can <em>Help You</em>
+          </h2>
+          <div class="w-8 h-px mt-1" style="background: #b59a6a"></div>
+        </div>
+
+        <!-- 3-column grid -->
+        <div class="svc-grid">
+          <!-- 01 — IT Consulting -->
+          <div class="svc-card reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon">
+                <!-- Circuit / tech icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <rect x="2" y="7" width="6" height="10" rx="1" />
+                  <rect x="16" y="7" width="6" height="10" rx="1" />
+                  <path d="M8 12h8M12 7V4M12 20v-3" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                </svg>
+              </div>
+              <span class="svc-card-num">01</span>
+            </div>
+            <h3 class="svc-card-title">IT Consulting</h3>
+            <p class="svc-card-desc">
+              Strategic technology advisory for organizations navigating digital
+              transformation. Covers systems integration, network infrastructure
+              planning, IoT deployment, and technology roadmapping aligned to
+              business objectives.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag">Systems Integration</span>
+              <span class="svc-tag">IoT</span>
+              <span class="svc-tag">Digital Strategy</span>
+            </div>
+          </div>
+
+          <!-- 02 — Engineering Design -->
+          <div class="svc-card reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon">
+                <!-- Drafting / design icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M2 20h20M4 20V10l8-7 8 7v10" />
+                  <rect x="9" y="14" width="6" height="6" rx="0.5" />
+                  <path d="M9 17h6" />
+                </svg>
+              </div>
+              <span class="svc-card-num">02</span>
+            </div>
+            <h3 class="svc-card-title">Engineering Design</h3>
+            <p class="svc-card-desc">
+              End-to-end electronics and electrical engineering design services
+              for commercial, industrial, and infrastructure projects. From
+              schematic layout to technical documentation, ensuring compliance
+              with local and international standards.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag">Schematics</span>
+              <span class="svc-tag">ECE Design</span>
+              <span class="svc-tag">Compliance</span>
+            </div>
+          </div>
+
+          <!-- 03 — Project Management -->
+          <div class="svc-card reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon">
+                <!-- Gantt / PM icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M3 5h8M3 9h13M3 13h10M3 17h6" />
+                  <rect x="13" y="4" width="8" height="3" rx="0.5" />
+                  <rect x="18" y="8" width="3" height="3" rx="0.5" />
+                  <rect x="15" y="12" width="6" height="3" rx="0.5" />
+                  <rect x="11" y="16" width="10" height="3" rx="0.5" />
+                </svg>
+              </div>
+              <span class="svc-card-num">03</span>
+            </div>
+            <h3 class="svc-card-title">Project Management</h3>
+            <p class="svc-card-desc">
+              Structured oversight of engineering and technology projects from
+              initiation to completion. Applies proven frameworks to control
+              scope, timelines, and resources — ensuring delivery within budget
+              and to specification.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag">Scoping</span>
+              <span class="svc-tag">Scheduling</span>
+              <span class="svc-tag">Risk Management</span>
+            </div>
+          </div>
+
+          <!-- 04 — Strategic Planning -->
+          <div class="svc-card reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon">
+                <!-- Target / strategy icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
+                </svg>
+              </div>
+              <span class="svc-card-num">04</span>
+            </div>
+            <h3 class="svc-card-title">Strategic Planning</h3>
+            <p class="svc-card-desc">
+              Advisory support for organizations and government units developing
+              long-term technology, innovation, and sustainability strategies.
+              Draws on deep cross-sector experience in smart cities, ESG, and
+              engineering governance.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag">ESG Strategy</span>
+              <span class="svc-tag">Smart Cities</span>
+              <span class="svc-tag">Innovation Roadmaps</span>
+            </div>
+          </div>
+
+          <!-- 05 — PEZA Electronics Plan -->
+          <div class="svc-card svc-card--featured reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon svc-card-icon--light">
+                <!-- Seal / stamp icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M12 2l2.4 4.8 5.6.8-4 3.9.9 5.5L12 14.5l-4.9 2.5.9-5.5-4-3.9 5.6-.8z"
+                  />
+                  <path d="M8 21h8M10 21v-4M14 21v-4" />
+                </svg>
+              </div>
+              <span class="svc-card-num" style="color: rgba(181, 154, 106, 0.5)"
+                >05</span
+              >
+            </div>
+            <h3 class="svc-card-title svc-card-title--light">
+              PEZA Electronics Plan Design, Sign &amp; Seal
+            </h3>
+            <p class="svc-card-desc svc-card-desc--light">
+              Preparation, design, signing, and sealing of electronics plans
+              required for PEZA-registered locators and ecozone developments. As
+              a licensed PECE, Engr. Astorga provides the professional
+              endorsement needed to satisfy PEZA regulatory requirements.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag svc-tag--light">PEZA Compliance</span>
+              <span class="svc-tag svc-tag--light">Plan Design</span>
+              <span class="svc-tag svc-tag--light">PECE Sign &amp; Seal</span>
+            </div>
+          </div>
+
+          <!-- 06 — NTC WDN Permit -->
+          <div class="svc-card reveal">
+            <div class="svc-card-top">
+              <div class="svc-card-icon">
+                <!-- Signal / permit icon -->
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M1 6C4 3 8 2 12 2s8 1 11 4" />
+                  <path d="M4 9.5C6.5 7.2 9.2 6 12 6s5.5 1.2 8 3.5" />
+                  <path d="M7.5 13c1.3-1.2 2.8-1.9 4.5-1.9s3.2.7 4.5 1.9" />
+                  <circle
+                    cx="12"
+                    cy="17"
+                    r="2"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                  <path d="M12 19v3" />
+                </svg>
+              </div>
+              <span class="svc-card-num">06</span>
+            </div>
+            <h3 class="svc-card-title">NTC WDN Permit Consultancy</h3>
+            <p class="svc-card-desc">
+              Expert consultancy for securing National Telecommunications
+              Commission Wireless Distribution Network permits. Covers technical
+              documentation, frequency planning, regulatory submissions, and
+              liaison with NTC for timely approval.
+            </p>
+            <div class="svc-card-tags">
+              <span class="svc-tag">NTC Regulatory</span>
+              <span class="svc-tag">WDN Permits</span>
+              <span class="svc-tag">Telco Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END SERVICES GRID ========== -->
+
+    <!-- ========== PROCESS SECTION ========== -->
+    <section class="svc-process-section py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="mb-12 flex flex-col items-center gap-2 text-center reveal">
+          <span
+            class="text-xs font-semibold tracking-widest uppercase text-muted"
+            >How It Works</span
+          >
+          <h2 class="font-display text-3xl md:text-4xl font-light text-primary">
+            The <em>Engagement</em> Process
+          </h2>
+          <div class="w-8 h-px mt-1" style="background: #b59a6a"></div>
+          <p class="text-sm text-muted mt-2 max-w-md leading-relaxed">
+            A structured, transparent approach from first conversation to final
+            delivery.
+          </p>
+        </div>
+
+        <div class="svc-process-row">
+          <div class="svc-process-step reveal">
+            <div class="svc-process-num">01</div>
+            <div class="svc-process-connector"></div>
+            <h4 class="svc-process-title">Initial Consultation</h4>
+            <p class="svc-process-desc">
+              We discuss your requirements, constraints, and goals in detail to
+              define the right scope of work.
+            </p>
+          </div>
+          <div class="svc-process-step reveal">
+            <div class="svc-process-num">02</div>
+            <div class="svc-process-connector"></div>
+            <h4 class="svc-process-title">Proposal &amp; Scoping</h4>
+            <p class="svc-process-desc">
+              A clear proposal is prepared outlining deliverables, timelines,
+              and professional fees for your review.
+            </p>
+          </div>
+          <div class="svc-process-step reveal">
+            <div class="svc-process-num">03</div>
+            <div class="svc-process-connector"></div>
+            <h4 class="svc-process-title">Execution</h4>
+            <p class="svc-process-desc">
+              Work commences with regular updates and milestones tracked against
+              the agreed project plan.
+            </p>
+          </div>
+          <div class="svc-process-step reveal">
+            <div class="svc-process-num">04</div>
+            <div
+              class="svc-process-connector svc-process-connector--last"
+            ></div>
+            <h4 class="svc-process-title">Delivery &amp; Support</h4>
+            <p class="svc-process-desc">
+              Final outputs are handed over with thorough documentation and
+              post-engagement support as needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END PROCESS ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div class="flex flex-col gap-1 text-center md:text-left">
+            <p class="text-base font-semibold text-primary">
+              Engr. Edwin Londonio Astorga
+            </p>
+            <p class="text-xs text-muted tracking-widest uppercase">
+              PECE, DM · Professional Electronics Engineer
+            </p>
+          </div>
+          <ul class="flex items-center gap-6 text-xs font-medium text-muted">
+            <li>
+              <a
+                href="index.html"
+                class="hover:text-primary transition-colors duration-200"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="background.html"
+                class="hover:text-primary transition-colors duration-200"
+                >Background</a
+              >
+            </li>
+            <li>
+              <a
+                href="services.html"
+                class="hover:text-primary transition-colors duration-200"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="about.html"
+                class="hover:text-primary transition-colors duration-200"
+                >About</a
+              >
+            </li>
+          </ul>
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="Email"
+              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-border/40 text-center">
+          <p class="text-xs text-muted">
+            © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      document.getElementById("menu-btn").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      });
+
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.add("hidden");
+        });
+      });
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

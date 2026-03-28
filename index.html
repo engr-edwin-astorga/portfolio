@@ -42,7 +42,7 @@
           href="index.html"
           class="text-lg font-semibold tracking-tight text-primary"
         >
-          ELA<span class="text-muted font-light">.eng</span>
+          engr.<span class="text-muted font-light">Edwin</span>
         </a>
 
         <!-- Nav Links (center) -->
@@ -126,7 +126,6 @@
               <h1
                 class="text-4xl md:text-5xl font-bold text-primary leading-tight"
               >
-                Hi, I'm <br />
                 <span class="text-accent">Engr. Edwin Londonio Astorga</span>
               </h1>
               <p
@@ -137,8 +136,11 @@
             </div>
 
             <p class="text-muted text-base md:text-lg leading-relaxed max-w-md">
-              Designing reliable, efficient, and innovative electronic systems —
-              from circuit-level design to full-scale embedded solutions.
+              is a distinguised Filipino Professional, Sustainability Consultant
+              and Community Leader. Specializes in Environmental, Social,
+              Governance Consulting, Sustainability Management and Emerging
+              Technologies, with a strong focus on Smart Cities and Green
+              Engineering.
             </p>
 
             <div class="w-12 h-px bg-border"></div>
@@ -209,9 +211,9 @@
     <!-- ========== END HERO ========== -->
 
     <!-- ========== EXPERTISE SECTION ========== -->
-    <section id="expertise" class="expertise-section py-24">
+    <section id="expertise" class="expertise-section py-20">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-16">
+        <div class="flex items-center gap-3 mb-10">
           <span class="w-8 h-px bg-primary"></span>
           <span
             class="text-xs font-semibold tracking-widest uppercase text-muted"
@@ -219,113 +221,221 @@
           >
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <!-- LEFT: Image -->
-          <div class="flex justify-center md:justify-start">
-            <div class="relative">
-              <div
-                class="absolute -top-4 -left-4 w-full h-full bg-border rounded-sm z-0"
-              ></div>
-              <div
-                class="relative z-10 w-64 h-72 md:w-72 md:h-80 bg-gray-100 rounded-sm overflow-hidden border border-border shadow-sm"
-              >
-                <img
-                  id="expertise-img"
-                  alt="Expertise"
-                  class="w-full h-full object-cover object-top"
-                />
-                <div
-                  id="expertise-fallback"
-                  class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100"
-                >
-                  <svg
-                    class="w-14 h-14 text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M5.121 17.804A9 9 0 1118.88 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span class="text-xs text-gray-400">Photo Here</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <!-- LEFT: Photo duo — two equal-size images side by side with creative framing -->
+          <div class="photo-duo">
+            <!-- Decorative corner brackets -->
+            <span class="duo-corner duo-corner--tl"></span>
+            <span class="duo-corner duo-corner--br"></span>
+
+            <div class="duo-grid">
+              <!-- Image 1 -->
+              <div class="duo-cell">
+                <div class="duo-img-wrap">
+                  <img
+                    id="expertise-img-1"
+                    alt="Expertise"
+                    src="assets/images/expertiseimg.jpg"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div class="duo-fallback">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>Photo 1</span>
+                  </div>
                 </div>
+                <!-- Label tag -->
+                <div class="duo-label">Field Work</div>
+              </div>
+
+              <!-- Image 2 -->
+              <div class="duo-cell">
+                <div class="duo-img-wrap">
+                  <img
+                    id="expertise-img-2"
+                    alt="Expertise 2"
+                    src="assets/images/expertiseimg2.jpg"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div class="duo-fallback">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>Photo 2</span>
+                  </div>
+                </div>
+                <!-- Label tag — offset downward for visual rhythm -->
+                <div class="duo-label duo-label--offset">In Action</div>
               </div>
             </div>
+
+            <!-- Gold vertical accent bar -->
+            <div class="photo-collage-accent"></div>
           </div>
 
-          <!-- RIGHT: List -->
-          <div class="flex flex-col gap-8">
+          <!-- RIGHT: Text + expertise list -->
+          <div class="flex flex-col gap-6">
             <div>
               <h2
                 class="text-2xl md:text-3xl font-bold text-primary leading-snug"
               >
-                Areas of <span class="text-muted font-light">Expertise</span>
+                Areas of Expertise
               </h2>
               <p class="mt-2 text-sm text-muted max-w-sm">
                 A cross-disciplinary blend of engineering, sustainability, and
                 innovation.
               </p>
             </div>
-            <ul class="flex flex-col gap-4">
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Sustainability Management
-                </p>
+            <ul class="expertise-list">
+              <li class="expertise-card">
+                <span class="expertise-card-num">01</span>
+                <span class="expertise-card-label"
+                  >Sustainability Management</span
+                >
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  ESG (Environmental, Social, and Governance) Consulting
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">02</span>
+                <span class="expertise-card-label"
+                  >ESG (Environmental, Social, and Governance) Consulting</span
+                >
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Smart Cities Development
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">03</span>
+                <span class="expertise-card-label"
+                  >Smart Cities Development</span
+                >
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Green Engineering
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">04</span>
+                <span class="expertise-card-label">Green Engineering</span>
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Emerging Technologies
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">05</span>
+                <span class="expertise-card-label">Emerging Technologies</span>
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Project Management
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">06</span>
+                <span class="expertise-card-label">Project Management</span>
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
-              <li class="expertise-item flex items-start gap-4">
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
-                <p class="text-sm font-semibold text-primary">
-                  Technopreneurship
-                </p>
+              <li class="expertise-card">
+                <span class="expertise-card-num">07</span>
+                <span class="expertise-card-label">Technopreneurship</span>
+                <svg
+                  class="expertise-card-icon w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </li>
             </ul>
           </div>
@@ -335,9 +445,9 @@
     <!-- ========== END EXPERTISE ========== -->
 
     <!-- ========== AFFILIATIONS SECTION ========== -->
-    <section id="affiliations" class="affiliations-section py-24">
+    <section id="affiliations" class="affiliations-section py-16">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-16">
+        <div class="flex items-center gap-3 mb-10">
           <span class="w-8 h-px bg-primary"></span>
           <span
             class="text-xs font-semibold tracking-widest uppercase text-muted"
@@ -345,15 +455,14 @@
           >
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <!-- LEFT: List -->
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-6">
             <div>
               <h2
                 class="text-2xl md:text-3xl font-bold text-primary leading-snug"
               >
-                Professional
-                <span class="text-muted font-light">Affiliations</span>
+                Professional Affiliations
               </h2>
               <p class="mt-2 text-sm text-muted max-w-sm">
                 Active member and leader across engineering and innovation
@@ -432,41 +541,78 @@
             </ul>
           </div>
 
-          <!-- RIGHT: Image -->
-          <div class="flex justify-center md:justify-end">
-            <div class="relative">
-              <div
-                class="absolute -top-4 -right-4 w-full h-full bg-border rounded-sm z-0"
-              ></div>
-              <div
-                class="relative z-10 w-64 h-72 md:w-72 md:h-80 bg-gray-100 rounded-sm overflow-hidden border border-border shadow-sm"
-              >
-                <img
-                  id="affiliations-img"
-                  alt="Professional Affiliations"
-                  class="w-full h-full object-cover object-top"
-                />
-                <div
-                  id="affiliations-fallback"
-                  class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gray-100"
-                >
-                  <svg
-                    class="w-14 h-14 text-gray-300"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M5.121 17.804A9 9 0 1118.88 6.196M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span class="text-xs text-gray-400">Photo Here</span>
+          <!-- RIGHT: Photo duo — two equal-size images with creative framing -->
+          <div class="photo-duo photo-duo--right">
+            <!-- Decorative corner brackets (mirrored) -->
+            <span class="duo-corner duo-corner--tr"></span>
+            <span class="duo-corner duo-corner--bl"></span>
+
+            <div class="duo-grid">
+              <!-- Image 1 -->
+              <div class="duo-cell">
+                <div class="duo-img-wrap">
+                  <img
+                    id="affiliations-img-1"
+                    alt="Professional Affiliations"
+                    src="assets/images/affiliations.jpg"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div class="duo-fallback">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>Photo 1</span>
+                  </div>
                 </div>
+                <div class="duo-label">Leadership</div>
+              </div>
+
+              <!-- Image 2 -->
+              <div class="duo-cell">
+                <div class="duo-img-wrap">
+                  <img
+                    id="affiliations-img-2"
+                    alt="Professional Affiliations 2"
+                    src="assets/images/affiliations-bg-photo.jpg"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <div class="duo-fallback">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>Photo 2</span>
+                  </div>
+                </div>
+                <div class="duo-label duo-label--offset">Community</div>
               </div>
             </div>
+
+            <!-- Gold accent bar — right side for this variant -->
+            <div class="photo-collage-accent photo-collage-accent--right"></div>
           </div>
         </div>
       </div>
@@ -520,7 +666,7 @@
 
             <!-- Email -->
             <a
-              href="mailto:placeholder@email.com"
+              href="/cdn-cgi/l/email-protection#ccbca0adafa9a4a3a0a8a9be8ca9a1ada5a0e2afa3a1"
               aria-label="Email"
               class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
             >

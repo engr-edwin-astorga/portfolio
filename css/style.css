@@ -88,7 +88,7 @@ html {
 /* ── Expertise section background image ── */
 .expertise-section {
   position: relative;
-  background-image: url("../assets/images/expertise1-bg.jpg");
+  background-image: url("../assets/images/expertise2-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -140,4 +140,230 @@ html {
 /* ── Footer ── */
 .site-footer {
   background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
+}
+
+/* ============================================================
+   PHOTO-DUO — Two equal-size images side by side with
+   creative corner-bracket framing and label tags.
+   ============================================================ */
+
+.photo-duo {
+  position: relative;
+  width: 100%;
+  padding: 10px; /* space for corner brackets to breathe */
+}
+
+/* Two-column equal grid */
+.duo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Each image cell — drives consistent height */
+.duo-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Image wrapper — fixed aspect ratio, clips overflow */
+.duo-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* portrait — looks great side by side */
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 3px 14px rgba(30, 41, 59, 0.1);
+  background: #f1f5f9;
+}
+
+/* Second image: nudge it down for a staggered/offset feel */
+.duo-cell:nth-child(2) .duo-img-wrap {
+  margin-top: 24px;
+}
+
+.duo-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.duo-img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+/* Fallback placeholder */
+.duo-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #f1f5f9;
+}
+.duo-fallback svg {
+  width: 32px;
+  height: 32px;
+  color: #d1d5db;
+}
+.duo-fallback span {
+  font-size: 10px;
+  color: #9ca3af;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Label tag — floats below each image like a caption chip */
+.duo-label {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b59a6a;
+  background: rgba(181, 154, 106, 0.1);
+  border: 1px solid rgba(181, 154, 106, 0.3);
+  border-radius: 2px;
+}
+
+/* Offset label on second cell to match the image stagger */
+.duo-label--offset {
+  margin-top: 32px;
+}
+
+/* ── Decorative corner brackets ── */
+.duo-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+/* Top-left */
+.duo-corner--tl {
+  top: 0;
+  left: 0;
+  border-top: 2.5px solid #b59a6a;
+  border-left: 2.5px solid #b59a6a;
+  border-radius: 3px 0 0 0;
+}
+/* Bottom-right */
+.duo-corner--br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2.5px solid #b59a6a;
+  border-right: 2.5px solid #b59a6a;
+  border-radius: 0 0 3px 0;
+}
+/* Top-right (for mirrored variant) */
+.duo-corner--tr {
+  top: 0;
+  right: 0;
+  border-top: 2.5px solid #b59a6a;
+  border-right: 2.5px solid #b59a6a;
+  border-radius: 0 3px 0 0;
+}
+/* Bottom-left (for mirrored variant) */
+.duo-corner--bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2.5px solid #b59a6a;
+  border-left: 2.5px solid #b59a6a;
+  border-radius: 0 0 0 3px;
+}
+
+/* Gold vertical accent bar — left edge by default */
+.photo-collage-accent {
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 3px;
+  height: calc(100% - 20px);
+  background: linear-gradient(to bottom, #b59a6a, #d4b483);
+  border-radius: 4px;
+}
+.photo-collage-accent--right {
+  left: auto;
+  right: 2px;
+}
+
+/* ============================================================
+   EXPERTISE LIST — Original numbered list style (restored)
+   ============================================================ */
+
+.expertise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.expertise-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-bottom: 1px solid #e2e8f0;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  cursor: default;
+}
+.expertise-card:last-child {
+  border-bottom: none;
+}
+.expertise-card:hover {
+  background: rgba(30, 41, 59, 0.03);
+  transform: translateX(4px);
+}
+
+/* Number badge */
+.expertise-card-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.expertise-card:hover .expertise-card-num {
+  background: #b59a6a;
+}
+
+/* Label */
+.expertise-card-label {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.3;
+}
+
+/* Chevron icon */
+.expertise-card-icon {
+  flex-shrink: 0;
+  color: #cbd5e1;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.expertise-card:hover .expertise-card-icon {
+  color: #b59a6a;
+  transform: translateX(2px);
 }

@@ -151,11 +151,10 @@
     <!-- ========== END PAGE HERO ========== -->
 
     <!-- ========== SECTION 1: PROFESSIONAL BACKGROUND ========== -->
-    <!-- BG image: assets/images/bg-professional.jpg
-         CSS fallback: subtle dot-grid on white -->
-    <section id="professional-background" class="py-14">
+    <section id="professional-background" class="py-20">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="mb-8 flex flex-col gap-1">
+        <!-- Section heading -->
+        <div class="mb-12 flex flex-col gap-1">
           <span
             class="text-xs font-semibold tracking-widest uppercase text-muted"
             >Career Overview</span
@@ -166,69 +165,198 @@
           <div class="w-8 h-px gold-line mt-1"></div>
         </div>
 
-        <div class="grid md:grid-cols-[260px_1fr] gap-7 items-start">
-          <!-- Summary panel -->
-          <div class="bg-summary-panel reveal">
-            <div class="bg-summary-label">Overview</div>
-            <div class="bg-summary-heading">
-              Engineer.<br />Innovator.<br />Leader.
+        <!-- Main two-column split -->
+        <div class="bg-split-layout">
+          <!-- LEFT COLUMN: summary panel + cards -->
+          <div class="bg-split-left">
+            <div class="bg-summary-panel reveal">
+              <div class="bg-summary-label">Overview</div>
+              <div class="bg-summary-heading">Engineer. Innovator. Leader</div>
+              <p class="bg-summary-text">
+                A Filipino professional with a distinguished track record across
+                engineering, innovation management, and smart city advocacy —
+                operating at the intersection of technology and governance.
+              </p>
+              <div style="margin-top: 3px">
+                <span class="bg-pill">PECE</span>
+                <span class="bg-pill">IoT</span>
+                <span class="bg-pill">Smart Cities</span>
+              </div>
             </div>
-            <p class="bg-summary-text">
-              A Filipino professional with a distinguished track record across
-              engineering, innovation management, and smart city advocacy —
-              operating at the intersection of technology and governance.
-            </p>
-            <div style="margin-top: 3px">
-              <span class="bg-pill">PECE</span>
-              <span class="bg-pill">IoT</span>
-              <span class="bg-pill">Smart Cities</span>
+
+            <div class="bg-card-grid">
+              <div class="bg-card reveal">
+                <div class="bg-card-num">01</div>
+                <div class="bg-card-body">
+                  <span class="bg-card-tag">Profession</span>
+                  <div class="bg-card-title">
+                    Professional Electronics Engineer
+                  </div>
+                  <div class="bg-card-sub">Licensed PECE · Philippines</div>
+                </div>
+              </div>
+              <div class="bg-card reveal">
+                <div class="bg-card-num">02</div>
+                <div class="bg-card-body">
+                  <span class="bg-card-tag">Executive</span>
+                  <div class="bg-card-title">Managing Director</div>
+                  <div class="bg-card-sub">AETECH Innovations · Singapore</div>
+                </div>
+              </div>
+              <div class="bg-card reveal">
+                <div class="bg-card-num">03</div>
+                <div class="bg-card-body">
+                  <span class="bg-card-tag">Corporate</span>
+                  <div class="bg-card-title">President / CEO</div>
+                  <div class="bg-card-sub">
+                    Integritech Builders Solutions Inc.
+                  </div>
+                </div>
+              </div>
+              <div class="bg-card reveal">
+                <div class="bg-card-num">04</div>
+                <div class="bg-card-body">
+                  <span class="bg-card-tag">Advocacy</span>
+                  <div class="bg-card-title">
+                    SMART Cities Strategies &amp; Innovations
+                  </div>
+                  <div class="bg-card-sub">
+                    Advocate of smart, connected, and sustainable cities
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Cards grid -->
-          <div class="bg-card-grid">
-            <div class="bg-card reveal">
-              <div class="bg-card-num">01</div>
-              <div class="bg-card-body">
-                <span class="bg-card-tag">Profession</span>
-                <div class="bg-card-title">
-                  Professional Electronics Engineer
-                </div>
-                <div class="bg-card-sub">Licensed PECE · Philippines</div>
+          <!-- RIGHT COLUMN: stacked split image panel -->
+          <div class="bg-split-right reveal">
+            <span class="bg-img-corner bg-img-corner--tl"></span>
+            <span class="bg-img-corner bg-img-corner--br"></span>
+
+            <!-- Image 1 — tall top panel -->
+            <div class="bg-img-cell bg-img-cell--top">
+              <img
+                id="profbg-img-1"
+                src="assets/images/bg-professional.jpg"
+                alt="Professional Background"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="bg-img-fallback">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <circle cx="12" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="32" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="52" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="12" cy="32" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle
+                    cx="32"
+                    cy="32"
+                    r="5"
+                    fill="rgba(181,154,106,0.55)"
+                    stroke="rgba(181,154,106,0.2)"
+                    stroke-width="2"
+                  />
+                  <circle cx="52" cy="32" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="12" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="32" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="52" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
+                  <line
+                    x1="12"
+                    y1="12"
+                    x2="52"
+                    y2="12"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="12"
+                    y1="32"
+                    x2="52"
+                    y2="32"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="12"
+                    y1="52"
+                    x2="52"
+                    y2="52"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="12"
+                    y1="12"
+                    x2="12"
+                    y2="52"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="32"
+                    y1="12"
+                    x2="32"
+                    y2="52"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="52"
+                    y1="12"
+                    x2="52"
+                    y2="52"
+                    stroke="rgba(181,154,106,0.12)"
+                    stroke-width="1"
+                  />
+                </svg>
+                <span>Photo 1</span>
               </div>
+              <div class="bg-img-chip">Engineering</div>
             </div>
-            <div class="bg-card reveal">
-              <div class="bg-card-num">02</div>
-              <div class="bg-card-body">
-                <span class="bg-card-tag">Executive</span>
-                <div class="bg-card-title">Managing Director</div>
-                <div class="bg-card-sub">AETECH Innovations · Singapore</div>
-              </div>
+
+            <!-- Slim divider strip with year marker -->
+            <div class="bg-img-divider">
+              <span class="bg-img-divider-line"></span>
+              <span class="bg-img-divider-dot"></span>
+              <span class="bg-img-divider-label">Field · Work</span>
+              <span class="bg-img-divider-line"></span>
             </div>
-            <div class="bg-card reveal">
-              <div class="bg-card-num">03</div>
-              <div class="bg-card-body">
-                <span class="bg-card-tag">Corporate</span>
-                <div class="bg-card-title">President / CEO</div>
-                <div class="bg-card-sub">
-                  Integritech Builders Solutions Inc.
-                </div>
+
+            <!-- Image 2 — shorter bottom panel, indented -->
+            <div class="bg-img-cell bg-img-cell--bottom">
+              <img
+                id="profbg-img-2"
+                src="assets/images/bg-professional2.jpg"
+                alt="Professional Background 2"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="bg-img-fallback">
+                <svg width="56" height="40" viewBox="0 0 56 40" fill="none">
+                  <path
+                    d="M2 20 C8 10,14 30,20 20 C26 10,32 30,38 20 C44 10,50 30,56 20"
+                    stroke="rgba(181,154,106,0.5)"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <path
+                    d="M2 28 C8 18,14 38,20 28 C26 18,32 38,38 28 C44 18,50 38,56 28"
+                    stroke="rgba(181,154,106,0.2)"
+                    stroke-width="1"
+                    fill="none"
+                  />
+                </svg>
+                <span>Photo 2</span>
               </div>
-            </div>
-            <div class="bg-card reveal">
-              <div class="bg-card-num">04</div>
-              <div class="bg-card-body">
-                <span class="bg-card-tag">Advocacy</span>
-                <div class="bg-card-title">
-                  SMART Cities Strategies &amp; Innovations
-                </div>
-                <div class="bg-card-sub">
-                  Advocate of smart, connected, and sustainable cities
-                </div>
-              </div>
+              <div class="bg-img-chip bg-img-chip--alt">Innovation</div>
             </div>
           </div>
         </div>
+        <!-- /bg-split-layout -->
       </div>
     </section>
     <!-- ========== END PROFESSIONAL BACKGROUND ========== -->
@@ -594,7 +722,7 @@
             style="border-left: 1px solid rgba(255, 255, 255, 0.07)"
           >
             <img
-              src="assets/images/role-public-service.jpg"
+              src="assets/images/captain.jpg"
               alt="Barangay Captain"
               onerror="
                 this.style.display = 'none';
@@ -863,6 +991,38 @@
       document.getElementById("menu-btn").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
+
+      // Professional background image loader — tries multiple filenames
+      function tryLoad(imgId, srcs) {
+        const img = document.getElementById(imgId);
+        if (!img) return;
+        let i = 0;
+        function next() {
+          if (i >= srcs.length) return;
+          const t = new Image();
+          t.onload = () => {
+            img.src = srcs[i];
+          };
+          t.onerror = () => {
+            i++;
+            next();
+          };
+          t.src = srcs[i];
+        }
+        next();
+      }
+      tryLoad("profbg-img-1", [
+        "assets/images/bg-professional.jpg",
+        "assets/images/bg-professional.jpeg",
+        "assets/images/expertiseimg.jpg",
+        "assets/images/role-iot-school.jpg",
+      ]);
+      tryLoad("profbg-img-2", [
+        "assets/images/bg-professional2.jpg",
+        "assets/images/bg-professional2.jpeg",
+        "assets/images/expertiseimg2.jpg",
+        "assets/images/role-iot-automation.jpg",
+      ]);
 
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(

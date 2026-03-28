@@ -1,8 +1,28 @@
 // ── Dynamic footer year ──
 document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-// ── Profile image loader ──
-const imageOptions = [
+// ── Image loader utility ──
+function tryLoad(imgEl, fallbackEl, options, index) {
+  if (!imgEl) return;
+  if (index >= options.length) {
+    if (fallbackEl) {
+      fallbackEl.style.display = "flex";
+      imgEl.style.display = "none";
+    }
+    return;
+  }
+  const t = new Image();
+  t.onload = () => {
+    imgEl.src = options[index];
+    imgEl.style.display = "block";
+    if (fallbackEl) fallbackEl.style.display = "none";
+  };
+  t.onerror = () => tryLoad(imgEl, fallbackEl, options, index + 1);
+  t.src = options[index];
+}
+
+// ── Profile photo ──
+const profileOptions = [
   "assets/images/profile.jpg",
   "assets/images/profile.jpeg",
   "assets/images/profile.png",
@@ -11,54 +31,64 @@ const imageOptions = [
   "assets/images/Profile.jpeg",
   "assets/images/Profile.png",
 ];
-
-function tryLoad(imgEl, fallbackEl, options, index) {
-  if (index >= options.length) {
-    fallbackEl.style.display = "flex";
-    imgEl.style.display = "none";
-    return;
-  }
-  const t = new Image();
-  t.onload = () => {
-    imgEl.src = options[index];
-    imgEl.style.display = "block";
-    fallbackEl.style.display = "none";
-  };
-  t.onerror = () => tryLoad(imgEl, fallbackEl, options, index + 1);
-  t.src = options[index];
-}
-
-// Profile photo
 tryLoad(
   document.getElementById("profile-img"),
   document.getElementById("photo-fallback"),
-  imageOptions,
+  profileOptions,
   0,
 );
 
-// Expertise section photo
-const expertiseOptions = [
+// ── Expertise — Image 1 ──
+// (img src is set directly in HTML; onerror handles fallback)
+// Additional src options can be added here if needed:
+const expertiseImg1Options = [
+  "assets/images/expertiseimg.jpg",
+  "assets/images/expertiseimg.jpeg",
   "assets/images/expertise-bg-photo.jpg",
-  "assets/images/expertise-bg-photo.jpeg",
-  "assets/images/expertise-bg-photo.png",
 ];
 tryLoad(
-  document.getElementById("expertise-img"),
-  document.getElementById("expertise-fallback"),
-  expertiseOptions,
+  document.getElementById("expertise-img-1"),
+  null,
+  expertiseImg1Options,
   0,
 );
 
-// Affiliations section photo
-const affiliationsOptions = [
-  "assets/images/affiliations-bg-photo.jpg",
+// ── Expertise — Image 2 ──
+const expertiseImg2Options = [
+  "assets/images/expertiseimg2.jpg",
+  "assets/images/expertiseimg2.jpeg",
+  "assets/images/expertise-bg-photo2.jpg",
+];
+tryLoad(
+  document.getElementById("expertise-img-2"),
+  null,
+  expertiseImg2Options,
+  0,
+);
+
+// ── Affiliations — Image 1 ──
+const affiliationsImg1Options = [
+  "assets/images/affiliations.jpg",
   "assets/images/affiliations-bg-photo.jpeg",
   "assets/images/affiliations-bg-photo.png",
 ];
 tryLoad(
-  document.getElementById("affiliations-img"),
-  document.getElementById("affiliations-fallback"),
-  affiliationsOptions,
+  document.getElementById("affiliations-img-1"),
+  null,
+  affiliationsImg1Options,
+  0,
+);
+
+// ── Affiliations — Image 2 ──
+const affiliationsImg2Options = [
+  "assets/images/affiliations-bg-photo.jpg",
+  "assets/images/affiliations-bg-photo2.jpeg",
+  "assets/images/affiliations2.jpg",
+];
+tryLoad(
+  document.getElementById("affiliations-img-2"),
+  null,
+  affiliationsImg2Options,
   0,
 );
 
@@ -89,5 +119,4 @@ const fadeObserver = new IntersectionObserver(
   },
   { threshold: 0.15 },
 );
-
 fadeSections.forEach((s) => fadeObserver.observe(s));
