@@ -3,90 +3,1590 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Background | Engr. Edwin Astorga</title>
+    <title>About | Engr. Edwin Astorga</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["Inter", "sans-serif"] },
-            colors: {
-              primary: "#1e293b",
-              surface: "#f8f9fa",
-              muted: "#6b7280",
-              accent: "#334155",
-              border: "#e2e8f0",
-            },
-          },
-        },
-      };
-    </script>
+
     <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* =============================================
+         COLOR PALETTE OVERRIDE — Wedding Greens
+         #2F6352  forest green   — primary accent
+         #5F8575  sage green     — secondary
+         #98B092  mist green     — soft fill
+         #193046  deep navy      — headings / dark
+         #889BAE  steel blue     — muted text
+         ============================================= */
+      :root {
+        --forest: #2f6352;
+        --sage: #5f8575;
+        --mist: #98b092;
+        --navy: #193046;
+        --steel: #889bae;
+        --surface: #f4f7f4;
+        --cream: #fafaf7;
+        --border: #d4e0d4;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--navy);
+        margin: 0;
+      }
+
+      /* =============================================
+         NAVBAR (inherits from style.css, override colors)
+         ============================================= */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(250, 250, 247, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 50;
+      }
+      .nav-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 18px 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+      }
+      .nav-brand {
+        font-family: "Lora", serif;
+        font-size: 1.1rem;
+        color: var(--navy);
+        text-decoration: none;
+      }
+      .nav-brand span {
+        color: var(--sage);
+        font-style: italic;
+        font-weight: 400;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-links a {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--navy);
+        opacity: 0.65;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        opacity: 1;
+        color: var(--forest);
+      }
+      .nav-cta {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 20px;
+        background: var(--forest);
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border-radius: 3px;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .btn-cta:hover {
+        background: #1e4a3b;
+        transform: translateY(-1px);
+      }
+
+      /* =============================================
+         ABOUT HERO — COMPACT (≈50vh)
+         ============================================= */
+      .about-hero {
+        position: relative;
+        min-height: 52vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+        overflow: hidden;
+        background-color: var(--navy);
+        background-image: url("assets/images/about-bg.jpg");
+        background-size: cover;
+        background-position: center 38%;
+      }
+
+      /* Duotone overlay — deep navy + forest green */
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          125deg,
+          rgba(25, 48, 70, 0.88) 0%,
+          rgba(47, 99, 82, 0.72) 55%,
+          rgba(25, 48, 70, 0.82) 100%
+        );
+        z-index: 0;
+      }
+
+      /* Subtle grain */
+      .about-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+        opacity: 0.3;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .about-hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      .about-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 48px;
+        align-items: center;
+      }
+
+      /* ── Hero Text ── */
+      .about-hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .about-hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--mist);
+      }
+      .eyebrow-rule {
+        display: inline-block;
+        width: 24px;
+        height: 1.5px;
+        background: var(--mist);
+        border-radius: 2px;
+      }
+
+      .about-hero-heading {
+        font-family: "Lora", serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 600;
+        color: #fff;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+      .about-hero-heading em {
+        font-style: italic;
+        color: var(--mist);
+      }
+
+      .about-hero-para {
+        font-size: 0.88rem;
+        line-height: 1.72;
+        color: rgba(255, 255, 255, 0.68);
+        max-width: 38ch;
+        margin: 0;
+      }
+
+      .about-hero-divider {
+        width: 40px;
+        height: 1.5px;
+        background: linear-gradient(to right, var(--mist), var(--steel));
+        border-radius: 2px;
+      }
+
+      .about-hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .about-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 11px;
+        font-size: 0.64rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .about-badge:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+      .about-badge--green {
+        color: var(--mist);
+        border-color: rgba(152, 176, 146, 0.4);
+        background: rgba(152, 176, 146, 0.12);
+      }
+      .about-badge--green:hover {
+        background: rgba(152, 176, 146, 0.2);
+        border-color: rgba(152, 176, 146, 0.65);
+      }
+
+      /* ── Hero Photo — compact ── */
+      .about-hero-photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .about-photo-frame {
+        position: relative;
+        width: 100%;
+        max-width: 280px;
+        aspect-ratio: 4/5;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.45),
+          0 4px 14px rgba(0, 0, 0, 0.25);
+      }
+      .about-photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+
+      /* Corner accents */
+      .photo-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        z-index: 3;
+        pointer-events: none;
+      }
+      .photo-corner--tl {
+        top: 10px;
+        left: 10px;
+        border-top: 2px solid var(--mist);
+        border-left: 2px solid var(--mist);
+        border-radius: 2px 0 0 0;
+      }
+      .photo-corner--br {
+        bottom: 10px;
+        right: 10px;
+        border-bottom: 2px solid var(--steel);
+        border-right: 2px solid var(--steel);
+        border-radius: 0 0 2px 0;
+      }
+
+      /* Vertical accent bar */
+      .photo-accent {
+        position: absolute;
+        left: -5px;
+        top: 32px;
+        width: 2.5px;
+        height: 55%;
+        background: linear-gradient(to bottom, var(--mist), var(--steel));
+        border-radius: 4px;
+        z-index: 4;
+      }
+
+      /* Fallback */
+      .about-photo-fallback {
+        display: none;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(
+          135deg,
+          rgba(47, 99, 82, 0.25),
+          rgba(136, 155, 174, 0.2)
+        );
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .about-photo-fallback svg {
+        width: 40px;
+        height: 40px;
+      }
+      .about-photo-fallback span {
+        font-size: 0.66rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      /* =============================================
+         PHOTO GALLERY STRIP — Creative mosaic
+         Sits between hero and contributions
+         ============================================= */
+      .gallery-strip {
+        background: var(--cream);
+        padding: 64px 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .gallery-strip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 15% 50%,
+            rgba(47, 99, 82, 0.06) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 85% 50%,
+            rgba(136, 155, 174, 0.06) 0%,
+            transparent 55%
+          );
+        pointer-events: none;
+      }
+
+      .gallery-header {
+        max-width: 1120px;
+        margin: 0 auto 40px;
+        padding: 0 32px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .gallery-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--forest);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .gallery-label::before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--forest);
+      }
+
+      .gallery-heading {
+        font-family: "Lora", serif;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.15;
+        margin: 6px 0 0;
+      }
+      .gallery-heading em {
+        font-style: italic;
+        color: var(--forest);
+      }
+
+      /* The mosaic grid — creative asymmetric layout */
+      .gallery-mosaic {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        grid-template-rows: 220px 180px;
+        gap: 10px;
+      }
+
+      .gallery-tile {
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        background: var(--mist);
+        cursor: pointer;
+      }
+
+      /* Tile spanning rules */
+      .gallery-tile--hero {
+        grid-column: 1;
+        grid-row: 1 / 3;
+      } /* tall left */
+      .gallery-tile--top2 {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .gallery-tile--top3 {
+        grid-column: 3;
+        grid-row: 1;
+      }
+      .gallery-tile--right {
+        grid-column: 4;
+        grid-row: 1 / 3;
+      } /* tall right */
+      .gallery-tile--bottom2 {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .gallery-tile--bottom3 {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      .gallery-tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .gallery-tile:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Overlay on hover */
+      .gallery-tile-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(25, 48, 70, 0.72) 0%,
+          transparent 55%
+        );
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+      }
+      .gallery-tile:hover .gallery-tile-overlay {
+        opacity: 1;
+      }
+
+      .gallery-tile-caption {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      /* Placeholder tiles (no real image) — styled with gradient & pattern */
+      .gallery-tile--placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .tile-placeholder-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: opacity 0.3s;
+      }
+
+      /* Each placeholder gets a unique tinted gradient */
+      .ph-1 {
+        background: linear-gradient(145deg, #2f6352 0%, #193046 100%);
+      }
+      .ph-2 {
+        background: linear-gradient(145deg, #5f8575 0%, #2f6352 100%);
+      }
+      .ph-3 {
+        background: linear-gradient(145deg, #193046 0%, #5f8575 100%);
+      }
+      .ph-4 {
+        background: linear-gradient(145deg, #889bae 0%, #193046 100%);
+      }
+      .ph-5 {
+        background: linear-gradient(145deg, #2f6352 0%, #98b092 100%);
+      }
+      .ph-6 {
+        background: linear-gradient(145deg, #193046 0%, #889bae 100%);
+      }
+
+      .ph-icon {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .ph-label {
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      /* Count badge on the last tile */
+      .gallery-count-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #fff;
+        pointer-events: none;
+      }
+
+      /* Decorative label strip below mosaic */
+      .gallery-meta {
+        max-width: 1120px;
+        margin: 18px auto 0;
+        padding: 0 32px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .gallery-meta-tag {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--steel);
+        padding: 4px 10px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+      }
+      .gallery-meta-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* =============================================
+         CONTRIBUTIONS & ADVOCACIES SECTION
+         ============================================= */
+      .advocacies-section {
+        position: relative;
+        background: var(--surface);
+        overflow: hidden;
+        padding: 96px 0;
+      }
+
+      .advocacies-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 8% 80%,
+            rgba(47, 99, 82, 0.07) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 92% 20%,
+            rgba(136, 155, 174, 0.07) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+      .advocacies-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .advocacies-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      /* Left image */
+      .advocacies-img {
+        width: 100%;
+        display: block;
+        border-radius: 6px;
+        object-fit: cover;
+        aspect-ratio: 4/5;
+      }
+
+      .adv-img-fallback {
+        display: none;
+        width: 100%;
+        aspect-ratio: 4/5;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #e8f2ea 0%, #d4e5d8 100%);
+        color: var(--sage);
+      }
+
+      /* Right content */
+      .advocacies-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .adv-label-tag {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--forest);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .adv-label-tag::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 1.5px;
+        background: var(--forest);
+        border-radius: 2px;
+      }
+
+      .adv-section-title {
+        font-family: "Lora", serif;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.2;
+        margin: 6px 0 0;
+      }
+      .adv-section-title em {
+        font-style: italic;
+        color: var(--forest);
+      }
+
+      .adv-section-sub {
+        font-size: 0.84rem;
+        color: var(--steel);
+        line-height: 1.68;
+        max-width: 40ch;
+        margin-bottom: 14px;
+      }
+
+      .adv-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .adv-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(47, 99, 82, 0.12);
+        transition: transform 0.25s ease;
+      }
+      .adv-item:first-child {
+        padding-top: 0;
+      }
+      .adv-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .adv-item:hover {
+        transform: translateX(5px);
+      }
+
+      .adv-item-marker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        gap: 0;
+        padding-top: 2px;
+      }
+
+      .adv-marker-line {
+        width: 1.5px;
+        flex: 1;
+        min-height: 14px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(47, 99, 82, 0.25)
+        );
+        order: 2;
+      }
+      .adv-marker-line--last {
+        background: transparent;
+      }
+
+      .adv-marker-dot {
+        order: 1;
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(47, 99, 82, 0.1);
+        border: 1.5px solid rgba(47, 99, 82, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--forest);
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .adv-marker-dot svg {
+        width: 17px;
+        height: 17px;
+      }
+      .adv-item:hover .adv-marker-dot {
+        background: rgba(47, 99, 82, 0.18);
+        border-color: var(--forest);
+      }
+
+      .adv-item-body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 7px;
+      }
+
+      .adv-item-tag {
+        display: inline-block;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--forest);
+        background: rgba(47, 99, 82, 0.08);
+        border: 1px solid rgba(47, 99, 82, 0.2);
+        border-radius: 2px;
+        padding: 2px 7px;
+        align-self: flex-start;
+      }
+
+      .adv-item-text {
+        font-size: 0.96rem;
+        font-weight: 600;
+        color: var(--navy);
+        line-height: 1.4;
+        margin: 0;
+        transition: color 0.2s ease;
+      }
+      .adv-item:hover .adv-item-text {
+        color: var(--forest);
+      }
+
+      /* =============================================
+         SCROLL REVEAL
+         ============================================= */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.08s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.18s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.28s;
+      }
+      .reveal-delay-4 {
+        transition-delay: 0.38s;
+      }
+
+      /* =============================================
+         FOOTER
+         ============================================= */
+      .site-footer {
+        background: var(--navy);
+        padding: 40px 0;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .footer-name {
+        font-family: "Lora", serif;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+      }
+      .footer-subtitle {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 2px 0 0;
+        letter-spacing: 0.04em;
+      }
+      .footer-nav {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-nav a {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-nav a:hover {
+        color: var(--mist);
+      }
+      .footer-socials {
+        display: flex;
+        gap: 10px;
+      }
+      .footer-social-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .footer-social-btn:hover {
+        color: var(--mist);
+        border-color: var(--mist);
+      }
+      .footer-divider {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 24px 0 16px;
+      }
+      .footer-copy {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.28);
+        text-align: center;
+        margin: 0;
+      }
+
+      /* =============================================
+         RESPONSIVE
+         ============================================= */
+      @media (max-width: 900px) {
+        .about-hero-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .about-hero-photo {
+          order: -1;
+        }
+        .about-photo-frame {
+          max-width: 200px;
+        }
+        .gallery-mosaic {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 180px 180px 180px;
+        }
+        .gallery-tile--hero {
+          grid-column: 1;
+          grid-row: 1 / 3;
+        }
+        .gallery-tile--top2 {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .gallery-tile--top3 {
+          grid-column: 2;
+          grid-row: 2;
+        }
+        .gallery-tile--right {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        .gallery-tile--bottom2 {
+          grid-column: 2;
+          grid-row: 3;
+        }
+        .gallery-tile--bottom3 {
+          display: none;
+        }
+        .advocacies-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .footer-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .footer-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-surface font-sans text-primary antialiased">
-    <!-- NAVBAR -->
-    <nav
-      class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
-    >
-      <div
-        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
-      >
-        <a
-          href="index.html"
-          class="text-lg font-semibold tracking-tight text-primary"
-        >
-          ELA<span class="text-muted font-light">.eng</span>
-        </a>
-        <ul
-          class="hidden md:flex items-center gap-8 text-sm font-medium text-muted"
-        >
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li>
-            <a href="background.html" class="nav-link active-link"
-              >Background</a
-            >
-          </li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
+
+  <body>
+    <!-- ========== NAVBAR ========== -->
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">engr.<span>Edwin</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" class="active">About</a></li>
         </ul>
-        <button id="menu-btn" class="md:hidden text-primary focus:outline-none">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-white border-t border-border px-6 py-4"
-      >
-        <ul class="flex flex-col gap-4 text-sm font-medium text-muted">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="background.html" class="nav-link">Background</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-        </ul>
+        <div class="nav-cta">
+          <a href="#" class="btn-cta">Contact Me</a>
+        </div>
       </div>
     </nav>
+    <!-- ========== END NAVBAR ========== -->
 
-    <!-- CONTENT PLACEHOLDER -->
-    <main class="min-h-screen flex items-center justify-center pt-20">
-      <p class="text-muted text-sm">Background page — coming soon</p>
-    </main>
+    <!-- ========== ABOUT HERO — COMPACT ========== -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <div class="about-hero-grid">
+          <!-- LEFT: Text -->
+          <div class="about-hero-text">
+            <span class="about-hero-eyebrow">
+              <span class="eyebrow-rule"></span>
+              Know the Person Behind the Work
+            </span>
+            <h1 class="about-hero-heading">About <em>Edwin</em></h1>
+            <p class="about-hero-para">
+              Engr. Edwin Londonio Astorga, PECE, DM, is a distinguished
+              Filipino Professional Engineer, Sustainability Consultant, and
+              Community Leader. With decades of experience bridging technology
+              and governance, he champions smart, inclusive, and green futures.
+            </p>
+            <div class="about-hero-divider"></div>
+            <div class="about-hero-badges">
+              <span class="about-badge">PECE</span>
+              <span class="about-badge">DM</span>
+              <span class="about-badge about-badge--green">ESG Consultant</span>
+              <span class="about-badge about-badge--green">Smart Cities</span>
+            </div>
+          </div>
 
-    <script src="js/main.js"></script>
+          <!-- RIGHT: Photo -->
+          <div class="about-hero-photo">
+            <div class="about-photo-frame">
+              <div class="photo-corner photo-corner--tl"></div>
+              <div class="photo-corner photo-corner--br"></div>
+              <img
+                src="assets/images/about-hero.jpg"
+                alt="Engr. Edwin Londonio Astorga"
+                onerror="
+                  this.style.display = 'none';
+                  document.getElementById(
+                    'about-photo-fallback',
+                  ).style.display = 'flex';
+                "
+              />
+              <div id="about-photo-fallback" class="about-photo-fallback">
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                  />
+                </svg>
+                <span>Photo Placeholder</span>
+              </div>
+              <div class="photo-accent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END ABOUT HERO ========== -->
+
+    <!-- ========== GALLERY STRIP ========== -->
+    <section class="gallery-strip">
+      <!-- Header -->
+      <div class="gallery-header">
+        <div>
+          <div class="gallery-label">Moments & Milestones</div>
+          <h2 class="gallery-heading">A Life of <em>Purpose</em> in Action</h2>
+        </div>
+      </div>
+
+      <!-- Asymmetric Mosaic Grid -->
+      <div class="gallery-mosaic">
+        <!-- Tile 1 — HERO (tall left) — uses the uploaded photo -->
+        <div class="gallery-tile gallery-tile--hero">
+          <img
+            src="assets/images/1776086019228_289d4b17bc6b0a17ab973a51bd65c09f.jpg"
+            alt="Engr. Edwin Astorga"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-1" style="display: none">
+            <svg
+              class="ph-icon"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0"
+              />
+            </svg>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">Engr. Edwin Astorga</span>
+          </div>
+        </div>
+
+        <!-- Tile 2 — top mid-left -->
+        <div class="gallery-tile gallery-tile--top2">
+          <img
+            src="assets/images/gallery-1.jpg"
+            alt="Leadership Forum"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-2">
+            <svg
+              class="ph-icon"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+              />
+            </svg>
+            <span class="ph-label">Leadership Forum</span>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">Leadership Forum</span>
+          </div>
+        </div>
+
+        <!-- Tile 3 — top mid-right -->
+        <div class="gallery-tile gallery-tile--top3">
+          <img
+            src="assets/images/gallery-2.jpg"
+            alt="Smart City Summit"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-3">
+            <svg
+              class="ph-icon"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
+              />
+            </svg>
+            <span class="ph-label">Smart City Summit</span>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">Smart City Summit</span>
+          </div>
+        </div>
+
+        <!-- Tile 4 — TALL RIGHT -->
+        <div class="gallery-tile gallery-tile--right">
+          <img
+            src="assets/images/gallery-3.jpg"
+            alt="Community Programs"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-4">
+            <svg
+              class="ph-icon"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918"
+              />
+            </svg>
+            <span class="ph-label">Community Programs</span>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">Community Programs</span>
+          </div>
+          <div class="gallery-count-badge">+12 Photos</div>
+        </div>
+
+        <!-- Tile 5 — bottom mid-left -->
+        <div class="gallery-tile gallery-tile--bottom2">
+          <img
+            src="assets/images/gallery-4.jpg"
+            alt="ESG Consultation"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-5">
+            <svg
+              class="ph-icon"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3"
+              />
+            </svg>
+            <span class="ph-label">ESG Consultation</span>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">ESG Consultation</span>
+          </div>
+        </div>
+
+        <!-- Tile 6 — bottom mid-right -->
+        <div class="gallery-tile gallery-tile--bottom3">
+          <img
+            src="assets/images/gallery-5.jpg"
+            alt="IoT Advocacy"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="tile-placeholder-inner ph-6">
+            <svg
+              class="ph-icon"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+              />
+            </svg>
+            <span class="ph-label">IoT Advocacy</span>
+          </div>
+          <div class="gallery-tile-overlay">
+            <span class="gallery-tile-caption">IoT Advocacy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meta strip below mosaic -->
+      <div class="gallery-meta">
+        <span class="gallery-meta-tag">Engineering</span>
+        <span class="gallery-meta-tag">Sustainability</span>
+        <span class="gallery-meta-tag">Governance</span>
+        <span class="gallery-meta-tag">Community</span>
+        <span class="gallery-meta-line"></span>
+      </div>
+    </section>
+    <!-- ========== END GALLERY STRIP ========== -->
+
+    <!-- ========== CONTRIBUTIONS & ADVOCACIES ========== -->
+    <section id="advocacies" class="advocacies-section">
+      <div
+        class="max-w-6xl mx-auto px-6"
+        style="max-width: 1120px; margin: 0 auto; padding: 0 32px"
+      >
+        <div class="advocacies-layout">
+          <!-- LEFT: Image -->
+          <div class="advocacies-image-col">
+            <img
+              src="assets/images/profile3.png"
+              alt="Community and advocacy work"
+              class="advocacies-img"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('adv-img-fallback').style.display =
+                  'flex';
+              "
+            />
+            <div id="adv-img-fallback" class="adv-img-fallback">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+                viewBox="0 0 24 24"
+                width="48"
+                height="48"
+                style="opacity: 0.4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 18h16.5M3.75 21h16.5"
+                />
+              </svg>
+              <span
+                style="
+                  font-size: 0.7rem;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  opacity: 0.5;
+                "
+                >Image Placeholder</span
+              >
+            </div>
+          </div>
+
+          <!-- RIGHT: List -->
+          <div class="advocacies-content">
+            <div class="adv-label-tag">Contributions &amp; Advocacies</div>
+            <h2 class="adv-section-title">
+              Driving Change <em>at Every Level</em>
+            </h2>
+            <p class="adv-section-sub">
+              A commitment to nation-building through technology, governance,
+              and sustainable leadership.
+            </p>
+
+            <ul class="adv-list">
+              <!-- Item 1 -->
+              <li class="adv-item reveal reveal-delay-1">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">National Initiative</span>
+                  <p class="adv-item-text">
+                    Promotes Internet of Things (IoT) Nationwide
+                  </p>
+                </div>
+              </li>
+              <!-- Item 2 -->
+              <li class="adv-item reveal reveal-delay-2">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">Industry &amp; Government</span>
+                  <p class="adv-item-text">
+                    Supports Digital Transformation in Industries and Government
+                  </p>
+                </div>
+              </li>
+              <!-- Item 3 -->
+              <li class="adv-item reveal reveal-delay-3">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">Smart Governance</span>
+                  <p class="adv-item-text">
+                    Implements Smart Governance Program
+                  </p>
+                </div>
+              </li>
+              <!-- Item 4 -->
+              <li class="adv-item reveal reveal-delay-4">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line adv-marker-line--last"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.249 2.249 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">Community Leadership</span>
+                  <p class="adv-item-text">
+                    Leads Sustainable Development Initiatives at the Community
+                    Level
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END CONTRIBUTIONS ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <p class="footer-name">Engr. Edwin Londonio Astorga</p>
+            <p class="footer-subtitle">
+              PECE, DM · Professional Electronics Engineer
+            </p>
+          </div>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="background.html">Background</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook" class="footer-social-btn">
+              <svg
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="footer-social-btn">
+              <svg
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email" class="footer-social-btn">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <p class="footer-copy">
+          © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
+          rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+
+    <script>
+      // Footer year
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+
+      // Mobile menu (if main.js not loaded)
+      const menuBtn = document.getElementById("menu-btn");
+      if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+          document.getElementById("mobile-menu")?.classList.toggle("hidden");
+        });
+      }
+
+      // Scroll reveal
+      const revealEls = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+
+      // Gallery tile hover — also reveal on scroll
+      const galleryTiles = document.querySelectorAll(".gallery-tile");
+      const galleryObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }, i * 60);
+              galleryObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      galleryTiles.forEach((tile) => {
+        tile.style.opacity = "0";
+        tile.style.transform = "translateY(14px)";
+        tile.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        galleryObserver.observe(tile);
+      });
+    </script>
   </body>
 </html>
