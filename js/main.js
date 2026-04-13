@@ -1,5 +1,7 @@
 // ── Dynamic footer year ──
-document.getElementById("footer-year").textContent = new Date().getFullYear();
+document.querySelectorAll(".footer-year").forEach((el) => {
+  el.textContent = new Date().getFullYear();
+});
 
 // ── Image loader utility ──
 function tryLoad(imgEl, fallbackEl, options, index) {
@@ -39,8 +41,6 @@ tryLoad(
 );
 
 // ── Expertise — Image 1 ──
-// (img src is set directly in HTML; onerror handles fallback)
-// Additional src options can be added here if needed:
 const expertiseImg1Options = [
   "assets/images/expertiseimg.jpg",
   "assets/images/expertiseimg.jpeg",
@@ -68,7 +68,7 @@ tryLoad(
 
 // ── Affiliations — Image 1 ──
 const affiliationsImg1Options = [
-  "assets/images/affiliations.jpg",
+  "assets/images/aff1.png",
   "assets/images/affiliations-bg-photo.jpeg",
   "assets/images/affiliations-bg-photo.png",
 ];
@@ -96,15 +96,17 @@ tryLoad(
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.add("hidden");
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
   });
-});
+
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+}
 
 // ── Scroll fade-in ──
 const fadeSections = document.querySelectorAll(".fade-in-section");

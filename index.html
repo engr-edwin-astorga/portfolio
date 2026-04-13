@@ -17,11 +17,11 @@
           extend: {
             fontFamily: { sans: ["Inter", "sans-serif"] },
             colors: {
-              primary: "#1e293b",
-              surface: "#f8f9fa",
-              muted: "#6b7280",
-              accent: "#334155",
-              border: "#e2e8f0",
+              primary: "#1a56db",
+              surface: "#f0f5ff",
+              muted: "#5a6a8a",
+              accent: "#2563eb",
+              border: "#c7d7f5",
             },
           },
         },
@@ -37,15 +37,14 @@
       class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
     >
       <div class="max-w-7xl mx-auto px-6 py-5 grid grid-cols-3 items-center">
-        <!-- Logo (left) -->
+        <!-- Logo -->
         <a
           href="index.html"
           class="text-lg font-semibold tracking-tight text-primary"
         >
           engr.<span class="text-muted font-light">Edwin</span>
         </a>
-
-        <!-- Nav Links (center) -->
+        <!-- Nav Links -->
         <ul
           class="hidden md:flex items-center justify-center gap-8 text-sm font-medium"
         >
@@ -54,17 +53,10 @@
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
-
-        <!-- Contact Button (right) -->
+        <!-- Contact Button -->
         <div class="hidden md:flex justify-end">
-          <a
-            href="#"
-            class="px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm hover:bg-accent transition-colors duration-200"
-          >
-            Contact Me
-          </a>
+          <a href="#" class="btn-cta">Contact Me</a>
         </div>
-
         <!-- Mobile Button -->
         <div class="md:hidden flex justify-end col-span-2">
           <button id="menu-btn" class="text-primary focus:outline-none">
@@ -84,7 +76,6 @@
           </button>
         </div>
       </div>
-
       <!-- Mobile Menu -->
       <div
         id="mobile-menu"
@@ -96,12 +87,7 @@
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
-        <a
-          href="#"
-          class="mt-5 inline-block px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm"
-        >
-          Contact Me
-        </a>
+        <a href="#" class="btn-cta mt-5 inline-block">Contact Me</a>
       </div>
     </nav>
     <!-- ========== END NAVBAR ========== -->
@@ -115,42 +101,26 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <!-- LEFT: Text -->
           <div class="flex flex-col gap-6">
-            <span
-              class="inline-flex items-center gap-2 text-xs font-medium text-muted uppercase tracking-widest"
-            >
-              <span class="w-6 h-px bg-muted"></span>
+            <span class="hero-eyebrow">
+              <span class="hero-eyebrow-rule"></span>
               Professional Electronics Engineer
             </span>
-
             <div>
-              <h1
-                class="text-4xl md:text-5xl font-bold text-primary leading-tight"
-              >
-                <span class="text-accent">Engr. Edwin Londonio Astorga</span>
+              <h1 class="hero-title">
+                <span>Engr. Edwin Londonio Astorga</span>
               </h1>
-              <p
-                class="mt-2 text-sm font-medium text-muted tracking-widest uppercase"
-              >
-                PECE, DM
-              </p>
+              <p class="hero-credentials">PECE, DM</p>
             </div>
-
-            <p class="text-muted text-base md:text-lg leading-relaxed max-w-md">
+            <p class="hero-bio">
               is a distinguised Filipino Professional, Sustainability Consultant
               and Community Leader. Specializes in Environmental, Social,
               Governance Consulting, Sustainability Management and Emerging
               Technologies, with a strong focus on Smart Cities and Green
               Engineering.
             </p>
-
-            <div class="w-12 h-px bg-border"></div>
-
-            <!-- Single CTA Button -->
+            <div class="hero-divider"></div>
             <div>
-              <a
-                href="about.html"
-                class="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary text-sm font-medium rounded-sm hover:bg-primary hover:text-white transition-colors duration-200"
-              >
+              <a href="about.html" class="btn-cta btn-cta--hero">
                 Learn More
                 <svg
                   class="w-4 h-4"
@@ -170,7 +140,6 @@
           </div>
 
           <!-- RIGHT: Profile Photo -->
-          <!-- Profile Photo — Frame Option 3: Circle + Navy Offset Block -->
           <div class="profile-frame-3">
             <div class="bg-arc"></div>
             <div class="photo-circle">
@@ -187,231 +156,227 @@
     <!-- ========== END HERO ========== -->
 
     <!-- ========== EXPERTISE SECTION ========== -->
-    <section id="expertise" class="expertise-section py-20">
+    <section id="expertise" class="expertise-section py-20 fade-in-section">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-10">
-          <span class="w-8 h-px bg-primary"></span>
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >What I Do</span
-          >
+        <div class="expertise-section-label">
+          <span class="expertise-section-rule"></span>
+          <span class="expertise-section-tag">What I Do</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          <!-- LEFT: Photo duo — two equal-size images side by side with creative framing -->
-          <div class="photo-duo">
-            <!-- Decorative corner brackets -->
-            <span class="duo-corner duo-corner--tl"></span>
-            <span class="duo-corner duo-corner--br"></span>
-
-            <div class="duo-grid">
-              <!-- Image 1 -->
-              <div class="duo-cell">
-                <div class="duo-img-wrap">
-                  <img
-                    id="expertise-img-1"
-                    alt="Expertise"
-                    src="assets/images/expertiseimg.jpg"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <div class="duo-fallback">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Photo 1</span>
-                  </div>
-                </div>
-                <!-- Label tag -->
-                <div class="duo-label">Field Work</div>
+        <div class="expertise-layout">
+          <!-- LEFT: 2×2 Photo Mosaic -->
+          <div class="expertise-mosaic">
+            <div class="mosaic-grid">
+              <div class="mosaic-cell mosaic-cell--tl">
+                <img
+                  src="assets/images/expertiseimg.jpg"
+                  alt="Sustainability fieldwork"
+                  onerror="this.parentElement.classList.add('mosaic-fallback')"
+                />
+                <div class="mosaic-overlay"><span>Field Work</span></div>
               </div>
-
-              <!-- Image 2 -->
-              <div class="duo-cell">
-                <div class="duo-img-wrap">
-                  <img
-                    id="expertise-img-2"
-                    alt="Expertise 2"
-                    src="assets/images/expertiseimg2.jpg"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <div class="duo-fallback">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Photo 2</span>
-                  </div>
-                </div>
-                <!-- Label tag — offset downward for visual rhythm -->
-                <div class="duo-label duo-label--offset">In Action</div>
+              <div class="mosaic-cell mosaic-cell--tr">
+                <img
+                  src="assets/images/expertiseimg2.jpg"
+                  alt="Smart cities"
+                  onerror="this.parentElement.classList.add('mosaic-fallback')"
+                />
+                <div class="mosaic-overlay"><span>Innovation</span></div>
+              </div>
+              <div class="mosaic-cell mosaic-cell--bl">
+                <img
+                  src="assets/images/expertiseimg1.jpg"
+                  alt="Green engineering"
+                  onerror="this.parentElement.classList.add('mosaic-fallback')"
+                />
+                <div class="mosaic-overlay"><span>Green Tech</span></div>
+              </div>
+              <div class="mosaic-cell mosaic-cell--br">
+                <img
+                  src="assets/images/expertiseimg3.jpg"
+                  alt="Community leadership"
+                  onerror="this.parentElement.classList.add('mosaic-fallback')"
+                />
+                <div class="mosaic-overlay"><span>Leadership</span></div>
               </div>
             </div>
-
-            <!-- Gold vertical accent bar -->
-            <div class="photo-collage-accent"></div>
           </div>
 
-          <!-- RIGHT: Text + expertise list -->
-          <div class="flex flex-col gap-6">
-            <div>
-              <h2
-                class="text-2xl md:text-3xl font-bold text-primary leading-snug"
-              >
-                Areas of Expertise
-              </h2>
-              <p class="mt-2 text-sm text-muted max-w-sm">
-                A cross-disciplinary blend of engineering, sustainability, and
-                innovation.
-              </p>
+          <!-- RIGHT: Section title + expertise benefit cards -->
+          <div class="expertise-content">
+            <div class="expertise-heading">
+              <p class="expertise-eyebrow">Why Work With Me?</p>
+              <h2 class="expertise-title">Areas of Expertise</h2>
             </div>
-            <ul class="expertise-list">
-              <li class="expertise-card">
-                <span class="expertise-card-num">01</span>
-                <span class="expertise-card-label"
-                  >Sustainability Management</span
-                >
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+
+            <ul class="expertise-benefits">
+              <!-- 01 Sustainability Management -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Sustainability Management</strong>
+                  <p>
+                    Driving ESG-aligned strategies and green solutions for
+                    lasting impact.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">02</span>
-                <span class="expertise-card-label"
-                  >ESG (Environmental, Social, and Governance) Consulting</span
-                >
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 02 ESG Consulting -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>ESG Consulting</strong>
+                  <p>
+                    Providing expert governance frameworks and environmental
+                    reporting.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">03</span>
-                <span class="expertise-card-label"
-                  >Smart Cities Development</span
-                >
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 03 Smart Cities -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Smart Cities Development</strong>
+                  <p>
+                    Integrating emerging tech into urban infrastructure and
+                    planning.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">04</span>
-                <span class="expertise-card-label">Green Engineering</span>
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 04 Green Engineering -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Green Engineering</strong>
+                  <p>
+                    Designing eco-efficient systems and infrastructure for a
+                    sustainable future.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">05</span>
-                <span class="expertise-card-label">Emerging Technologies</span>
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 05 Emerging Technologies -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Emerging Technologies</strong>
+                  <p>
+                    Harnessing cutting-edge innovations to solve real-world
+                    challenges.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">06</span>
-                <span class="expertise-card-label">Project Management</span>
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 06 Project Management -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Project Management</strong>
+                  <p>
+                    Leading multidisciplinary teams to deliver complex projects
+                    on time.
+                  </p>
+                </div>
               </li>
-              <li class="expertise-card">
-                <span class="expertise-card-num">07</span>
-                <span class="expertise-card-label">Technopreneurship</span>
-                <svg
-                  class="expertise-card-icon w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+              <!-- 07 Technopreneurship -->
+              <li class="benefit-item">
+                <div class="benefit-icon">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </div>
+                <div class="benefit-text">
+                  <strong>Technopreneurship</strong>
+                  <p>
+                    Bridging technology and entrepreneurship to build scalable
+                    ventures.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
@@ -423,24 +388,19 @@
     <!-- ========== AFFILIATIONS SECTION ========== -->
     <section id="affiliations" class="affiliations-section py-16">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-10">
-          <span class="w-8 h-px bg-primary"></span>
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >Organizations</span
-          >
+        <div class="section-label">
+          <span class="section-label-rule"></span>
+          <span class="section-label-tag">Organizations</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <!-- LEFT: List -->
           <div class="flex flex-col gap-6">
             <div>
-              <h2
-                class="text-2xl md:text-3xl font-bold text-primary leading-snug"
-              >
+              <h2 class="section-title section-title--blue">
                 Professional Affiliations
               </h2>
-              <p class="mt-2 text-sm text-muted max-w-sm">
+              <p class="section-subtitle">
                 Active member and leader across engineering and innovation
                 organizations.
               </p>
@@ -449,14 +409,12 @@
               <li
                 class="affiliation-item flex items-start gap-4 pb-5 border-b border-border last:border-0 last:pb-0"
               >
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
+                <span class="affil-dot"></span>
                 <div class="flex flex-col gap-0.5">
-                  <p class="text-sm font-semibold text-primary">
+                  <p class="affil-name">
                     Mechatronics and Robotics Society of the Philippines
                   </p>
-                  <p class="text-xs text-muted">
+                  <p class="affil-role">
                     National Treasurer / Head for International Relations
                   </p>
                 </div>
@@ -464,174 +422,93 @@
               <li
                 class="affiliation-item flex items-start gap-4 pb-5 border-b border-border last:border-0 last:pb-0"
               >
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
+                <span class="affil-dot"></span>
                 <div class="flex flex-col gap-0.5">
-                  <p class="text-sm font-semibold text-primary">
-                    Filipino Inventors Society
-                  </p>
-                  <p class="text-xs text-muted">Honorary Member</p>
+                  <p class="affil-name">Filipino Inventors Society</p>
+                  <p class="affil-role">Honorary Member</p>
                 </div>
               </li>
               <li
                 class="affiliation-item flex items-start gap-4 pb-5 border-b border-border last:border-0 last:pb-0"
               >
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
+                <span class="affil-dot"></span>
                 <div class="flex flex-col gap-0.5">
-                  <p class="text-sm font-semibold text-primary">
+                  <p class="affil-name">
                     Institute of Electronics Engineers of the Philippines —
                     Cavite
                   </p>
-                  <p class="text-xs text-muted">Chapter Adviser</p>
+                  <p class="affil-role">Chapter Adviser</p>
                 </div>
               </li>
               <li
                 class="affiliation-item flex items-start gap-4 pb-5 border-b border-border last:border-0 last:pb-0"
               >
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
+                <span class="affil-dot"></span>
                 <div class="flex flex-col gap-0.5">
-                  <p class="text-sm font-semibold text-primary">
-                    AIM Society of Innovators
-                  </p>
-                  <p class="text-xs text-muted">VP Internal</p>
+                  <p class="affil-name">AIM Society of Innovators</p>
+                  <p class="affil-role">VP Internal</p>
                 </div>
               </li>
               <li
                 class="affiliation-item flex items-start gap-4 pb-5 border-b border-border last:border-0 last:pb-0"
               >
-                <span
-                  class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
-                ></span>
+                <span class="affil-dot"></span>
                 <div class="flex flex-col gap-0.5">
-                  <p class="text-sm font-semibold text-primary">
-                    Rotary Club of AIM
-                  </p>
-                  <p class="text-xs text-muted">Member</p>
+                  <p class="affil-name">Rotary Club of AIM</p>
+                  <p class="affil-role">Member</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          <!-- RIGHT: Photo duo — two equal-size images with creative framing -->
-          <div class="photo-duo photo-duo--right">
-            <!-- Decorative corner brackets (mirrored) -->
-            <span class="duo-corner duo-corner--tr"></span>
-            <span class="duo-corner duo-corner--bl"></span>
-
-            <div class="duo-grid">
-              <!-- Image 1 -->
-              <div class="duo-cell">
-                <div class="duo-img-wrap">
-                  <img
-                    id="affiliations-img-1"
-                    alt="Professional Affiliations"
-                    src="assets/images/affiliations.jpg"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <div class="duo-fallback">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Photo 1</span>
-                  </div>
-                </div>
-                <div class="duo-label">Leadership</div>
-              </div>
-
-              <!-- Image 2 -->
-              <div class="duo-cell">
-                <div class="duo-img-wrap">
-                  <img
-                    id="affiliations-img-2"
-                    alt="Professional Affiliations 2"
-                    src="assets/images/affiliations-bg-photo.jpg"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <div class="duo-fallback">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>Photo 2</span>
-                  </div>
-                </div>
-                <div class="duo-label duo-label--offset">Community</div>
-              </div>
-            </div>
-
-            <!-- Gold accent bar — right side for this variant -->
-            <div class="photo-collage-accent photo-collage-accent--right"></div>
-          </div>
+          <!-- RIGHT: Photo -->
+          <img
+            id="affiliations-img-1"
+            alt="Professional Affiliations"
+            src="assets/images/aff1.png"
+            style="
+              width: 100%;
+              display: block;
+              margin-top: 0px;
+              margin-left: 100px;
+            "
+            onerror="this.style.display = 'none'"
+          />
         </div>
       </div>
     </section>
     <!-- ========== END AFFILIATIONS ========== -->
 
     <!-- ========== FOOTER ========== -->
-    <footer class="site-footer py-12">
+    <footer class="site-footer py-10">
       <div class="max-w-6xl mx-auto px-6">
         <div
           class="flex flex-col md:flex-row items-center justify-between gap-8"
         >
           <!-- Left: Name & title -->
-          <div class="flex flex-col gap-1 text-center md:text-left">
-            <p class="text-base font-semibold text-primary">
-              Engr. Edwin Londonio Astorga
-            </p>
-            <p class="text-xs text-muted tracking-widest uppercase">
+          <div class="flex flex-col gap-0.5 text-center md:text-left">
+            <p class="footer-name">Engr. Edwin Londonio Astorga</p>
+            <p class="footer-subtitle">
               PECE, DM · Professional Electronics Engineer
             </p>
           </div>
-
-          <!-- Right: Social Links -->
-          <div class="flex items-center gap-4">
-            <!-- Facebook -->
-            <a
-              href="#"
-              aria-label="Facebook"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+          <!-- Center: Nav links -->
+          <ul class="footer-nav flex items-center gap-6">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="background.html">Background</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <!-- Right: Social icons -->
+          <div class="flex items-center gap-3">
+            <a href="#" aria-label="Facebook" class="footer-social-btn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
                 />
               </svg>
             </a>
-
-            <!-- LinkedIn -->
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+            <a href="#" aria-label="LinkedIn" class="footer-social-btn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
@@ -639,13 +516,7 @@
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-
-            <!-- Email -->
-            <a
-              href="/cdn-cgi/l/email-protection#ccbca0adafa9a4a3a0a8a9be8ca9a1ada5a0e2afa3a1"
-              aria-label="Email"
-              class="w-9 h-9 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+            <a href="#" aria-label="Email" class="footer-social-btn">
               <svg
                 class="w-4 h-4"
                 fill="none"
@@ -662,14 +533,11 @@
             </a>
           </div>
         </div>
-
-        <!-- Bottom bar -->
-        <div class="mt-10 pt-6 border-t border-border/40 text-center">
-          <p class="text-xs text-muted">
-            © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
-            rights reserved.
-          </p>
-        </div>
+        <hr class="footer-divider" />
+        <p class="footer-copy">
+          © <span class="footer-year"></span> Engr. Edwin Londonio Astorga. All
+          rights reserved.
+        </p>
       </div>
     </footer>
     <!-- ========== END FOOTER ========== -->

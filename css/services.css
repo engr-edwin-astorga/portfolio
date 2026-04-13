@@ -1,434 +1,626 @@
-/* ============================================================
-   services.css — Styles for services.html
-   Engr. Edwin Londonio Astorga Portfolio
-   ============================================================ */
+/* =========================================================
+   SERVICES PAGE — services.css
+   COLOR PALETTE
+   --forest     : #2F6352  — deep forest green (primary accent)
+   --sage-mid   : #5F8575  — mid sage (secondary accent)
+   --sage-light : #98B092  — soft sage (badges, hover fills)
+   --navy       : #193046  — dark navy (dark backgrounds, headings)
+   --steel-blue : #889BAE  — muted steel blue (borders, subtitles)
+   ========================================================= */
 
-/* ── BASE ── */
-body {
-  background-color: #f8f9fa;
-}
-
-/* ── SCROLL REVEAL ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal:nth-child(1) {
-  transition-delay: 0s;
-}
-.reveal:nth-child(2) {
-  transition-delay: 0.08s;
-}
-.reveal:nth-child(3) {
-  transition-delay: 0.16s;
-}
-.reveal:nth-child(4) {
-  transition-delay: 0.24s;
-}
-.reveal:nth-child(5) {
-  transition-delay: 0.32s;
-}
-.reveal:nth-child(6) {
-  transition-delay: 0.4s;
+/* ── CSS Variables ── */
+:root {
+  --forest: #2f6352;
+  --sage-mid: #5f8575;
+  --sage-light: #98b092;
+  --navy: #193046;
+  --steel-blue: #889bae;
+  --navy-light: rgba(25, 48, 70, 0.07);
+  --surface: #f4f7f5;
+  --white: #ffffff;
 }
 
-/* ============================================================
-   PAGE HERO
-   Image: assets/images/bg-hero.jpg (shared with background page)
-   Fallback: same dark diagonal CSS pattern
-   ============================================================ */
-.svc-hero {
-  position: relative;
-  overflow: hidden;
-  background-image: url("../assets/images/bg-hero.jpg");
+/* =========================================================
+   PAGE HERO — pulled down slightly so the overlay card
+   bridge sits cleanly between hero and services section
+   ========================================================= */
+.services-hero {
+  min-height: 480px; /* slightly taller than before */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/images/services4.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center 30%; /* shifted down from center */
   background-repeat: no-repeat;
-  background-color: #0f172a;
 }
-
-.svc-hero-abstract {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    repeating-linear-gradient(
-      -55deg,
-      rgba(181, 154, 106, 0.04) 0px,
-      rgba(181, 154, 106, 0.04) 1px,
-      transparent 1px,
-      transparent 40px
-    ),
-    radial-gradient(
-      ellipse 80% 60% at 85% 20%,
-      rgba(181, 154, 106, 0.08) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 50% 70% at 10% 90%,
-      rgba(30, 41, 59, 0.6) 0%,
-      transparent 65%
-    ),
-    linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #243049 100%);
-}
-
-.svc-hero::before {
+.services-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(10, 18, 35, 0.82) 0%,
-    rgba(30, 41, 59, 0.68) 100%
+    rgba(25, 48, 70, 0.386) 0%,
+    rgba(47, 65, 99, 0.429) 60%,
+    rgba(25, 48, 70, 0.46) 100%
   );
+  z-index: 0;
+}
+.services-hero > * {
+  position: relative;
   z-index: 1;
 }
 
-/* ============================================================
-   INTRO STATS STRIP
-   ============================================================ */
-.svc-intro-strip {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  border-top: 3px solid #1e293b;
+/* =========================================================
+   HERO OVERLAY CARD — floats independently over the hero bottom
+   Using transform to pull it up without affecting hero height
+   ========================================================= */
+.hero-overlay-card {
+  position: relative;
+  z-index: 20;
+  background: var(--white);
+  border: 1px solid var(--steel-blue);
+  border-radius: 4px;
+  box-shadow:
+    0 16px 56px rgba(25, 48, 70, 0.14),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
-.svc-stat {
+/* Wrapper is pulled up with transform — fully independent of hero height */
+.overlay-card-wrapper {
+  position: relative;
+  z-index: 20;
+  background: transparent;
+  transform: translateY(-50%); /* lifts the entire card up by half its height */
+  margin-bottom: -40px; /* compensates so services section doesn't gap */
+}
+
+/* Top accent bar */
+.overlay-card-accent {
+  height: 4px;
+  background: linear-gradient(to right, var(--forest), var(--sage-light));
+}
+
+/* Inner layout: text left | stats right */
+.overlay-card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+@media (max-width: 768px) {
+  .overlay-card-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left text panel */
+.overlay-intro {
+  padding: 20px 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-right: 1px solid rgba(136, 155, 174, 0.3);
+}
+@media (max-width: 768px) {
+  .overlay-intro {
+    border-right: none;
+    border-bottom: 1px solid rgba(136, 155, 174, 0.3);
+  }
+}
+.overlay-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+.overlay-eyebrow-rule {
+  display: inline-block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--sage-light);
+  border-radius: 2px;
+}
+.overlay-title {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.overlay-title em {
+  font-style: italic;
+  color: var(--forest);
+}
+.overlay-para {
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--forest);
+  max-width: 34ch;
+}
+
+/* Right stats panel */
+.overlay-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.overlay-stat {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-right: 1px solid rgba(136, 155, 174, 0.25);
+  border-bottom: 1px solid rgba(136, 155, 174, 0.25);
+  transition: background 0.2s ease;
+}
+.overlay-stat:nth-child(2),
+.overlay-stat:nth-child(4) {
+  border-right: none;
+}
+.overlay-stat:nth-child(3),
+.overlay-stat:nth-child(4) {
+  border-bottom: none;
+}
+.overlay-stat:hover {
+  background: var(--navy-light);
+}
+.overlay-stat-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--forest);
+  line-height: 1;
+}
+.overlay-stat-number span {
+  color: var(--sage-mid);
+}
+.overlay-stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 4px;
+}
+.overlay-stat-desc {
+  font-size: 0.72rem;
+  color: var(--steel-blue);
+  line-height: 1.4;
+}
+
+/* =========================================================
+   PAGE BACKGROUND
+   ========================================================= */
+body {
+  background: var(--surface);
+}
+
+/* =========================================================
+   SECTION HEADING AREA
+   ========================================================= */
+.srv-section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.srv-section-rule {
+  display: inline-block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--forest);
+  border-radius: 2px;
+}
+.srv-section-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage-mid);
+}
+.srv-section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.srv-section-title em {
+  font-style: italic;
+  color: var(--forest);
+}
+.srv-section-sub {
+  font-size: 0.82rem;
+  color: var(--steel-blue);
+  line-height: 1.6;
+  max-width: 44ch;
+  margin-top: 6px;
+}
+
+/* =========================================================
+   SERVICES MENU GRID — replaces carousel
+   Row 1: 4 cards | Row 2: 3 cards centered
+   ========================================================= */
+.services-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 1025px) {
+  /* All cards same width — span 3 of 12 columns */
+  .services-menu-grid .service-card {
+    grid-column: span 3;
+  }
+
+  /* Center the 3 bottom cards by pushing card 5 in by 1.5 columns */
+  .services-menu-grid .service-card:nth-child(5) {
+    grid-column: 2 / span 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-menu-grid .service-card {
+    grid-column: span 1 !important;
+  }
+}
+@media (max-width: 640px) {
+  .services-menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SERVICE CARD
+   ========================================================= */
+.service-card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(136, 155, 174, 0.35);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(25, 48, 70, 0.14);
+}
+
+/* Image area */
+.service-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d4e3dc 0%, #eaf2ee 100%);
+}
+.service-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.service-card:hover .service-card-img img {
+  transform: scale(1.07);
+}
+
+/* Gradient overlay on image */
+.service-card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(25, 48, 70, 0.55) 0%,
+    transparent 55%
+  );
+  transition: opacity 0.28s ease;
+}
+.service-card:hover .service-card-img::after {
+  opacity: 0.8;
+}
+
+/* Icon badge */
+.service-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(47, 99, 82, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  backdrop-filter: blur(4px);
+  transition: background 0.2s ease;
+}
+.service-card:hover .service-card-badge {
+  background: var(--forest);
+}
+.service-card-badge svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Fallback when no image */
+.service-img-fallback {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  min-width: 72px;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #d4e3dc 0%, #eaf2ee 100%);
 }
-.svc-stat-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 26px;
-  font-weight: 600;
-  color: #1e293b;
-  line-height: 1;
+.service-img-fallback svg {
+  width: 40px;
+  height: 40px;
+  color: var(--sage-mid);
+  opacity: 0.55;
 }
-.svc-stat-label {
-  font-size: 9px;
-  font-weight: 600;
+
+/* Text body */
+.service-card-body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.service-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.service-card-desc {
+  font-size: 0.775rem;
+  color: var(--steel-blue);
+  line-height: 1.55;
+}
+.service-card-link {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9ca3af;
-  white-space: nowrap;
+  color: var(--forest);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
 }
-.svc-stat-divider {
-  width: 1px;
-  height: 36px;
-  background: #e2e8f0;
+.service-card:hover .service-card-link {
+  color: var(--sage-mid);
+  gap: 9px;
 }
 
-/* ============================================================
-   SERVICES GRID
-   ============================================================ */
-#services {
+/* Bottom accent bar */
+.service-card-bar {
+  height: 3px;
+  background: linear-gradient(to right, var(--forest), var(--sage-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.service-card:hover .service-card-bar {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   CTA BAND
+   ========================================================= */
+.cta-band {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--forest) 100%);
   position: relative;
   overflow: hidden;
-  background-color: #f8f9fa;
 }
-
-/* Subtle dot-grid background */
-#services::before {
+.cta-band::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: radial-gradient(
-    circle,
-    rgba(203, 213, 225, 0.5) 1px,
-    transparent 1px
+    circle at 80% 50%,
+    rgba(152, 176, 146, 0.12) 0%,
+    transparent 60%
   );
-  background-size: 28px 28px;
-  z-index: 0;
 }
-
-#services > * {
+.cta-band > * {
   position: relative;
   z-index: 1;
 }
 
-/* 3-col on desktop, 2-col on tablet, 1-col on mobile */
-.svc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.cta-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage-light);
 }
-
-@media (max-width: 1024px) {
-  .svc-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .svc-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── Service card ── */
-.svc-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-top: 3px solid #1e293b;
-  border-radius: 3px;
-  padding: 24px 24px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease,
-    border-top-color 0.25s ease;
-  cursor: default;
-}
-.svc-card:hover {
-  box-shadow: 0 8px 28px rgba(30, 41, 59, 0.1);
-  transform: translateY(-3px);
-  border-top-color: #b59a6a;
-}
-
-/* Featured (dark) card variant — PEZA */
-.svc-card--featured {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-top: 3px solid #b59a6a;
-}
-.svc-card--featured:hover {
-  box-shadow: 0 8px 28px rgba(30, 41, 59, 0.3);
-  border-top-color: #d4b483;
-}
-
-/* Card top row: icon + number */
-.svc-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Icon container */
-.svc-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
-  background: rgba(30, 41, 59, 0.06);
-  border: 1px solid rgba(30, 41, 59, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1e293b;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
-  flex-shrink: 0;
-}
-.svc-card:hover .svc-card-icon {
-  background: rgba(181, 154, 106, 0.1);
-  color: #b59a6a;
-  border-color: rgba(181, 154, 106, 0.25);
-}
-
-/* Light icon variant for dark card */
-.svc-card-icon--light {
-  background: rgba(181, 154, 106, 0.12);
-  border-color: rgba(181, 154, 106, 0.25);
-  color: #b59a6a;
-}
-.svc-card--featured:hover .svc-card-icon--light {
-  background: rgba(181, 154, 106, 0.2);
-}
-
-/* Card number */
-.svc-card-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-  font-weight: 300;
-  color: #e2e8f0;
-  line-height: 1;
-  transition: color 0.25s;
-}
-.svc-card:hover .svc-card-num {
-  color: rgba(181, 154, 106, 0.35);
-}
-
-/* Card title */
-.svc-card-title {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 21px;
-  font-weight: 600;
-  color: #1e293b;
+.cta-title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: var(--white);
   line-height: 1.25;
 }
-.svc-card-title--light {
-  color: #ffffff;
+.cta-sub {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* Card description */
-.svc-card-desc {
-  font-size: 12.5px;
-  line-height: 1.75;
-  color: #6b7280;
-  flex: 1;
-}
-.svc-card-desc--light {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-/* Tag chips at the bottom of each card */
-.svc-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: auto;
-  padding-top: 4px;
-  border-top: 1px solid #f1f5f9;
-}
-.svc-card--featured .svc-card-tags {
-  border-top-color: rgba(255, 255, 255, 0.07);
-}
-
-.svc-tag {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 9px;
+/* CTA primary button */
+.btn-srv-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--sage-light);
+  color: var(--navy);
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 2px;
-  color: #334155;
-  background: rgba(30, 41, 59, 0.05);
-  border: 1px solid rgba(30, 41, 59, 0.1);
+  border-radius: 3px;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
-.svc-tag--light {
-  color: #b59a6a;
-  background: rgba(181, 154, 106, 0.1);
-  border-color: rgba(181, 154, 106, 0.25);
+.btn-srv-primary:hover {
+  background: var(--white);
+  color: var(--navy);
 }
 
-/* ============================================================
-   PROCESS SECTION
-   ============================================================ */
-.svc-process-section {
+/* CTA ghost button */
+.btn-srv-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 3px;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-srv-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 {
+  transition-delay: 0.08s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.16s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.24s;
+}
+.reveal-delay-4 {
+  transition-delay: 0.32s;
+}
+.reveal-delay-5 {
+  transition-delay: 0.4s;
+}
+.reveal-delay-6 {
+  transition-delay: 0.48s;
+}
+.reveal-delay-7 {
+  transition-delay: 0.56s;
+}
+
+/* =========================================================
+   HERO TITLE — centered inside hero
+   ========================================================= */
+.services-hero-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.services-hero-heading {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.services-hero-heading em {
+  color: rgb(31, 144, 63);
+}
+
+/* =========================================================
+   SERVICES SECTION — duotone background
+   Margin/padding tuned to sit flush under the overlay card
+   ========================================================= */
+#services {
   position: relative;
   overflow: hidden;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  margin-top: -215px;
+  padding-top: 200px !important;
 }
-
-/* Faint cross-hatch pattern */
-.svc-process-section::before {
+#services::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(181, 154, 106, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(181, 154, 106, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: url("../assets/images/services6.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: grayscale(0.55) brightness(100%);
   z-index: 0;
 }
-
-.svc-process-section > * {
-  position: relative;
+#services::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(25, 48, 70, 0.467) 0%,
+    rgba(47, 99, 82, 0.542) 50%,
+    rgba(25, 48, 70, 0.442) 100%
+  );
+  mix-blend-mode: multiply;
   z-index: 1;
 }
-
-/* 4-column row */
-.svc-process-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid #e2e8f0;
-  border-radius: 3px;
-  overflow: hidden;
-  background: #fff;
-}
-
-@media (max-width: 768px) {
-  .svc-process-row {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 480px) {
-  .svc-process-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Each step */
-.svc-process-step {
+#services > * {
   position: relative;
-  padding: 28px 24px 24px;
-  border-right: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: background 0.25s ease;
-}
-.svc-process-step:last-child {
-  border-right: none;
-}
-.svc-process-step:hover {
-  background: #f8f9fa;
+  z-index: 2;
 }
 
-/* Number */
-.svc-process-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: #f1f5f9;
-  line-height: 1;
-  transition: color 0.25s ease;
+/* Adjust text colors for contrast on dark bg */
+#services .srv-section-tag {
+  color: rgb(1, 74, 19);
 }
-.svc-process-step:hover .svc-process-num {
-  color: rgba(181, 154, 106, 0.2);
+#services .srv-section-title {
+  color: rgb(255, 255, 255);
 }
-
-/* Connector line — small gold rule under the number */
-.svc-process-connector {
-  width: 24px;
-  height: 2px;
-  background: #1e293b;
-  border-radius: 2px;
-  transition:
-    width 0.3s ease,
-    background 0.25s ease;
+#services .srv-section-title em {
+  color: rgb(2, 83, 10);
 }
-.svc-process-step:hover .svc-process-connector {
-  width: 36px;
-  background: #b59a6a;
+#services .srv-section-sub {
+  color: rgb(255, 255, 255);
 }
-.svc-process-connector--last {
-  background: #b59a6a;
+#services .srv-section-rule {
+  color: rgb(255, 255, 255);
 }
 
-/* Step title */
-.svc-process-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1e293b;
-  letter-spacing: 0.01em;
-}
-
-/* Step description */
-.svc-process-desc {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #6b7280;
-}
-
-/* ============================================================
-   FOOTER (shared)
-   ============================================================ */
-.site-footer {
-  background: linear-gradient(135deg, #e2e8f0 0%, #1e293b 100%);
+/* Cards stay white on top of dark section */
+#services .service-card {
+  background: var(--white);
 }

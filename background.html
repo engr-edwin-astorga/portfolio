@@ -7,7 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -15,17 +15,14 @@
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              display: ["Cormorant Garamond", "serif"],
-              sans: ["Inter", "sans-serif"],
-            },
+            fontFamily: { sans: ["Inter", "sans-serif"] },
             colors: {
-              primary: "#1e293b",
-              surface: "#f8f9fa",
-              muted: "#031238",
-              accent: "#334155",
-              border: "#e2e8f0",
-              gold: "#b59a6a",
+              primary: "#1a56db",
+              surface: "#f0f5ff",
+              muted: "#5a6a8a",
+              accent: "#2563eb",
+              border: "#c7d7f5",
+              green: "#16c060",
             },
           },
         },
@@ -63,12 +60,7 @@
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
         <div class="hidden md:flex justify-end">
-          <a
-            href="#"
-            class="px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm hover:bg-accent transition-colors duration-200"
-          >
-            Contact Me
-          </a>
+          <a href="#" class="btn-cta"> Contact Me </a>
         </div>
         <div class="md:hidden flex justify-end col-span-2">
           <button id="menu-btn" class="text-primary focus:outline-none">
@@ -98,11 +90,7 @@
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
         </ul>
-        <a
-          href="#"
-          class="mt-4 inline-block px-5 py-2 bg-primary text-white text-sm font-medium rounded-sm"
-          >Contact Me</a
-        >
+        <a href="#" class="btn-cta">Contact Me</a>
       </div>
     </nav>
     <!-- ========== END NAVBAR ========== -->
@@ -116,16 +104,17 @@
         <div class="max-w-xl flex flex-col gap-3">
           <span
             class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest"
-            style="color: rgba(181, 154, 106, 0.9)"
+            class="hero-eyebrow-rule"
+            style="color: rgba(22, 192, 96, 0.95)"
           >
-            <span class="w-5 h-px gold-line"></span>
+            <span class="hero-eyebrow-rule"></span>
             Professional Journey
           </span>
           <h1
             class="font-display text-4xl md:text-5xl font-light text-white leading-tight"
           >
             Background &amp;
-            <span style="color: #b59a6a; font-style: italic">Credentials</span>
+            <span style="color: #16c060; font-style: italic">Credentials</span>
           </h1>
           <p
             class="text-sm font-light leading-relaxed"
@@ -150,91 +139,75 @@
     </section>
     <!-- ========== END PAGE HERO ========== -->
 
-    <!-- ========== SECTION 1: PROFESSIONAL BACKGROUND ========== -->
+    <!-- ========== SECTION 1: PROFESSIONAL BACKGROUND ==========
+         REDESIGNED: Light sage bg (#eef2eb), dark text, images blend via mix-blend-mode:multiply
+         Suggested section bg image: a PNG/JPG with white/light background so it fades into #eef2eb
+         Best options: light botanical texture, soft grid, or airy workspace photo
+    ========== -->
     <section id="professional-background" class="py-20">
       <div class="max-w-6xl mx-auto px-6">
         <!-- Section heading -->
-        <div class="mb-12 flex flex-col gap-1">
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >Career Overview</span
-          >
-          <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
-            Professional <em>Background</em>
+        <div class="mb-12 flex flex-col gap-2 reveal">
+          <span class="pb-section-label">Career Overview</span>
+          <h2 class="text-3xl md:text-4xl font-bold" style="color: #193046">
+            Professional <em class="pb-heading-em">Background</em>
           </h2>
-          <div class="w-8 h-px gold-line mt-1"></div>
+          <div class="pb-divider"></div>
         </div>
 
-        <!-- Main two-column split -->
-        <div class="bg-split-layout">
-          <!-- LEFT COLUMN: summary panel + cards -->
-          <div class="bg-split-left">
-            <div class="bg-summary-panel reveal">
-              <div class="bg-summary-label">Overview</div>
-              <div class="bg-summary-heading">Engineer. Innovator. Leader</div>
-              <p class="bg-summary-text">
-                A Filipino professional with a distinguished track record across
-                engineering, innovation management, and smart city advocacy —
-                operating at the intersection of technology and governance.
-              </p>
-              <div style="margin-top: 3px">
-                <span class="bg-pill">PECE</span>
-                <span class="bg-pill">IoT</span>
-                <span class="bg-pill">Smart Cities</span>
+        <!-- Inspo split: LEFT text+list · RIGHT stacked images -->
+        <div class="pb-inspo-layout">
+          <!-- LEFT: About strip + description + checklist + pills -->
+          <div class="pb-text-side reveal">
+            <!-- Eyebrow -->
+            <div class="pb-eyebrow">
+              <span class="pb-eyebrow-icon">››</span>
+              About Me
+            </div>
+
+            <!-- Headline -->
+            <h3 class="pb-inspo-title">
+              Engineer. Innovator.<br />
+              <em class="pb-heading-em">Leader.</em>
+            </h3>
+
+            <!-- Description -->
+            <p class="pb-desc">
+              A Filipino professional with a distinguished track record across
+              engineering, innovation management, and smart city advocacy —
+              operating at the intersection of technology and governance.
+            </p>
+
+            <!-- Checklist — roles as checkitems -->
+            <div class="pb-checklist">
+              <div class="pb-check">
+                Licensed Professional Electronics Engineer (PECE)
+              </div>
+              <div class="pb-check">
+                Managing Director, AETECH Innovations · Singapore
+              </div>
+              <div class="pb-check">
+                President / CEO, Integritech Builders Solutions Inc.
+              </div>
+              <div class="pb-check">
+                SMART Cities Strategies &amp; Innovations Advocate
               </div>
             </div>
 
-            <div class="bg-card-grid">
-              <div class="bg-card reveal">
-                <div class="bg-card-num">01</div>
-                <div class="bg-card-body">
-                  <span class="bg-card-tag">Profession</span>
-                  <div class="bg-card-title">
-                    Professional Electronics Engineer
-                  </div>
-                  <div class="bg-card-sub">Licensed PECE · Philippines</div>
-                </div>
-              </div>
-              <div class="bg-card reveal">
-                <div class="bg-card-num">02</div>
-                <div class="bg-card-body">
-                  <span class="bg-card-tag">Executive</span>
-                  <div class="bg-card-title">Managing Director</div>
-                  <div class="bg-card-sub">AETECH Innovations · Singapore</div>
-                </div>
-              </div>
-              <div class="bg-card reveal">
-                <div class="bg-card-num">03</div>
-                <div class="bg-card-body">
-                  <span class="bg-card-tag">Corporate</span>
-                  <div class="bg-card-title">President / CEO</div>
-                  <div class="bg-card-sub">
-                    Integritech Builders Solutions Inc.
-                  </div>
-                </div>
-              </div>
-              <div class="bg-card reveal">
-                <div class="bg-card-num">04</div>
-                <div class="bg-card-body">
-                  <span class="bg-card-tag">Advocacy</span>
-                  <div class="bg-card-title">
-                    SMART Cities Strategies &amp; Innovations
-                  </div>
-                  <div class="bg-card-sub">
-                    Advocate of smart, connected, and sustainable cities
-                  </div>
-                </div>
-              </div>
+            <!-- Pills -->
+            <div class="pb-pills-row">
+              <span class="pb-pill">PECE</span>
+              <span class="pb-pill">IoT</span>
+              <span class="pb-pill">Smart Cities</span>
             </div>
+
+            <!-- CTA button removed per redesign -->
           </div>
 
-          <!-- RIGHT COLUMN: stacked split image panel -->
-          <div class="bg-split-right reveal">
-            <span class="bg-img-corner bg-img-corner--tl"></span>
-            <span class="bg-img-corner bg-img-corner--br"></span>
-
-            <!-- Image 1 — tall top panel -->
-            <div class="bg-img-cell bg-img-cell--top">
+          <!-- RIGHT: Stacked images with overlap -->
+          <div class="pb-img-side reveal">
+            <!-- Main large image -->
+            <div class="pb-img-main">
               <img
                 id="profbg-img-1"
                 src="assets/images/bg-professional.jpg"
@@ -244,641 +217,904 @@
                   this.nextElementSibling.style.display = 'flex';
                 "
               />
-              <div class="bg-img-fallback">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  <circle cx="12" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="32" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="52" cy="12" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="12" cy="32" r="3" fill="rgba(181,154,106,0.35)" />
+              <div class="pb-img-fallback">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                  <circle cx="11" cy="11" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="28" cy="11" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="45" cy="11" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="11" cy="28" r="3" fill="rgba(152,176,146,0.4)" />
                   <circle
-                    cx="32"
-                    cy="32"
+                    cx="28"
+                    cy="28"
                     r="5"
-                    fill="rgba(181,154,106,0.55)"
-                    stroke="rgba(181,154,106,0.2)"
+                    fill="rgba(152,176,146,0.6)"
+                    stroke="rgba(152,176,146,0.2)"
                     stroke-width="2"
                   />
-                  <circle cx="52" cy="32" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="12" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="32" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
-                  <circle cx="52" cy="52" r="3" fill="rgba(181,154,106,0.35)" />
+                  <circle cx="45" cy="28" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="11" cy="45" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="28" cy="45" r="3" fill="rgba(152,176,146,0.4)" />
+                  <circle cx="45" cy="45" r="3" fill="rgba(152,176,146,0.4)" />
                   <line
-                    x1="12"
-                    y1="12"
-                    x2="52"
-                    y2="12"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="11"
+                    y1="11"
+                    x2="45"
+                    y2="11"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                   <line
-                    x1="12"
-                    y1="32"
-                    x2="52"
-                    y2="32"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="11"
+                    y1="28"
+                    x2="45"
+                    y2="28"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                   <line
-                    x1="12"
-                    y1="52"
-                    x2="52"
-                    y2="52"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="11"
+                    y1="45"
+                    x2="45"
+                    y2="45"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                   <line
-                    x1="12"
-                    y1="12"
-                    x2="12"
-                    y2="52"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="11"
+                    y1="11"
+                    x2="11"
+                    y2="45"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                   <line
-                    x1="32"
-                    y1="12"
-                    x2="32"
-                    y2="52"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="28"
+                    y1="11"
+                    x2="28"
+                    y2="45"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                   <line
-                    x1="52"
-                    y1="12"
-                    x2="52"
-                    y2="52"
-                    stroke="rgba(181,154,106,0.12)"
+                    x1="45"
+                    y1="11"
+                    x2="45"
+                    y2="45"
+                    stroke="rgba(152,176,146,0.15)"
                     stroke-width="1"
                   />
                 </svg>
                 <span>Photo 1</span>
               </div>
-              <div class="bg-img-chip">Engineering</div>
             </div>
 
-            <!-- Slim divider strip with year marker -->
-            <div class="bg-img-divider">
-              <span class="bg-img-divider-line"></span>
-              <span class="bg-img-divider-dot"></span>
-              <span class="bg-img-divider-label">Field · Work</span>
-              <span class="bg-img-divider-line"></span>
-            </div>
-
-            <!-- Image 2 — shorter bottom panel, indented -->
-            <div class="bg-img-cell bg-img-cell--bottom">
-              <img
-                id="profbg-img-2"
-                src="assets/images/bg-professional2.jpg"
-                alt="Professional Background 2"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="bg-img-fallback">
-                <svg width="56" height="40" viewBox="0 0 56 40" fill="none">
-                  <path
-                    d="M2 20 C8 10,14 30,20 20 C26 10,32 30,38 20 C44 10,50 30,56 20"
-                    stroke="rgba(181,154,106,0.5)"
-                    stroke-width="1.5"
-                    fill="none"
-                  />
-                  <path
-                    d="M2 28 C8 18,14 38,20 28 C26 18,32 38,38 28 C44 18,50 38,56 28"
-                    stroke="rgba(181,154,106,0.2)"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                </svg>
-                <span>Photo 2</span>
+            <!-- Trust strip bottom-left -->
+            <div class="pb-trust-strip">
+              <div class="pb-trust-avatars">
+                <span>E</span><span>A</span><span>I</span>
               </div>
-              <div class="bg-img-chip bg-img-chip--alt">Innovation</div>
+              <span class="pb-trust-label">20+ Years Experience</span>
             </div>
           </div>
         </div>
-        <!-- /bg-split-layout -->
       </div>
     </section>
     <!-- ========== END PROFESSIONAL BACKGROUND ========== -->
 
     <div class="section-divider"></div>
 
-    <!-- ========== SECTION 2: PROFESSIONAL ROLES ========== -->
-    <!-- BG image: assets/images/bg-roles.jpg
-         CSS fallback: warm off-white fine cross-hatch -->
-    <section id="professional-roles" class="py-14">
+    <!-- ========== SECTION 2: PROFESSIONAL ROLES — CAROUSEL SPLIT ========== -->
+    <section id="professional-roles" class="py-20">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-10 flex flex-col items-center gap-2">
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >Leadership &amp; Service</span
-          >
-          <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
-            Professional <em>Roles</em>
-          </h2>
-          <div class="w-8 h-px gold-line mt-1"></div>
-          <p
-            class="text-sm text-muted mt-2 max-w-lg text-center leading-relaxed"
-          >
+        <!-- Section Header -->
+        <div class="pr-section-header reveal">
+          <div class="pr-header-left">
+            <span class="pr-label-tag">Leadership &amp; Service</span>
+            <h2 class="pr-section-title">Professional <em>Roles</em></h2>
+            <div class="pr-title-bar"></div>
+          </div>
+          <p class="pr-section-desc">
             Key positions held across industry, technology, and public service
             that have defined a career of impact and innovation.
           </p>
         </div>
 
-        <!-- Role 1 — image RIGHT -->
-        <!-- image: assets/images/role-iot-school.jpg -->
-        <div class="split-role-row split-role-row-right reveal">
-          <div class="split-role-content">
-            <div class="split-role-meta">
-              <span class="split-role-num">01</span>
-              <span class="role-card-badge">Education</span>
-              <span class="role-card-current">Active</span>
-            </div>
-            <div class="role-card-title">Founder</div>
-            <div class="role-card-org">School of IoT Philippines</div>
-            <p
-              style="
-                font-size: 12.5px;
-                line-height: 1.7;
-                color: #6b7280;
-                margin-top: 4px;
-              "
-            >
-              Established the Philippines' dedicated learning institution for
-              Internet of Things education, equipping the next generation of
-              engineers with hands-on automation and connectivity skills.
-            </p>
-          </div>
-          <div class="split-role-img-wrap">
-            <img
-              src="assets/images/role-iot-school.jpg"
-              alt="School of IoT Philippines"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <div
-              class="role-img-fallback"
-              style="
-                background: linear-gradient(
-                  145deg,
-                  #1a2a44 0%,
-                  #243350 50%,
-                  #1e293b 100%
-                );
-              "
-            >
-              <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-                <circle cx="10" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="26" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="42" cy="10" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="10" cy="26" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle
-                  cx="26"
-                  cy="26"
-                  r="3.5"
-                  fill="rgba(181,154,106,0.6)"
-                  stroke="rgba(181,154,106,0.3)"
-                  stroke-width="1"
-                />
-                <circle cx="42" cy="26" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="10" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="26" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
-                <circle cx="42" cy="42" r="2" fill="rgba(181,154,106,0.4)" />
-                <line
-                  x1="10"
-                  y1="10"
-                  x2="10"
-                  y2="42"
-                  stroke="rgba(181,154,106,0.15)"
-                  stroke-width="1"
-                />
-                <line
-                  x1="26"
-                  y1="10"
-                  x2="26"
-                  y2="42"
-                  stroke="rgba(181,154,106,0.15)"
-                  stroke-width="1"
-                />
-                <line
-                  x1="42"
-                  y1="10"
-                  x2="42"
-                  y2="42"
-                  stroke="rgba(181,154,106,0.15)"
-                  stroke-width="1"
-                />
-                <line
-                  x1="10"
-                  y1="26"
-                  x2="42"
-                  y2="26"
-                  stroke="rgba(181,154,106,0.15)"
-                  stroke-width="1"
-                />
-              </svg>
-              <span>School of IoT</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Role 2 — image LEFT -->
-        <!-- image: assets/images/role-iot-automation.jpg -->
-        <div class="split-role-row split-role-row-left reveal">
-          <div class="split-role-img-wrap">
-            <img
-              src="assets/images/role-iot-automation.jpg"
-              alt="IoT Automation"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-            />
-            <div
-              class="role-img-fallback"
-              style="
-                background: linear-gradient(
-                  145deg,
-                  #0f172a 0%,
-                  #1e293b 60%,
-                  #243049 100%
-                );
-              "
-            >
-              <svg width="56" height="40" viewBox="0 0 56 40" fill="none">
-                <path
-                  d="M2 20 C8 10,14 30,20 20 C26 10,32 30,38 20 C44 10,50 30,56 20"
-                  stroke="rgba(181,154,106,0.5)"
-                  stroke-width="1.5"
-                  fill="none"
-                />
-                <path
-                  d="M2 28 C8 18,14 38,20 28 C26 18,32 38,38 28 C44 18,50 38,56 28"
-                  stroke="rgba(181,154,106,0.25)"
-                  stroke-width="1"
-                  fill="none"
-                />
-                <path
-                  d="M2 12 C8 2,14 22,20 12 C26 2,32 22,38 12 C44 2,50 22,56 12"
-                  stroke="rgba(181,154,106,0.25)"
-                  stroke-width="1"
-                  fill="none"
-                />
-              </svg>
-              <span>IoT &amp; Automation</span>
-            </div>
-          </div>
-          <div
-            class="split-role-content"
-            style="border-left: 1px solid #e2e8f0"
-          >
-            <div class="split-role-meta">
-              <span class="split-role-num">02</span>
-              <span class="role-card-badge">Technology</span>
-            </div>
-            <div class="role-card-title">IoT System Automation Specialist</div>
-            <div class="role-card-org">
-              Internet of Things &amp; Industrial Automation
-            </div>
-            <p
-              style="
-                font-size: 12.5px;
-                line-height: 1.7;
-                color: #6b7280;
-                margin-top: 4px;
-              "
-            >
-              Designs and deploys end-to-end IoT infrastructure — from sensor
-              networks to cloud-connected dashboards — enabling smart monitoring
-              and industrial process automation.
-            </p>
-          </div>
-        </div>
-
-        <!-- Roles 3 & 4 — top-banner cards -->
-        <div class="two-col-cards">
-          <!-- Role 3 -->
-          <!-- image: assets/images/role-consulting.jpg -->
-          <div class="role-top-card reveal">
-            <div class="role-top-card-img">
-              <img
-                src="assets/images/role-consulting.jpg"
-                alt="Consulting"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div
-                class="role-img-fallback"
-                style="
-                  height: 155px;
-                  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-                "
-              >
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <rect
-                    x="14"
-                    y="2"
-                    width="20"
-                    height="20"
-                    rx="1"
-                    transform="rotate(45 24 12)"
-                    stroke="rgba(181,154,106,0.45)"
-                    stroke-width="1.2"
-                    fill="none"
-                  />
-                  <rect
-                    x="14"
-                    y="26"
-                    width="20"
-                    height="20"
-                    rx="1"
-                    transform="rotate(45 24 36)"
-                    stroke="rgba(181,154,106,0.25)"
-                    stroke-width="1"
-                    fill="none"
-                  />
-                </svg>
-                <span>Consulting</span>
+        <!-- ── CAROUSEL SPLIT WRAPPER ── -->
+        <div class="pr-split reveal">
+          <!-- ════ LEFT: ALBUM FRAME CAROUSEL ════ -->
+          <div class="pr-album-frame">
+            <!-- Outer matte border (the "frame") -->
+            <div class="pr-matte">
+              <!-- Film perforations top -->
+              <div class="pr-film-strip pr-film-strip--top">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
               </div>
-              <div class="role-top-card-accent"></div>
-            </div>
-            <div class="role-top-card-body">
-              <div class="split-role-meta">
-                <span class="split-role-num">03</span>
-                <span class="role-card-badge">Consulting</span>
+
+              <!-- The viewport window inside the matte -->
+              <div class="pr-viewport" id="pr-viewport">
+                <!-- Slide track -->
+                <div class="pr-slide-track" id="pr-slide-track">
+                  <!-- Slide 1 -->
+                  <div class="pr-slide" data-index="0">
+                    <img
+                      src="assets/images/role-iot-school.jpg"
+                      alt="School of IoT Philippines"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="pr-slide-fallback">
+                      <svg
+                        width="52"
+                        height="52"
+                        viewBox="0 0 52 52"
+                        fill="none"
+                      >
+                        <rect
+                          x="6"
+                          y="12"
+                          width="30"
+                          height="22"
+                          rx="2"
+                          stroke="rgba(110,231,183,0.45)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                        <path
+                          d="M4 12L21 3l17 9"
+                          stroke="rgba(110,231,183,0.35)"
+                          stroke-width="1.2"
+                          fill="none"
+                        />
+                        <rect
+                          x="17"
+                          y="22"
+                          width="10"
+                          height="10"
+                          rx="1"
+                          stroke="rgba(110,231,183,0.3)"
+                          stroke-width="1"
+                          fill="none"
+                        />
+                      </svg>
+                      <span>School of IoT</span>
+                    </div>
+                    <!-- Slide caption bar -->
+                    <div class="pr-slide-caption">
+                      <span class="pr-slide-caption-num">01 / 05</span>
+                      <span class="pr-slide-caption-tag">Education</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 2 -->
+                  <div class="pr-slide" data-index="1">
+                    <img
+                      src="assets/images/role-iot-automation.jpg"
+                      alt="IoT Automation"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="pr-slide-fallback">
+                      <svg
+                        width="56"
+                        height="36"
+                        viewBox="0 0 56 36"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 18 C8 8,14 28,20 18 C26 8,32 28,38 18 C44 8,50 28,56 18"
+                          stroke="rgba(110,231,183,0.5)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                      </svg>
+                      <span>IoT &amp; Automation</span>
+                    </div>
+                    <div class="pr-slide-caption">
+                      <span class="pr-slide-caption-num">02 / 05</span>
+                      <span class="pr-slide-caption-tag">Technology</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 3 -->
+                  <div class="pr-slide" data-index="2">
+                    <img
+                      src="assets/images/role-consulting.jpg"
+                      alt="Consulting"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="pr-slide-fallback">
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                      >
+                        <circle
+                          cx="24"
+                          cy="20"
+                          r="10"
+                          stroke="rgba(110,231,183,0.45)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                        <path
+                          d="M8 42c0-8.84 7.16-16 16-16s16 7.16 16 16"
+                          stroke="rgba(110,231,183,0.35)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                      </svg>
+                      <span>Consulting</span>
+                    </div>
+                    <div class="pr-slide-caption">
+                      <span class="pr-slide-caption-num">03 / 05</span>
+                      <span class="pr-slide-caption-tag">Advisory</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 4 -->
+                  <div class="pr-slide" data-index="3">
+                    <img
+                      src="assets/images/role-innovation.jpg"
+                      alt="Chief Innovation Officer"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="pr-slide-fallback">
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                      >
+                        <path
+                          d="M24 6 L28 18 L42 18 L31 27 L35 41 L24 33 L13 41 L17 27 L6 18 L20 18Z"
+                          stroke="rgba(110,231,183,0.45)"
+                          stroke-width="1.5"
+                          fill="none"
+                        />
+                      </svg>
+                      <span>Innovation</span>
+                    </div>
+                    <div class="pr-slide-caption">
+                      <span class="pr-slide-caption-num">04 / 05</span>
+                      <span class="pr-slide-caption-tag">Executive</span>
+                    </div>
+                  </div>
+
+                  <!-- Slide 5 -->
+                  <div class="pr-slide" data-index="4">
+                    <img
+                      src="assets/images/captain.jpg"
+                      alt="Barangay Captain"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="pr-slide-fallback">
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                      >
+                        <polygon
+                          points="24,4 28,18 42,18 31,27 35,41 24,32 13,41 17,27 6,18 20,18"
+                          stroke="rgba(110,231,183,0.5)"
+                          stroke-width="1.2"
+                          fill="rgba(52,211,153,0.04)"
+                        />
+                      </svg>
+                      <span>Public Service</span>
+                    </div>
+                    <div class="pr-slide-caption">
+                      <span class="pr-slide-caption-num">05 / 05</span>
+                      <span class="pr-slide-caption-tag">Governance</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- /slide-track -->
               </div>
-              <div class="role-card-title">Consultant</div>
-              <div class="role-card-org">
-                Various Industries &amp; Government Projects
+              <!-- /viewport -->
+
+              <!-- Film perforations bottom -->
+              <div class="pr-film-strip pr-film-strip--bottom">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
               </div>
             </div>
-          </div>
+            <!-- /matte -->
 
-          <!-- Role 4 -->
-          <!-- image: assets/images/role-innovation.jpg -->
-          <div class="role-top-card reveal">
-            <div class="role-top-card-img">
-              <img
-                src="assets/images/role-innovation.jpg"
-                alt="Chief Innovation Officer"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div
-                class="role-img-fallback"
-                style="
-                  height: 155px;
-                  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-                "
-              >
-                <svg width="40" height="48" viewBox="0 0 40 48" fill="none">
+            <!-- Navigation controls below frame -->
+            <div class="pr-nav-bar">
+              <button class="pr-nav-btn" id="pr-prev" aria-label="Previous">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path
-                    d="M24 2L6 26H20L16 46L34 22H20L24 2Z"
-                    stroke="rgba(181,154,106,0.5)"
-                    stroke-width="1.5"
-                    fill="rgba(181,154,106,0.05)"
+                    d="M11 4L6 9l5 5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
-                <span>Innovation</span>
-              </div>
-              <div class="role-top-card-accent"></div>
-            </div>
-            <div class="role-top-card-body">
-              <div class="split-role-meta">
-                <span class="split-role-num">04</span>
-                <span class="role-card-badge">Executive</span>
-              </div>
-              <div class="role-card-title">Chief Innovation Officer</div>
-              <div class="role-card-org">Acube Technologies</div>
-            </div>
-          </div>
-        </div>
+              </button>
 
-        <!-- Role 5 — dark full-width banner -->
-        <!-- image: assets/images/role-public-service.jpg -->
-        <div class="split-role-row split-role-row-dark reveal">
-          <div class="split-role-content">
-            <div class="split-role-meta">
-              <span class="split-role-num-dark">05</span>
-              <span
-                style="
-                  font-size: 9px;
-                  font-weight: 700;
-                  letter-spacing: 0.12em;
-                  text-transform: uppercase;
-                  background: rgba(255, 255, 255, 0.1);
-                  border: 1px solid rgba(255, 255, 255, 0.15);
-                  padding: 2px 7px;
-                  border-radius: 2px;
-                  color: rgba(255, 255, 255, 0.55);
-                "
-                >Public Service</span
-              >
-              <span
-                class="role-card-current"
-                style="
-                  color: #34d399;
-                  background: rgba(52, 211, 153, 0.08);
-                  border-color: rgba(52, 211, 153, 0.2);
-                "
-                >Active</span
-              >
-            </div>
-            <div
-              style="
-                font-family: &quot;Cormorant Garamond&quot;, serif;
-                font-size: 27px;
-                font-weight: 600;
-                color: #fff;
-                line-height: 1.15;
-              "
-            >
-              Barangay Captain
-            </div>
-            <div style="font-size: 12.5px; color: rgba(255, 255, 255, 0.45)">
-              San Andres 1, Dasmariñas, Cavite
-            </div>
-            <p
-              style="
-                font-size: 12px;
-                line-height: 1.7;
-                color: rgba(255, 255, 255, 0.38);
-                margin-top: 3px;
-              "
-            >
-              Serving the community through grassroots leadership — driving
-              local governance initiatives, public safety, and community
-              development programs at the barangay level.
-            </p>
-          </div>
-          <div
-            class="split-role-img-wrap"
-            style="border-left: 1px solid rgba(255, 255, 255, 0.07)"
-          >
-            <img
-              src="assets/images/captain.jpg"
-              alt="Barangay Captain"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
-              style="opacity: 0.7"
-            />
-            <div
-              class="role-img-fallback"
-              style="
-                background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-              "
-            >
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <polygon
-                  points="24,4 28,18 42,18 31,27 35,41 24,32 13,41 17,27 6,18 20,18"
-                  stroke="rgba(181,154,106,0.5)"
-                  stroke-width="1.2"
-                  fill="rgba(181,154,106,0.05)"
-                />
-              </svg>
-              <span>Public Service</span>
+              <!-- Dot indicators -->
+              <div class="pr-dots" id="pr-dots">
+                <button class="pr-dot pr-dot--active" data-go="0"></button>
+                <button class="pr-dot" data-go="1"></button>
+                <button class="pr-dot" data-go="2"></button>
+                <button class="pr-dot" data-go="3"></button>
+                <button class="pr-dot" data-go="4"></button>
+              </div>
+
+              <button class="pr-nav-btn" id="pr-next" aria-label="Next">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path
+                    d="M7 4l5 5-5 5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
+          <!-- /album-frame -->
+
+          <!-- ════ RIGHT: ROLE DETAILS PANEL ════ -->
+          <div class="pr-detail-panel" id="pr-detail-panel">
+            <!-- Role 1 -->
+            <div class="pr-role-slide pr-role-slide--active" data-role="0">
+              <div class="pr-role-eyebrow">
+                <span class="pr-role-num">01</span>
+                <span class="pr-role-category">Education</span>
+                <span class="pr-active-badge">
+                  <span class="pr-active-dot"></span>Active
+                </span>
+              </div>
+              <h3 class="pr-role-title">
+                Founder<br />
+                <em>School of IoT Philippines</em>
+              </h3>
+              <p class="pr-role-desc">
+                Established the Philippines' dedicated learning institution for
+                Internet of Things education, equipping the next generation of
+                engineers with hands-on automation and connectivity skills.
+              </p>
+              <ul class="pr-bullet-list">
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>IoT Curriculum Design &amp; Instruction</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Hands-on Automation Training Programs</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Next-Gen Engineering Workforce Development</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="pr-role-slide" data-role="1">
+              <div class="pr-role-eyebrow">
+                <span class="pr-role-num">02</span>
+                <span class="pr-role-category">Technology</span>
+              </div>
+              <h3 class="pr-role-title">
+                IoT System<br />
+                <em>Automation Specialist</em>
+              </h3>
+              <p class="pr-role-org">
+                Internet of Things &amp; Industrial Automation
+              </p>
+              <p class="pr-role-desc">
+                Designs and deploys end-to-end IoT infrastructure — from sensor
+                networks to cloud-connected dashboards — enabling smart
+                monitoring and industrial process automation.
+              </p>
+              <ul class="pr-bullet-list">
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>End-to-end IoT Infrastructure Deployment</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Smart Monitoring &amp; Process Automation</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Sensor Network Design &amp; Cloud Integration</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="pr-role-slide" data-role="2">
+              <div class="pr-role-eyebrow">
+                <span class="pr-role-num">03</span>
+                <span class="pr-role-category">Advisory</span>
+              </div>
+              <h3 class="pr-role-title">
+                Technology<br />
+                <em>Consultant</em>
+              </h3>
+              <p class="pr-role-org">
+                Various Industries &amp; Government Projects
+              </p>
+              <p class="pr-role-desc">
+                Provides expert technology guidance to both private enterprises
+                and government agencies, bridging the gap between innovation
+                strategy and real-world implementation.
+              </p>
+              <ul class="pr-bullet-list">
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Strategic Technology Advisory</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Government Project Engagement</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Innovation Roadmap Development</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Role 4 -->
+            <div class="pr-role-slide" data-role="3">
+              <div class="pr-role-eyebrow">
+                <span class="pr-role-num">04</span>
+                <span class="pr-role-category">Executive</span>
+              </div>
+              <h3 class="pr-role-title">
+                Chief Innovation<br />
+                <em>Officer</em>
+              </h3>
+              <p class="pr-role-org">Acube Technologies</p>
+              <p class="pr-role-desc">
+                Led the innovation function at Acube Technologies — steering
+                R&amp;D strategy, overseeing product commercialization, and
+                building a culture of technological advancement.
+              </p>
+              <ul class="pr-bullet-list">
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Innovation Strategy &amp; R&amp;D Leadership</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Technology Commercialization</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Cross-functional Innovation Culture Building</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Role 5 -->
+            <div class="pr-role-slide" data-role="4">
+              <div class="pr-role-eyebrow">
+                <span class="pr-role-num">05</span>
+                <span class="pr-role-category">Governance</span>
+                <span class="pr-active-badge">
+                  <span class="pr-active-dot"></span>Active
+                </span>
+              </div>
+              <h3 class="pr-role-title">
+                Barangay<br />
+                <em>Captain</em>
+              </h3>
+              <p class="pr-role-org">San Andres 1, Dasmariñas, Cavite</p>
+              <p class="pr-role-desc">
+                Serving the community through grassroots leadership — driving
+                local governance initiatives, public safety, and community
+                development programs at the barangay level.
+              </p>
+              <ul class="pr-bullet-list">
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Local Governance &amp; Community Development</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Public Safety &amp; Civic Programs</span>
+                </li>
+                <li class="pr-bullet">
+                  <span class="pr-bullet-icon">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <circle
+                        cx="5"
+                        cy="5"
+                        r="4"
+                        stroke="#93c5fd"
+                        stroke-width="1.5"
+                      />
+                      <circle cx="5" cy="5" r="1.5" fill="#93c5fd" />
+                    </svg>
+                  </span>
+                  <span>Grassroots Leadership &amp; Social Equity</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /detail-panel -->
         </div>
+        <!-- /pr-split -->
       </div>
     </section>
     <!-- ========== END PROFESSIONAL ROLES ========== -->
 
     <div class="section-divider"></div>
 
-    <!-- ========== SECTION 3: EDUCATIONAL BACKGROUND ========== -->
-    <!-- BG image: assets/images/bg-education.jpg
-         CSS fallback: warm parchment with ruled horizontal lines + gold radial glow -->
-    <section id="education" class="py-14">
+    <!-- ========== SECTION 3: EDUCATIONAL BACKGROUND — REDESIGNED ========== -->
+    <!-- Replace the entire existing #education section with this block         -->
+    <!-- Add Playfair Display to your Google Fonts link in <head>:              -->
+    <!--   &family=Playfair+Display:ital,wght@0,700;1,400                       -->
+    <!-- ======================================================================= -->
+
+    <section id="education" class="py-20">
       <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12 flex flex-col items-center gap-2">
-          <span
-            class="text-xs font-semibold tracking-widest uppercase text-muted"
-            >Academic Formation</span
-          >
-          <h2 class="font-display text-4xl md:text-5xl font-light text-primary">
-            Educational <em>Background</em>
-          </h2>
-          <div class="w-8 h-px gold-line mt-1"></div>
+        <!-- Section Header -->
+        <div class="edu-header reveal">
+          <div class="edu-eyebrow">Academic Formation</div>
+          <h2 class="edu-title">Educational <em>Background</em></h2>
+          <p class="edu-subtitle">
+            A distinguished academic record spanning engineering,<br />
+            management sciences, and sustainability leadership.
+          </p>
+          <div class="edu-divider"></div>
         </div>
 
-        <div class="relative">
-          <div class="hidden md:block timeline-track"></div>
+        <!-- Timeline -->
+        <div class="edu-timeline-container">
+          <div class="edu-timeline-spine"></div>
 
-          <!-- Doctorate -->
-          <div class="tl-row reveal">
-            <div class="tl-left">
-              <div class="edu-card">
-                <span class="deg-badge">Doctorate</span>
-                <h3
-                  class="font-display text-xl font-semibold text-primary leading-snug"
-                >
-                  Doctorate in Sustainability Management
+          <!-- ── ENTRY 1: Doctorate (LEFT) ── -->
+          <div class="edu-tl-entry reveal">
+            <div class="edu-tl-card-wrap">
+              <div
+                class="edu-tl-card"
+                style="
+                  --bar: #2f6352;
+                  --arc: rgba(47, 99, 82, 0.06);
+                  --badge-text: #2f6352;
+                  --badge-bg: rgba(47, 99, 82, 0.08);
+                  --badge-bd: rgba(47, 99, 82, 0.18);
+                "
+              >
+                <span class="edu-badge">Doctorate</span>
+                <h3 class="edu-degree">
+                  Doctor of Management<br />in Sustainability
                 </h3>
-                <p class="text-sm text-muted mt-1">
-                  Thames International University
-                </p>
-                <p class="text-xs text-muted mt-0.5 italic">France</p>
+                <p class="edu-school">Thames International University</p>
+                <p class="edu-loc">France</p>
               </div>
             </div>
-            <div class="hidden md:block t-dot" style="top: 22px"></div>
-            <div class="tl-right hidden md:flex"></div>
-          </div>
-
-          <!-- MS Electrical Engineering -->
-          <div class="tl-row reveal">
-            <div class="tl-left hidden md:flex"></div>
-            <div class="hidden md:block t-dot" style="top: 22px"></div>
-            <div class="tl-right">
-              <div class="edu-card">
-                <span class="deg-badge">Master of Science</span>
-                <h3
-                  class="font-display text-xl font-semibold text-primary leading-snug"
-                >
-                  Master of Science in Electrical Engineering
-                </h3>
-                <p class="text-sm text-muted mt-1">Major in Electronics</p>
+            <div class="edu-tl-node">
+              <div class="edu-dot-outer">
+                <div class="edu-dot-inner" style="background: #2f6352"></div>
               </div>
+              <div class="edu-tl-line"></div>
+            </div>
+            <div class="edu-tl-spacer">
+              <span class="edu-year-tag">DM</span>
             </div>
           </div>
 
-          <!-- Master in Innovations -->
-          <div class="tl-row reveal">
-            <div class="tl-left">
-              <div class="edu-card">
-                <span class="deg-badge">Master's Degree</span>
-                <h3
-                  class="font-display text-xl font-semibold text-primary leading-snug"
-                >
-                  Master in Innovations and Business
-                </h3>
-                <p class="text-sm text-muted mt-1">
-                  Asian Institute of Management
-                </p>
-              </div>
+          <!-- ── ENTRY 2: MS Electrical Engineering (RIGHT) ── -->
+          <div class="edu-tl-entry edu-tl-entry--right reveal">
+            <div class="edu-tl-spacer edu-tl-spacer--right">
+              <span class="edu-year-tag">MS</span>
             </div>
-            <div class="hidden md:block t-dot" style="top: 22px"></div>
-            <div class="tl-right hidden md:flex"></div>
-          </div>
-
-          <!-- Project Management -->
-          <div class="tl-row reveal">
-            <div class="tl-left hidden md:flex"></div>
-            <div class="hidden md:block t-dot" style="top: 22px"></div>
-            <div class="tl-right">
-              <div class="edu-card">
-                <span class="deg-badge">Certificate Program</span>
-                <h3
-                  class="font-display text-xl font-semibold text-primary leading-snug"
-                >
-                  Project Management Program
-                </h3>
-                <p class="text-sm text-muted mt-1">Enderun College</p>
+            <div class="edu-tl-node">
+              <div class="edu-dot-outer" style="border-color: #5f8575">
+                <div class="edu-dot-inner" style="background: #5f8575"></div>
+              </div>
+              <div class="edu-tl-line"></div>
+            </div>
+            <div class="edu-tl-card-wrap edu-tl-card-wrap--right">
+              <div
+                class="edu-tl-card"
+                style="
+                  --bar: #5f8575;
+                  --arc: rgba(95, 133, 117, 0.07);
+                  --badge-text: #5f8575;
+                  --badge-bg: rgba(95, 133, 117, 0.09);
+                  --badge-bd: rgba(95, 133, 117, 0.22);
+                "
+              >
+                <span class="edu-badge">Master of Science</span>
+                <h3 class="edu-degree">MS in Electrical<br />Engineering</h3>
+                <p class="edu-school">Major in Electronics</p>
               </div>
             </div>
           </div>
 
-          <!-- Bachelor's -->
-          <div class="tl-row reveal" style="margin-bottom: 0">
-            <div class="tl-left">
-              <div class="edu-card">
-                <span class="deg-badge">Bachelor's Degree</span>
-                <h3
-                  class="font-display text-xl font-semibold text-primary leading-snug"
-                >
-                  BS in Electronics and Communications Engineering
+          <!-- ── ENTRY 3: Master in Innovations (LEFT) ── -->
+          <div class="edu-tl-entry reveal">
+            <div class="edu-tl-card-wrap">
+              <div
+                class="edu-tl-card"
+                style="
+                  --bar: #193046;
+                  --arc: rgba(25, 48, 70, 0.05);
+                  --badge-text: #193046;
+                  --badge-bg: rgba(25, 48, 70, 0.08);
+                  --badge-bd: rgba(25, 48, 70, 0.18);
+                "
+              >
+                <span class="edu-badge">Master's Degree</span>
+                <h3 class="edu-degree">
+                  Master in Innovations<br />&amp; Business
                 </h3>
-                <p class="text-sm text-muted mt-1">
+                <p class="edu-school">Asian Institute of Management</p>
+              </div>
+            </div>
+            <div class="edu-tl-node">
+              <div class="edu-dot-outer" style="border-color: #193046">
+                <div class="edu-dot-inner" style="background: #193046"></div>
+              </div>
+              <div class="edu-tl-line"></div>
+            </div>
+            <div class="edu-tl-spacer">
+              <span class="edu-year-tag">MIB</span>
+            </div>
+          </div>
+
+          <!-- ── ENTRY 4: Project Management Certificate (RIGHT) ── -->
+          <div class="edu-tl-entry edu-tl-entry--right reveal">
+            <div class="edu-tl-spacer edu-tl-spacer--right">
+              <span class="edu-year-tag">Cert.</span>
+            </div>
+            <div class="edu-tl-node">
+              <div class="edu-dot-outer" style="border-color: #889bae">
+                <div class="edu-dot-inner" style="background: #889bae"></div>
+              </div>
+              <div class="edu-tl-line"></div>
+            </div>
+            <div class="edu-tl-card-wrap edu-tl-card-wrap--right">
+              <div
+                class="edu-tl-card"
+                style="
+                  --bar: #889bae;
+                  --arc: rgba(136, 155, 174, 0.06);
+                  --badge-text: #4a6070;
+                  --badge-bg: rgba(136, 155, 174, 0.1);
+                  --badge-bd: rgba(136, 155, 174, 0.28);
+                "
+              >
+                <span class="edu-badge">Certificate Program</span>
+                <h3 class="edu-degree">Project Management<br />Program</h3>
+                <p class="edu-school">Enderun College</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── ENTRY 5: BS ECE (LEFT) ── -->
+          <div class="edu-tl-entry edu-tl-entry--last reveal">
+            <div class="edu-tl-card-wrap">
+              <div
+                class="edu-tl-card"
+                style="
+                  --bar: #98b092;
+                  --arc: rgba(152, 176, 146, 0.07);
+                  --badge-text: #3d6040;
+                  --badge-bg: rgba(152, 176, 146, 0.1);
+                  --badge-bd: rgba(152, 176, 146, 0.28);
+                "
+              >
+                <span class="edu-badge">Bachelor's Degree</span>
+                <h3 class="edu-degree">
+                  BS in Electronics &amp;<br />Communications Engineering
+                </h3>
+                <p class="edu-school">
                   Technological University of the Philippines
                 </p>
-                <span class="scholar-tag">
-                  <svg
-                    class="w-3 h-3"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                    />
-                  </svg>
+                <span class="edu-scholar-tag">
+                  <span class="edu-scholar-icon"></span>
                   DOST Scholar
                 </span>
               </div>
             </div>
-            <div class="hidden md:block t-dot" style="top: 22px"></div>
-            <div class="tl-right hidden md:flex"></div>
+            <div class="edu-tl-node">
+              <div class="edu-dot-outer" style="border-color: #98b092">
+                <div class="edu-dot-inner" style="background: #98b092"></div>
+              </div>
+              <!-- no line on last entry -->
+            </div>
+            <div class="edu-tl-spacer">
+              <span class="edu-year-tag">BS ECE</span>
+            </div>
+          </div>
+        </div>
+        <!-- /edu-timeline-container -->
+
+        <!-- Stats strip -->
+        <div class="edu-stats reveal">
+          <div class="edu-stat">
+            <span class="edu-stat-num">5</span>
+            <span class="edu-stat-label">Degrees &amp; Credentials</span>
+          </div>
+          <div class="edu-stat">
+            <span class="edu-stat-num">3</span>
+            <span class="edu-stat-label">Countries of Study</span>
+          </div>
+          <div class="edu-stat">
+            <span class="edu-stat-num">20+</span>
+            <span class="edu-stat-label">Years of Practice</span>
           </div>
         </div>
       </div>
@@ -889,63 +1125,34 @@
     <footer class="site-footer py-10">
       <div class="max-w-6xl mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-7"
+          class="flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          <div class="flex flex-col gap-1 text-center md:text-left">
-            <p class="text-base font-semibold text-primary">
-              Engr. Edwin Londonio Astorga
-            </p>
-            <p class="text-xs text-muted tracking-widest uppercase">
+          <!-- Left: Name & title -->
+          <div class="flex flex-col gap-0.5 text-center md:text-left">
+            <p class="footer-name">Engr. Edwin Londonio Astorga</p>
+            <p class="footer-subtitle">
               PECE, DM · Professional Electronics Engineer
             </p>
           </div>
-          <ul class="flex items-center gap-6 text-xs font-medium text-muted">
-            <li>
-              <a
-                href="index.html"
-                class="hover:text-primary transition-colors duration-200"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="background.html"
-                class="hover:text-primary transition-colors duration-200"
-                >Background</a
-              >
-            </li>
-            <li>
-              <a
-                href="services.html"
-                class="hover:text-primary transition-colors duration-200"
-                >Services</a
-              >
-            </li>
-            <li>
-              <a
-                href="about.html"
-                class="hover:text-primary transition-colors duration-200"
-                >About</a
-              >
-            </li>
+
+          <!-- Center: Nav links -->
+          <ul class="footer-nav flex items-center gap-6">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="background.html">Background</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
+
+          <!-- Right: Social icons -->
           <div class="flex items-center gap-3">
-            <a
-              href="#"
-              aria-label="Facebook"
-              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+            <a href="#" aria-label="Facebook" class="footer-social-btn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
                 />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+            <a href="#" aria-label="LinkedIn" class="footer-social-btn">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
@@ -953,11 +1160,7 @@
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="Email"
-              class="w-8 h-8 rounded-sm border border-border bg-white/60 flex items-center justify-center text-muted hover:text-primary hover:border-primary transition-all duration-200"
-            >
+            <a href="#" aria-label="Email" class="footer-social-btn">
               <svg
                 class="w-4 h-4"
                 fill="none"
@@ -974,23 +1177,84 @@
             </a>
           </div>
         </div>
-        <div class="mt-8 pt-5 border-t border-border/40 text-center">
-          <p class="text-xs text-muted">
-            © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
-            rights reserved.
-          </p>
-        </div>
+        <hr class="footer-divider" />
+        <p class="footer-copy">
+          © <span class="footer-year"></span> Engr. Edwin Londonio Astorga. All
+          rights reserved.
+        </p>
       </div>
     </footer>
     <!-- ========== END FOOTER ========== -->
-
     <script>
-      document.getElementById("footer-year").textContent =
-        new Date().getFullYear();
+      document.querySelectorAll(".footer-year").forEach((el) => {
+        el.textContent = new Date().getFullYear();
+      });
 
       document.getElementById("menu-btn").addEventListener("click", () => {
         document.getElementById("mobile-menu").classList.toggle("hidden");
       });
+
+      // ── PROFESSIONAL ROLES CAROUSEL ──────────────────────────────
+      (function () {
+        const track = document.getElementById("pr-slide-track");
+        const roleSlides = document.querySelectorAll(".pr-role-slide");
+        const dots = document.querySelectorAll(".pr-dot");
+        const total = 5;
+        let current = 0;
+        let isAnimating = false;
+
+        function goTo(idx, dir) {
+          if (isAnimating || idx === current) return;
+          isAnimating = true;
+
+          // Slide image track
+          track.style.transition =
+            "transform 0.55s cubic-bezier(0.77,0,0.18,1)";
+          track.style.transform = `translateX(-${idx * 100}%)`;
+
+          // Fade out current role text
+          const oldRole = document.querySelector(
+            `.pr-role-slide[data-role="${current}"]`,
+          );
+          const newRole = document.querySelector(
+            `.pr-role-slide[data-role="${idx}"]`,
+          );
+
+          oldRole.classList.remove("pr-role-slide--active");
+          oldRole.classList.add("pr-role-slide--exit");
+
+          setTimeout(() => {
+            oldRole.classList.remove("pr-role-slide--exit");
+            newRole.classList.add("pr-role-slide--active");
+            isAnimating = false;
+          }, 420);
+
+          // Dots
+          dots.forEach((d) => d.classList.remove("pr-dot--active"));
+          dots[idx].classList.add("pr-dot--active");
+
+          current = idx;
+        }
+
+        document.getElementById("pr-prev").addEventListener("click", () => {
+          goTo(current === 0 ? total - 1 : current - 1);
+        });
+        document.getElementById("pr-next").addEventListener("click", () => {
+          goTo(current === total - 1 ? 0 : current + 1);
+        });
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => goTo(+dot.dataset.go));
+        });
+
+        // Keyboard support
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft")
+            goTo(current === 0 ? total - 1 : current - 1);
+          if (e.key === "ArrowRight")
+            goTo(current === total - 1 ? 0 : current + 1);
+        });
+      })();
+      // ─────────────────────────────────────────────────────────────
 
       // Professional background image loader — tries multiple filenames
       function tryLoad(imgId, srcs) {
