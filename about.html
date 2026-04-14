@@ -179,8 +179,9 @@
 
       .about-hero-grid {
         display: grid;
-        grid-template-columns: 1fr 340px;
-        gap: 48px;
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        gap: 0;
         align-items: center;
       }
 
@@ -941,16 +942,6 @@
          RESPONSIVE
          ============================================= */
       @media (max-width: 900px) {
-        .about-hero-grid {
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-        .about-hero-photo {
-          order: -1;
-        }
-        .about-photo-frame {
-          max-width: 200px;
-        }
         .gallery-mosaic {
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 180px 180px 180px;
@@ -1021,7 +1012,7 @@
               <span class="eyebrow-rule"></span>
               Know the Person Behind the Work
             </span>
-            <h1 class="about-hero-heading">About <em>Edwin</em></h1>
+            <h1 class="about-hero-heading">About <em>Engr. Edwin</em></h1>
             <p class="about-hero-para">
               Engr. Edwin Londonio Astorga, PECE, DM, is a distinguished
               Filipino Professional Engineer, Sustainability Consultant, and
@@ -1034,40 +1025,6 @@
               <span class="about-badge">DM</span>
               <span class="about-badge about-badge--green">ESG Consultant</span>
               <span class="about-badge about-badge--green">Smart Cities</span>
-            </div>
-          </div>
-
-          <!-- RIGHT: Photo -->
-          <div class="about-hero-photo">
-            <div class="about-photo-frame">
-              <div class="photo-corner photo-corner--tl"></div>
-              <div class="photo-corner photo-corner--br"></div>
-              <img
-                src="assets/images/about-hero.jpg"
-                alt="Engr. Edwin Londonio Astorga"
-                onerror="
-                  this.style.display = 'none';
-                  document.getElementById(
-                    'about-photo-fallback',
-                  ).style.display = 'flex';
-                "
-              />
-              <div id="about-photo-fallback" class="about-photo-fallback">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
-                <span>Photo Placeholder</span>
-              </div>
-              <div class="photo-accent"></div>
             </div>
           </div>
         </div>
@@ -1090,7 +1047,7 @@
         <!-- Tile 1 — HERO (tall left) — uses the uploaded photo -->
         <div class="gallery-tile gallery-tile--hero">
           <img
-            src="assets/images/1776086019228_289d4b17bc6b0a17ab973a51bd65c09f.jpg"
+            src="./assets/images/profile3.jpg"
             alt="Engr. Edwin Astorga"
             onerror="
               this.style.display = 'none';
@@ -1122,14 +1079,14 @@
         <!-- Tile 2 — top mid-left -->
         <div class="gallery-tile gallery-tile--top2">
           <img
-            src="assets/images/gallery-1.jpg"
+            src="assets/images/captain.jpg"
             alt="Leadership Forum"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
-          <div class="tile-placeholder-inner ph-2">
+          <div class="tile-placeholder-inner ph-2" style="display: none">
             <svg
               class="ph-icon"
               width="26"
@@ -1155,14 +1112,14 @@
         <!-- Tile 3 — top mid-right -->
         <div class="gallery-tile gallery-tile--top3">
           <img
-            src="assets/images/gallery-2.jpg"
+            src="assets/images/about1.jpg"
             alt="Smart City Summit"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
-          <div class="tile-placeholder-inner ph-3">
+          <div class="tile-placeholder-inner ph-3" style="display: none">
             <svg
               class="ph-icon"
               width="26"
@@ -1188,14 +1145,14 @@
         <!-- Tile 4 — TALL RIGHT -->
         <div class="gallery-tile gallery-tile--right">
           <img
-            src="assets/images/gallery-3.jpg"
+            src="assets/images/community.jpg"
             alt="Community Programs"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
-          <div class="tile-placeholder-inner ph-4">
+          <div class="tile-placeholder-inner ph-4" style="display: none">
             <svg
               class="ph-icon"
               width="26"
@@ -1216,20 +1173,19 @@
           <div class="gallery-tile-overlay">
             <span class="gallery-tile-caption">Community Programs</span>
           </div>
-          <div class="gallery-count-badge">+12 Photos</div>
         </div>
 
         <!-- Tile 5 — bottom mid-left -->
         <div class="gallery-tile gallery-tile--bottom2">
           <img
-            src="assets/images/gallery-4.jpg"
+            src="assets/images/esg.jpg"
             alt="ESG Consultation"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
-          <div class="tile-placeholder-inner ph-5">
+          <div class="tile-placeholder-inner ph-5" style="display: none">
             <svg
               class="ph-icon"
               width="26"
@@ -1255,14 +1211,14 @@
         <!-- Tile 6 — bottom mid-right -->
         <div class="gallery-tile gallery-tile--bottom3">
           <img
-            src="assets/images/gallery-5.jpg"
+            src="assets/images/about3.jpg"
             alt="IoT Advocacy"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
-          <div class="tile-placeholder-inner ph-6">
+          <div class="tile-placeholder-inner ph-6" style="display: none">
             <svg
               class="ph-icon"
               width="26"
