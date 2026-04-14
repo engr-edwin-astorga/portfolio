@@ -6,22 +6,31 @@
     <title>About | Engr. Edwin Astorga</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "sans-serif"] },
+            colors: {
+              primary: "#1a56db",
+              surface: "#f0f5ff",
+              muted: "#5a6a8a",
+              accent: "#2563eb",
+              border: "#c7d7f5",
+            },
+          },
+        },
+      };
+    </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Link to your shared site stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
 
     <style>
-      /* =============================================
-         COLOR PALETTE OVERRIDE — Wedding Greens
-         #2F6352  forest green   — primary accent
-         #5F8575  sage green     — secondary
-         #98B092  mist green     — soft fill
-         #193046  deep navy      — headings / dark
-         #889BAE  steel blue     — muted text
-         ============================================= */
       :root {
         --forest: #2f6352;
         --sage: #5f8575;
@@ -47,87 +56,7 @@
       }
 
       /* =============================================
-         NAVBAR (inherits from style.css, override colors)
-         ============================================= */
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(250, 250, 247, 0.92);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border);
-        z-index: 50;
-      }
-      .nav-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 18px 32px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-      }
-      .nav-brand {
-        font-family: "Lora", serif;
-        font-size: 1.1rem;
-        color: var(--navy);
-        text-decoration: none;
-      }
-      .nav-brand span {
-        color: var(--sage);
-        font-style: italic;
-        font-weight: 400;
-      }
-      .nav-links {
-        display: flex;
-        justify-content: center;
-        gap: 32px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .nav-links a {
-        font-size: 0.8rem;
-        font-weight: 500;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--navy);
-        opacity: 0.65;
-        text-decoration: none;
-        transition: opacity 0.2s;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        opacity: 1;
-        color: var(--forest);
-      }
-      .nav-cta {
-        display: flex;
-        justify-content: flex-end;
-      }
-      .btn-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 9px 20px;
-        background: var(--forest);
-        color: #fff;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-decoration: none;
-        border-radius: 3px;
-        transition:
-          background 0.2s,
-          transform 0.2s;
-      }
-      .btn-cta:hover {
-        background: #1e4a3b;
-        transform: translateY(-1px);
-      }
-
-      /* =============================================
-         ABOUT HERO — COMPACT (≈50vh)
+         ABOUT HERO — COMPACT
          ============================================= */
       .about-hero {
         position: relative;
@@ -141,8 +70,6 @@
         background-size: cover;
         background-position: center 38%;
       }
-
-      /* Duotone overlay — deep navy + forest green */
       .about-hero::before {
         content: "";
         position: absolute;
@@ -155,8 +82,6 @@
         );
         z-index: 0;
       }
-
-      /* Subtle grain */
       .about-hero::after {
         content: "";
         position: absolute;
@@ -167,7 +92,6 @@
         z-index: 1;
         pointer-events: none;
       }
-
       .about-hero-inner {
         position: relative;
         z-index: 2;
@@ -176,7 +100,6 @@
         margin: 0 auto;
         padding: 0 32px;
       }
-
       .about-hero-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -184,14 +107,11 @@
         gap: 0;
         align-items: center;
       }
-
-      /* ── Hero Text ── */
       .about-hero-text {
         display: flex;
         flex-direction: column;
         gap: 14px;
       }
-
       .about-hero-eyebrow {
         display: inline-flex;
         align-items: center;
@@ -209,7 +129,6 @@
         background: var(--mist);
         border-radius: 2px;
       }
-
       .about-hero-heading {
         font-family: "Lora", serif;
         font-size: clamp(2rem, 4.5vw, 3.2rem);
@@ -223,7 +142,6 @@
         font-style: italic;
         color: var(--mist);
       }
-
       .about-hero-para {
         font-size: 0.88rem;
         line-height: 1.72;
@@ -231,14 +149,12 @@
         max-width: 38ch;
         margin: 0;
       }
-
       .about-hero-divider {
         width: 40px;
         height: 1.5px;
         background: linear-gradient(to right, var(--mist), var(--steel));
         border-radius: 2px;
       }
-
       .about-hero-badges {
         display: flex;
         flex-wrap: wrap;
@@ -275,97 +191,8 @@
         border-color: rgba(152, 176, 146, 0.65);
       }
 
-      /* ── Hero Photo — compact ── */
-      .about-hero-photo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .about-photo-frame {
-        position: relative;
-        width: 100%;
-        max-width: 280px;
-        aspect-ratio: 4/5;
-        border-radius: 6px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow:
-          0 24px 60px rgba(0, 0, 0, 0.45),
-          0 4px 14px rgba(0, 0, 0, 0.25);
-      }
-      .about-photo-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-      }
-
-      /* Corner accents */
-      .photo-corner {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        z-index: 3;
-        pointer-events: none;
-      }
-      .photo-corner--tl {
-        top: 10px;
-        left: 10px;
-        border-top: 2px solid var(--mist);
-        border-left: 2px solid var(--mist);
-        border-radius: 2px 0 0 0;
-      }
-      .photo-corner--br {
-        bottom: 10px;
-        right: 10px;
-        border-bottom: 2px solid var(--steel);
-        border-right: 2px solid var(--steel);
-        border-radius: 0 0 2px 0;
-      }
-
-      /* Vertical accent bar */
-      .photo-accent {
-        position: absolute;
-        left: -5px;
-        top: 32px;
-        width: 2.5px;
-        height: 55%;
-        background: linear-gradient(to bottom, var(--mist), var(--steel));
-        border-radius: 4px;
-        z-index: 4;
-      }
-
-      /* Fallback */
-      .about-photo-fallback {
-        display: none;
-        width: 100%;
-        height: 100%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: linear-gradient(
-          135deg,
-          rgba(47, 99, 82, 0.25),
-          rgba(136, 155, 174, 0.2)
-        );
-        color: rgba(255, 255, 255, 0.4);
-      }
-      .about-photo-fallback svg {
-        width: 40px;
-        height: 40px;
-      }
-      .about-photo-fallback span {
-        font-size: 0.66rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
       /* =============================================
-         PHOTO GALLERY STRIP — Creative mosaic
-         Sits between hero and contributions
+         PHOTO GALLERY STRIP
          ============================================= */
       .gallery-strip {
         background: var(--cream);
@@ -373,7 +200,6 @@
         overflow: hidden;
         position: relative;
       }
-
       .gallery-strip::before {
         content: "";
         position: absolute;
@@ -391,7 +217,6 @@
           );
         pointer-events: none;
       }
-
       .gallery-header {
         max-width: 1120px;
         margin: 0 auto 40px;
@@ -400,7 +225,6 @@
         align-items: flex-end;
         justify-content: space-between;
       }
-
       .gallery-label {
         font-size: 0.65rem;
         font-weight: 700;
@@ -418,7 +242,6 @@
         height: 1.5px;
         background: var(--forest);
       }
-
       .gallery-heading {
         font-family: "Lora", serif;
         font-size: clamp(1.4rem, 2.5vw, 2rem);
@@ -431,8 +254,6 @@
         font-style: italic;
         color: var(--forest);
       }
-
-      /* The mosaic grid — creative asymmetric layout */
       .gallery-mosaic {
         max-width: 1120px;
         margin: 0 auto;
@@ -442,7 +263,6 @@
         grid-template-rows: 220px 180px;
         gap: 10px;
       }
-
       .gallery-tile {
         position: relative;
         border-radius: 5px;
@@ -450,12 +270,10 @@
         background: var(--mist);
         cursor: pointer;
       }
-
-      /* Tile spanning rules */
       .gallery-tile--hero {
         grid-column: 1;
         grid-row: 1 / 3;
-      } /* tall left */
+      }
       .gallery-tile--top2 {
         grid-column: 2;
         grid-row: 1;
@@ -467,7 +285,7 @@
       .gallery-tile--right {
         grid-column: 4;
         grid-row: 1 / 3;
-      } /* tall right */
+      }
       .gallery-tile--bottom2 {
         grid-column: 2;
         grid-row: 2;
@@ -476,7 +294,6 @@
         grid-column: 3;
         grid-row: 2;
       }
-
       .gallery-tile img {
         width: 100%;
         height: 100%;
@@ -487,8 +304,6 @@
       .gallery-tile:hover img {
         transform: scale(1.05);
       }
-
-      /* Overlay on hover */
       .gallery-tile-overlay {
         position: absolute;
         inset: 0;
@@ -506,7 +321,6 @@
       .gallery-tile:hover .gallery-tile-overlay {
         opacity: 1;
       }
-
       .gallery-tile-caption {
         font-size: 0.72rem;
         font-weight: 600;
@@ -514,16 +328,6 @@
         text-transform: uppercase;
         color: #fff;
       }
-
-      /* Placeholder tiles (no real image) — styled with gradient & pattern */
-      .gallery-tile--placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-
       .tile-placeholder-inner {
         width: 100%;
         height: 100%;
@@ -534,8 +338,6 @@
         gap: 8px;
         transition: opacity 0.3s;
       }
-
-      /* Each placeholder gets a unique tinted gradient */
       .ph-1 {
         background: linear-gradient(145deg, #2f6352 0%, #193046 100%);
       }
@@ -554,7 +356,6 @@
       .ph-6 {
         background: linear-gradient(145deg, #193046 0%, #889bae 100%);
       }
-
       .ph-icon {
         color: rgba(255, 255, 255, 0.35);
       }
@@ -565,8 +366,6 @@
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.35);
       }
-
-      /* Count badge on the last tile */
       .gallery-count-badge {
         position: absolute;
         bottom: 12px;
@@ -582,8 +381,6 @@
         color: #fff;
         pointer-events: none;
       }
-
-      /* Decorative label strip below mosaic */
       .gallery-meta {
         max-width: 1120px;
         margin: 18px auto 0;
@@ -617,7 +414,6 @@
         overflow: hidden;
         padding: 96px 0;
       }
-
       .advocacies-section::before {
         content: "";
         position: absolute;
@@ -641,6 +437,13 @@
         z-index: 1;
       }
 
+      /* FIX: proper container class used in this section */
+      .advocacies-container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
       .advocacies-layout {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -648,7 +451,10 @@
         align-items: center;
       }
 
-      /* Left image */
+      /* Left image column */
+      .advocacies-image-col {
+        position: relative;
+      }
       .advocacies-img {
         width: 100%;
         display: block;
@@ -656,7 +462,6 @@
         object-fit: cover;
         aspect-ratio: 4/5;
       }
-
       .adv-img-fallback {
         display: none;
         width: 100%;
@@ -670,13 +475,12 @@
         color: var(--sage);
       }
 
-      /* Right content */
+      /* Right content column */
       .advocacies-content {
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
-
       .adv-label-tag {
         font-size: 0.68rem;
         font-weight: 700;
@@ -695,7 +499,6 @@
         background: var(--forest);
         border-radius: 2px;
       }
-
       .adv-section-title {
         font-family: "Lora", serif;
         font-size: clamp(1.5rem, 3vw, 2.1rem);
@@ -708,7 +511,6 @@
         font-style: italic;
         color: var(--forest);
       }
-
       .adv-section-sub {
         font-size: 0.84rem;
         color: var(--steel);
@@ -717,6 +519,7 @@
         margin-bottom: 14px;
       }
 
+      /* Advocacy list */
       .adv-list {
         list-style: none;
         padding: 0;
@@ -725,7 +528,6 @@
         flex-direction: column;
         gap: 0;
       }
-
       .adv-item {
         display: flex;
         align-items: flex-start;
@@ -753,7 +555,6 @@
         gap: 0;
         padding-top: 2px;
       }
-
       .adv-marker-line {
         width: 1.5px;
         flex: 1;
@@ -768,7 +569,6 @@
       .adv-marker-line--last {
         background: transparent;
       }
-
       .adv-marker-dot {
         order: 1;
         flex-shrink: 0;
@@ -794,14 +594,12 @@
         background: rgba(47, 99, 82, 0.18);
         border-color: var(--forest);
       }
-
       .adv-item-body {
         display: flex;
         flex-direction: column;
         gap: 4px;
         padding-top: 7px;
       }
-
       .adv-item-tag {
         display: inline-block;
         font-size: 0.6rem;
@@ -815,7 +613,6 @@
         padding: 2px 7px;
         align-self: flex-start;
       }
-
       .adv-item-text {
         font-size: 0.96rem;
         font-weight: 600;
@@ -854,93 +651,16 @@
       .reveal-delay-4 {
         transition-delay: 0.38s;
       }
-
-      /* =============================================
-         FOOTER
-         ============================================= */
-      .site-footer {
-        background: var(--navy);
-        padding: 40px 0;
-        color: rgba(255, 255, 255, 0.5);
+      .reveal-delay-5 {
+        transition-delay: 0.48s;
       }
-      .footer-inner {
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 32px;
+      .reveal-delay-6 {
+        transition-delay: 0.58s;
       }
-      .footer-top {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-      .footer-name {
-        font-family: "Lora", serif;
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.85);
-        margin: 0;
-      }
-      .footer-subtitle {
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.4);
-        margin: 2px 0 0;
-        letter-spacing: 0.04em;
-      }
-      .footer-nav {
-        display: flex;
-        gap: 24px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .footer-nav a {
-        font-size: 0.75rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.45);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .footer-nav a:hover {
-        color: var(--mist);
-      }
-      .footer-socials {
-        display: flex;
-        gap: 10px;
-      }
-      .footer-social-btn {
-        width: 34px;
-        height: 34px;
-        border-radius: 3px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.5);
-        transition:
-          color 0.2s,
-          border-color 0.2s;
-      }
-      .footer-social-btn:hover {
-        color: var(--mist);
-        border-color: var(--mist);
-      }
-      .footer-divider {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin: 24px 0 16px;
-      }
-      .footer-copy {
-        font-size: 0.7rem;
-        color: rgba(255, 255, 255, 0.28);
-        text-align: center;
-        margin: 0;
+      .reveal-delay-7 {
+        transition-delay: 0.68s;
       }
 
-      /* =============================================
-         RESPONSIVE
-         ============================================= */
       @media (max-width: 900px) {
         .gallery-mosaic {
           grid-template-columns: 1fr 1fr;
@@ -985,28 +705,12 @@
   </head>
 
   <body>
-    <!-- ========== NAVBAR ========== -->
-    <nav>
-      <div class="nav-inner">
-        <a href="index.html" class="nav-brand">engr.<span>Edwin</span></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="background.html">Background</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-        </ul>
-        <div class="nav-cta">
-          <a href="#" class="btn-cta">Contact Me</a>
-        </div>
-      </div>
-    </nav>
-    <!-- ========== END NAVBAR ========== -->
+    <div id="navbar-placeholder"></div>
 
-    <!-- ========== ABOUT HERO — COMPACT ========== -->
+    <!-- ========== ABOUT HERO ========== -->
     <section class="about-hero">
       <div class="about-hero-inner">
         <div class="about-hero-grid">
-          <!-- LEFT: Text -->
           <div class="about-hero-text">
             <span class="about-hero-eyebrow">
               <span class="eyebrow-rule"></span>
@@ -1034,17 +738,15 @@
 
     <!-- ========== GALLERY STRIP ========== -->
     <section class="gallery-strip">
-      <!-- Header -->
       <div class="gallery-header">
         <div>
-          <div class="gallery-label">Moments & Milestones</div>
+          <div class="gallery-label">Moments &amp; Milestones</div>
           <h2 class="gallery-heading">A Life of <em>Purpose</em> in Action</h2>
         </div>
       </div>
 
-      <!-- Asymmetric Mosaic Grid -->
       <div class="gallery-mosaic">
-        <!-- Tile 1 — HERO (tall left) — uses the uploaded photo -->
+        <!-- Tile 1 — Hero (tall left) -->
         <div class="gallery-tile gallery-tile--hero">
           <img
             src="./assets/images/profile3.jpg"
@@ -1076,7 +778,7 @@
           </div>
         </div>
 
-        <!-- Tile 2 — top mid-left -->
+        <!-- Tile 2 -->
         <div class="gallery-tile gallery-tile--top2">
           <img
             src="assets/images/captain.jpg"
@@ -1109,7 +811,7 @@
           </div>
         </div>
 
-        <!-- Tile 3 — top mid-right -->
+        <!-- Tile 3 -->
         <div class="gallery-tile gallery-tile--top3">
           <img
             src="assets/images/about1.jpg"
@@ -1142,7 +844,7 @@
           </div>
         </div>
 
-        <!-- Tile 4 — TALL RIGHT -->
+        <!-- Tile 4 — Tall right -->
         <div class="gallery-tile gallery-tile--right">
           <img
             src="assets/images/community.jpg"
@@ -1175,7 +877,7 @@
           </div>
         </div>
 
-        <!-- Tile 5 — bottom mid-left -->
+        <!-- Tile 5 -->
         <div class="gallery-tile gallery-tile--bottom2">
           <img
             src="assets/images/esg.jpg"
@@ -1208,7 +910,7 @@
           </div>
         </div>
 
-        <!-- Tile 6 — bottom mid-right -->
+        <!-- Tile 6 -->
         <div class="gallery-tile gallery-tile--bottom3">
           <img
             src="assets/images/about3.jpg"
@@ -1242,7 +944,6 @@
         </div>
       </div>
 
-      <!-- Meta strip below mosaic -->
       <div class="gallery-meta">
         <span class="gallery-meta-tag">Engineering</span>
         <span class="gallery-meta-tag">Sustainability</span>
@@ -1255,10 +956,8 @@
 
     <!-- ========== CONTRIBUTIONS & ADVOCACIES ========== -->
     <section id="advocacies" class="advocacies-section">
-      <div
-        class="max-w-6xl mx-auto px-6"
-        style="max-width: 1120px; margin: 0 auto; padding: 0 32px"
-      >
+      <!-- FIX: use .advocacies-container instead of raw inline-style div -->
+      <div class="advocacies-container">
         <div class="advocacies-layout">
           <!-- LEFT: Image -->
           <div class="advocacies-image-col">
@@ -1295,12 +994,13 @@
                   text-transform: uppercase;
                   opacity: 0.5;
                 "
-                >Image Placeholder</span
               >
+                Image Placeholder
+              </span>
             </div>
           </div>
 
-          <!-- RIGHT: List -->
+          <!-- RIGHT: Advocacy list -->
           <div class="advocacies-content">
             <div class="adv-label-tag">Contributions &amp; Advocacies</div>
             <h2 class="adv-section-title">
@@ -1312,7 +1012,7 @@
             </p>
 
             <ul class="adv-list">
-              <!-- Item 1 -->
+              <!-- 1 -->
               <li class="adv-item reveal reveal-delay-1">
                 <div class="adv-item-marker">
                   <div class="adv-marker-line"></div>
@@ -1338,7 +1038,8 @@
                   </p>
                 </div>
               </li>
-              <!-- Item 2 -->
+
+              <!-- 2 -->
               <li class="adv-item reveal reveal-delay-2">
                 <div class="adv-item-marker">
                   <div class="adv-marker-line"></div>
@@ -1364,7 +1065,8 @@
                   </p>
                 </div>
               </li>
-              <!-- Item 3 -->
+
+              <!-- 3 -->
               <li class="adv-item reveal reveal-delay-3">
                 <div class="adv-item-marker">
                   <div class="adv-marker-line"></div>
@@ -1390,10 +1092,11 @@
                   </p>
                 </div>
               </li>
-              <!-- Item 4 -->
+
+              <!-- 4 -->
               <li class="adv-item reveal reveal-delay-4">
                 <div class="adv-item-marker">
-                  <div class="adv-marker-line adv-marker-line--last"></div>
+                  <div class="adv-marker-line"></div>
                   <div class="adv-marker-dot">
                     <svg
                       fill="none"
@@ -1417,95 +1120,102 @@
                   </p>
                 </div>
               </li>
+
+              <!-- 5 -->
+              <li class="adv-item reveal reveal-delay-5">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">Education</span>
+                  <p class="adv-item-text">
+                    Mentors the Next Generation of Filipino Engineers and
+                    Technology Leaders
+                  </p>
+                </div>
+              </li>
+
+              <!-- 6 -->
+              <li class="adv-item reveal reveal-delay-6">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">ESG &amp; Sustainability</span>
+                  <p class="adv-item-text">
+                    Champions ESG Frameworks and Green Infrastructure in Public
+                    and Private Sectors
+                  </p>
+                </div>
+              </li>
+
+              <!-- 7 -->
+              <li class="adv-item reveal reveal-delay-7">
+                <div class="adv-item-marker">
+                  <div class="adv-marker-line adv-marker-line--last"></div>
+                  <div class="adv-marker-dot">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="adv-item-body">
+                  <span class="adv-item-tag">Policy &amp; Standards</span>
+                  <p class="adv-item-text">
+                    Engages in Policy Development and Standards-Setting for the
+                    Engineering Profession
+                  </p>
+                </div>
+              </li>
             </ul>
           </div>
+          <!-- END RIGHT -->
         </div>
       </div>
     </section>
     <!-- ========== END CONTRIBUTIONS ========== -->
 
     <!-- ========== FOOTER ========== -->
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div>
-            <p class="footer-name">Engr. Edwin Londonio Astorga</p>
-            <p class="footer-subtitle">
-              PECE, DM · Professional Electronics Engineer
-            </p>
-          </div>
-          <ul class="footer-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="background.html">Background</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-          <div class="footer-socials">
-            <a href="#" aria-label="Facebook" class="footer-social-btn">
-              <svg
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-                />
-              </svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="footer-social-btn">
-              <svg
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a href="#" aria-label="Email" class="footer-social-btn">
-              <svg
-                width="16"
-                height="16"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <hr class="footer-divider" />
-        <p class="footer-copy">
-          © <span id="footer-year"></span> Engr. Edwin Londonio Astorga. All
-          rights reserved.
-        </p>
-      </div>
-    </footer>
-    <!-- ========== END FOOTER ========== -->
+    <div id="footer-placeholder"></div>
 
     <script>
-      // Footer year
-      document.getElementById("footer-year").textContent =
-        new Date().getFullYear();
-
-      // Mobile menu (if main.js not loaded)
-      const menuBtn = document.getElementById("menu-btn");
-      if (menuBtn) {
-        menuBtn.addEventListener("click", () => {
-          document.getElementById("mobile-menu")?.classList.toggle("hidden");
-        });
-      }
-
       // Scroll reveal
       const revealEls = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver(
@@ -1521,7 +1231,7 @@
       );
       revealEls.forEach((el) => revealObserver.observe(el));
 
-      // Gallery tile hover — also reveal on scroll
+      // Gallery tile staggered entrance
       const galleryTiles = document.querySelectorAll(".gallery-tile");
       const galleryObserver = new IntersectionObserver(
         (entries) => {
@@ -1543,6 +1253,45 @@
         tile.style.transition = "opacity 0.5s ease, transform 0.5s ease";
         galleryObserver.observe(tile);
       });
+    </script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar-placeholder").innerHTML = html;
+
+          // Mobile menu toggle
+          const btn = document.getElementById("menu-btn");
+          const menu = document.getElementById("mobile-menu");
+          if (btn && menu)
+            btn.addEventListener("click", () =>
+              menu.classList.toggle("hidden"),
+            );
+
+          // Auto-highlight active page link
+          const currentPage =
+            location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            link.classList.remove("active-link");
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active-link");
+            }
+          });
+        });
+    </script>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
     </script>
   </body>
 </html>

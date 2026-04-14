@@ -36,65 +36,7 @@
   </head>
 
   <body class="font-sans text-primary antialiased">
-    <!-- ========== NAVBAR ========== -->
-    <nav
-      class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm border-b border-border z-50"
-    >
-      <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
-        <a
-          href="index.html"
-          class="text-lg font-semibold tracking-tight text-primary"
-        >
-          engr.<span class="text-muted font-light">Edwin</span>
-        </a>
-        <ul
-          class="hidden md:flex items-center justify-center gap-8 text-sm font-medium"
-        >
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li>
-            <a href="background.html" class="nav-link active-link"
-              >Background</a
-            >
-          </li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-        </ul>
-        <div class="hidden md:flex justify-end">
-          <a href="#" class="btn-cta"> Contact Me </a>
-        </div>
-        <div class="md:hidden flex justify-end col-span-2">
-          <button id="menu-btn" class="text-primary focus:outline-none">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-white border-t border-border px-6 py-4"
-      >
-        <ul class="flex flex-col gap-4 text-sm font-medium">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="background.html" class="nav-link">Background</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-        </ul>
-        <a href="#" class="btn-cta">Contact Me</a>
-      </div>
-    </nav>
-    <!-- ========== END NAVBAR ========== -->
-
+    <div id="navbar-placeholder"></div>
     <!-- ========== PAGE HERO ========== -->
     <!-- BG image: assets/images/bg-hero.jpg
          CSS fallback: diagonal stripe + dark navy radial gradient -->
@@ -1122,78 +1064,8 @@
     <!-- ========== END EDUCATIONAL BACKGROUND ========== -->
 
     <!-- ========== FOOTER ========== -->
-    <footer class="site-footer py-10">
-      <div class="max-w-6xl mx-auto px-6">
-        <div
-          class="flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <!-- Left: Name & title -->
-          <div class="flex flex-col gap-0.5 text-center md:text-left">
-            <p class="footer-name">Engr. Edwin Londonio Astorga</p>
-            <p class="footer-subtitle">
-              PECE, DM · Professional Electronics Engineer
-            </p>
-          </div>
-
-          <!-- Center: Nav links -->
-          <ul class="footer-nav flex items-center gap-6">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="background.html">Background</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-
-          <!-- Right: Social icons -->
-          <div class="flex items-center gap-3">
-            <a href="#" aria-label="Facebook" class="footer-social-btn">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-                />
-              </svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" class="footer-social-btn">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-            <a href="#" aria-label="Email" class="footer-social-btn">
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <hr class="footer-divider" />
-        <p class="footer-copy">
-          © <span class="footer-year"></span> Engr. Edwin Londonio Astorga. All
-          rights reserved.
-        </p>
-      </div>
-    </footer>
-    <!-- ========== END FOOTER ========== -->
+    <div id="footer-placeholder"></div>
     <script>
-      document.querySelectorAll(".footer-year").forEach((el) => {
-        el.textContent = new Date().getFullYear();
-      });
-
-      document.getElementById("menu-btn").addEventListener("click", () => {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
-      });
-
       // ── PROFESSIONAL ROLES CAROUSEL ──────────────────────────────
       (function () {
         const track = document.getElementById("pr-slide-track");
@@ -1301,6 +1173,38 @@
         { threshold: 0.1 },
       );
       reveals.forEach((el) => observer.observe(el));
+    </script>
+    <script>
+      fetch("navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar-placeholder").innerHTML = html;
+
+          // Mobile menu toggle
+          const btn = document.getElementById("menu-btn");
+          const menu = document.getElementById("mobile-menu");
+          if (btn && menu)
+            btn.addEventListener("click", () =>
+              menu.classList.toggle("hidden"),
+            );
+
+          // Auto-highlight active page link
+          const currentPage =
+            location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            link.classList.remove("active-link");
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active-link");
+            }
+          });
+        });
+    </script>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
     </script>
   </body>
 </html>
