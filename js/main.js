@@ -68,7 +68,7 @@ tryLoad(
 
 // ── Affiliations — Image 1 ──
 const affiliationsImg1Options = [
-  "assets/images/aff1.png",
+  "assets/images/aff3.png",
   "assets/images/affiliations-bg-photo.jpeg",
   "assets/images/affiliations-bg-photo.png",
 ];
